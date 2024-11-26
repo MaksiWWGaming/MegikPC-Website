@@ -1,0 +1,135 @@
+@import url(https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap);
+@import url(https://fonts.cdnfonts.com/css/minecraft-4);
+@import url(https://fonts.googleapis.com/css2?family=Special+Elite&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Elite&display=swap);
+
+//Fonts /\ 
+//Partials \/
+@import "partials/variables";
+@import "partials/animations";
+@import "partials/mixins";
+@import "partials/darkmode";
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    animation: FadeInLoad 1s ease;
+    animation-fill-mode: both;
+    overflow-x: hidden;
+    font-family: Lora, serif;
+    color: $whitetxt;
+    background-attachment: fixed;
+}
+
+//Scrollbar design webkit and moz
+::-webkit-scrollbar {
+    @include scrollbar;
+}
+
+::-webkit-scrollbar-thumb {
+    @include scrollbar-thumb;
+}
+
+::-moz-scrollbar {
+    @include scrollbar;
+}
+
+::-moz-scrollbar-thumb {
+    @include scrollbar-thumb;
+}
+
+//Navbar
+.navbar {
+    box-shadow: 0 4px 3px 0px #000;
+    animation: TopBottomLoad 1s ease;
+    background-color: $whitenavbar;
+    padding: 0 3rem;
+    font-family: Lora, serif;
+    .navbar-brand img {
+        max-width: 15vw; 
+        display: block;
+        width: 100%;
+        animation: HoverZoomOut 0.5s ease;
+    }
+    .navbar-brand img:hover {
+        animation: HoverZoom 0.5s ease;
+        animation-fill-mode: both;
+    }
+    .navbar-nav {
+        color: $whitetxt;
+    }
+    .nav-item {
+        font-size: 1.5em;
+        margin: 30px;
+    }
+    .nav-link {
+        animation: HoverZoomOut 0.3s ease;
+    }
+    .nav-link:hover {
+        animation: HoverZoom 150ms ease;
+        animation-fill-mode: both;
+    }
+    .nav-link::after{
+        @include underline-hover-after;
+    }
+    .nav-link:hover::after{
+        @include underline-hover-after2;
+    }
+    .nav-link {
+        color: $whitetxt;
+    }
+    .active {
+        font-weight: bold !important;
+    }
+    .dropdown-item.active {
+        background-color: $whitenavbar;
+        color: $whitetxt;
+    }
+    .dropdown-menu {
+            animation: DropDownLoad 0.3s ease;
+            border: $whiteborder;
+        .dropdown-item {
+            font-size: 1.2rem;
+        }
+        .dropdown-item:hover {
+            background-color: $whitelinkhover;
+        }
+        .dropdown-item::after{
+            @include underline-hover-after;
+        }
+        .dropdown-item:hover::after{
+            @include underline-hover-after2;
+        }
+    }
+}
+
+
+
+//Footer
+footer {
+    border-top: $whiteborder;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    bottom: 0;
+    font-style: italic;
+    div {
+        a {
+            text-decoration: none;
+        }
+        span {
+            color: black;
+            margin-right: 20px;
+        }
+    }
+    .bi {
+        color: black;
+    }
+}

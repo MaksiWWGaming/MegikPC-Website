@@ -1,0 +1,366 @@
+.dark-mode {
+    background-color: $darkbg;
+    color: $darktxt;
+    #dark-mode-button {
+        border: 0;
+        background-color: $darkbg;
+        color: $darktxt;
+    } 
+    .carousel-inner {
+        .carousel-item {
+            img {
+                filter: brightness(80%);
+            }
+        }
+    }
+    .navbar {
+        background-color: $darkbg;
+        box-shadow: 0 4px 3px 0px #e2e2e2;
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        }
+        .nav-link {
+            color: $darktxt;
+        }
+        .nav-link::after{
+            @include underline-hover-after;
+            background-color: $darktxt;
+        }
+        .nav-link:hover::after{
+            @include underline-hover-after2;
+        }
+        .dropdown-menu {
+            background-color: $darkbg;
+            border: $darkborder;
+            .dropdown-item {
+                color: $darktxt;
+                background-color: $darkbg;
+            }
+            .dropdown-item:hover {
+                background-color: $darklinkhover;
+            }
+            .dropdown-item::after{
+                @include underline-hover-after;
+                background-color: $darktxt;
+            }
+            .dropdown-item:hover::after{
+                @include underline-hover-after2;
+                background-color: $darktxt;
+            }
+            .dropdown-divider {
+                background-color: $darktxt;
+            }
+        }
+    }
+    main {
+        .pad {
+            .container {
+                span {
+                    background-color: $darkbg;
+                }
+            }
+        }
+        .container {
+            .card {
+                background-color: $darkbg;
+                color: $darktxt;
+                border: $darkborder;
+                a {
+                    color: $whitetxt;
+                }
+                a:hover {
+                    color: $darktxt;
+                }
+                .card-body {
+                    .card-text {
+                        a {
+                            color: $darktxt;
+                        }
+                    }
+                    .btn-primary {
+                        border: $darkborder;
+                        background-color: $whitebg;
+                        color: $whitetxt;
+                    }
+                    .btn-primary:hover {
+                        border: $darkborder;
+                        background-color: $darkbg;
+                        color: $darktxt;  
+                    }
+                    details {
+                        summary {
+                            padding: 1% 0;
+                        }
+                        a {
+                            color: $darktxt;
+                        }
+                    }
+                }
+            }
+            .accordion {
+                .accordion-button {
+                    background-color: #0d0d0d;
+                    color: $darktxt;
+                }
+                .accordion-body {
+                    background-color: $darkbg;
+                    color: $darktxt;
+                    a {
+                        color: $darktxt;                        
+                    }
+                }
+            }
+        }
+        .pad-join {
+            .container {
+                p {
+                    span {
+                        background-color: $darkbg;
+                    }
+                }
+            }
+        }
+        .pad-mc-roles {
+            table {
+                border: $whiteborder;
+                thead {
+                    tr {
+                        th {
+                            color: $darktxt;
+                            background-color: $darkbg;
+                        }
+                    }
+                    #thPasa {
+                        color: #FFFF55;
+                    }
+                }
+                tbody {
+                    tr {
+                        th {
+                            color: $darktxt;
+                            background-color: $darkbg;
+                        }
+                        td {
+                            background-color: $darkbg;
+                        }
+                    }
+                }
+            }
+
+        }
+        #join-button {
+            background-color: $whitebg;
+            color: $whitetxt;
+        }
+        #join-button:hover {
+            background-color: $darkbg;
+            color: $darktxt;
+            border: $darkborder;
+        }
+        .pad-katastar {
+            @include pad;
+            #Toast-Alert {
+                box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
+                .toast-header {
+                    background-color: $darkbg;
+                    color: $darktxt;
+                    border-bottom: $darkborder;
+                    .btn-close {
+                        color: $darktxt;
+                        background-color: $whitebg;
+                    }
+                }
+                background-color: $darkbg;
+            }
+            #DisplayOptions1 {
+                button {
+                    background-color: $darkbg;
+                    color: $darktxt;
+                    border: $darkborder;
+                }
+                .dropdown-item.active {
+                    background-color: $whitenavbar;
+                    color: $whitetxt;
+                }
+                .dropdown-menu {
+                        border: $darkborder;
+                        background-color: $darkbg;
+                    .dropdown-item {
+                        font-size: 1rem;
+                        color: $darktxt;
+                    }
+                    .dropdown-item:hover {
+                        background-color: $darklinkhover;
+                    }
+                    .dropdown-item::after{
+                        @include underline-hover-after;
+                        background-color: $darktxt;
+                    }
+                    .dropdown-item:hover::after{
+                        @include underline-hover-after2;
+                        background-color: $darktxt;
+                    }
+                    .dropdown-divider {
+                        background-color: $darktxt;
+                    }
+                }  
+            }
+            hr {
+                color: $whitebg;
+            }
+            #KatastarChoice {
+                button {
+                    background-color: $darkbg;
+                    color: $darktxt;
+                }
+                .active {
+                    font-weight: bold !important;
+                }
+                .dropdown-item.active {
+                    background-color: $whitenavbar;
+                    color: $whitetxt;
+                }
+                .dropdown-menu {
+                        border: $darkborder;
+                        background-color: $darkbg;
+                    .dropdown-item {
+                        font-size: 1rem;
+                        color: $darktxt;
+                    }
+                    .dropdown-item:hover {
+                        background-color: $darklinkhover;
+                    }
+                    .dropdown-item::after{
+                        @include underline-hover-after;
+                        background-color: $darktxt;
+                    }
+                    .dropdown-item:hover::after{
+                        @include underline-hover-after2;
+                        background-color: $darktxt;
+                    }
+                    .dropdown-divider {
+                        background-color: $darktxt;
+                    }
+                }    
+            }
+            #KatastarMapChoice {
+                button {
+                    background-color: $darkbg;
+                    color: $darktxt;
+                    border: $darkborder;
+                    &:hover {
+                        background-color: $whitebg;
+                        color: $whitetxt;
+                    }
+                }
+            }     
+        }
+    
+    }
+    footer {
+        border-top: $darkborder;
+        div span {
+            color: $darktxt;
+        }
+        .bi {
+            fill: $darktxt;
+        }
+    }
+    //Interactive map
+    #Controls {
+        background-color: $darkbg;
+        border-bottom: $darkborder;
+        p {
+            a {
+                color: $darktxt;
+            }
+        }
+        #MapChoice {
+            button {
+                background-color: $darkbg;
+                color: $darktxt;
+            }
+            .active {
+                font-weight: bold !important;
+                color: $darkbg;
+            }
+            .dropdown-item.active {
+                background-color: $darkbg;
+                color: $whitetxt;
+            }
+            .dropdown-menu {
+                    border: $darkborder;
+                    background-color: $darkbg;
+                .dropdown-item {
+                    font-size: 1rem;
+                    color: $darktxt;
+                }
+                .dropdown-item:hover {
+                    background-color: $darklinkhover;
+                }
+                .dropdown-item::after{
+                    @include underline-hover-after;
+                    background-color: $darktxt;
+                }
+                .dropdown-item:hover::after{
+                    @include underline-hover-after2;
+                    background-color: $darktxt;
+                }
+                .dropdown-divider {
+                    background-color: $darktxt;
+                }
+            }    
+        }
+        #active {
+            background-color: $darkbg;
+            color: $whitetxt;
+        }
+    }
+    .separator {
+        color: $darktxt;
+    }
+    .separator::before,
+    .separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: $darkborder;
+    }
+    //External katastar map
+    .pad-katastar-map {
+        #KatastarChoice {
+            button {
+                background-color: $darkbg;
+                color: $darktxt;
+            }
+            .active {
+                font-weight: bold !important;
+            }
+            .dropdown-item.active {
+                background-color: $whitenavbar;
+                color: $whitetxt;
+            }
+            .dropdown-menu {
+                    border: $darkborder;
+                    background-color: $darkbg;
+                .dropdown-item {
+                    font-size: 1rem;
+                    color: $darktxt;
+                }
+                .dropdown-item:hover {
+                    background-color: $darklinkhover;
+                }
+                .dropdown-item::after{
+                    @include underline-hover-after;
+                    background-color: $darktxt;
+                }
+                .dropdown-item:hover::after{
+                    @include underline-hover-after2;
+                    background-color: $darktxt;
+                }
+                .dropdown-divider {
+                    background-color: $darktxt;
+                }
+            }    
+        }
+    }
+}

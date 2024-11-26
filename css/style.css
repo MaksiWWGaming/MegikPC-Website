@@ -1,0 +1,515 @@
+@import url(https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap);
+@import url(https://fonts.cdnfonts.com/css/minecraft-4);
+@import url(https://fonts.googleapis.com/css2?family=Special+Elite&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Elite&display=swap);
+.dark-mode {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode #dark-mode-button {
+  border: 0;
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode .carousel-inner .carousel-item img {
+  filter: brightness(80%);
+}
+.dark-mode .navbar {
+  background-color: #121212;
+  box-shadow: 0 4px 3px 0px #e2e2e2;
+}
+.dark-mode .navbar .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.dark-mode .navbar .nav-link {
+  color: #fff;
+}
+.dark-mode .navbar .nav-link::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: black;
+  margin: auto;
+  display: block;
+  background-color: #fff;
+}
+.dark-mode .navbar .nav-link:hover::after {
+  width: 100%;
+  transition: width 150ms linear;
+}
+.dark-mode .navbar .dropdown-menu {
+  background-color: #121212;
+  border: 1px solid white;
+}
+.dark-mode .navbar .dropdown-menu .dropdown-item {
+  color: #fff;
+  background-color: #121212;
+}
+.dark-mode .navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #444444;
+}
+.dark-mode .navbar .dropdown-menu .dropdown-item::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: black;
+  margin: auto;
+  display: block;
+  background-color: #fff;
+}
+.dark-mode .navbar .dropdown-menu .dropdown-item:hover::after {
+  width: 100%;
+  transition: width 150ms linear;
+  background-color: #fff;
+}
+.dark-mode .navbar .dropdown-menu .dropdown-divider {
+  background-color: #fff;
+}
+.dark-mode main .pad .container span {
+  background-color: #121212;
+}
+.dark-mode main .container .card {
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid white;
+}
+.dark-mode main .container .card a {
+  color: #000;
+}
+.dark-mode main .container .card a:hover {
+  color: #fff;
+}
+.dark-mode main .container .card .card-body .card-text a {
+  color: #fff;
+}
+.dark-mode main .container .card .card-body .btn-primary {
+  border: 1px solid white;
+  background-color: #fff;
+  color: #000;
+}
+.dark-mode main .container .card .card-body .btn-primary:hover {
+  border: 1px solid white;
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode main .container .card .card-body details summary {
+  padding: 1% 0;
+}
+.dark-mode main .container .card .card-body details a {
+  color: #fff;
+}
+.dark-mode main .container .accordion .accordion-button {
+  background-color: #0d0d0d;
+  color: #fff;
+}
+.dark-mode main .container .accordion .accordion-body {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode main .container .accordion .accordion-body a {
+  color: #fff;
+}
+.dark-mode main .pad-join .container p span {
+  background-color: #121212;
+}
+.dark-mode main .pad-mc-roles table {
+  border: 1px solid black;
+}
+.dark-mode main .pad-mc-roles table thead tr th {
+  color: #fff;
+  background-color: #121212;
+}
+.dark-mode main .pad-mc-roles table thead #thPasa {
+  color: #FFFF55;
+}
+.dark-mode main .pad-mc-roles table tbody tr th {
+  color: #fff;
+  background-color: #121212;
+}
+.dark-mode main .pad-mc-roles table tbody tr td {
+  background-color: #121212;
+}
+.dark-mode main #join-button {
+  background-color: #fff;
+  color: #000;
+}
+.dark-mode main #join-button:hover {
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid white;
+}
+.dark-mode main .pad-katastar {
+  margin-top: 8%;
+  margin-bottom: -5%;
+}
+@media only screen and (max-width: 1250px) {
+  .dark-mode main .pad-katastar {
+    margin-top: 10%;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .dark-mode main .pad-katastar {
+    margin-top: 10%;
+    margin-bottom: 0%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .dark-mode main .pad-katastar {
+    margin-bottom: 9%;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .dark-mode main .pad-katastar {
+    margin-top: 10%;
+    margin-bottom: 15%;
+  }
+}
+.dark-mode main .pad-katastar #Toast-Alert {
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
+  background-color: #121212;
+}
+.dark-mode main .pad-katastar #Toast-Alert .toast-header {
+  background-color: #121212;
+  color: #fff;
+  border-bottom: 1px solid white;
+}
+.dark-mode main .pad-katastar #Toast-Alert .toast-header .btn-close {
+  color: #fff;
+  background-color: #fff;
+}
+.dark-mode main .pad-katastar #DisplayOptions1 button {
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid white;
+}
+.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-item.active {
+  background-color: #f3f6f4;
+  color: #000;
+}
+.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu {
+  border: 1px solid white;
+  background-color: #121212;
+}
+.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-item {
+  font-size: 1rem;
+  color: #fff;
+}
+.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-item:hover {
+  background-color: #444444;
+}
+.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-item::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: black;
+  margin: auto;
+  display: block;
+  background-color: #fff;
+}
+.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-item:hover::after {
+  width: 100%;
+  transition: width 150ms linear;
+  background-color: #fff;
+}
+.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-divider {
+  background-color: #fff;
+}
+.dark-mode main .pad-katastar hr {
+  color: #fff;
+}
+.dark-mode main .pad-katastar #KatastarChoice button {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode main .pad-katastar #KatastarChoice .active {
+  font-weight: bold !important;
+}
+.dark-mode main .pad-katastar #KatastarChoice .dropdown-item.active {
+  background-color: #f3f6f4;
+  color: #000;
+}
+.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu {
+  border: 1px solid white;
+  background-color: #121212;
+}
+.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-item {
+  font-size: 1rem;
+  color: #fff;
+}
+.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-item:hover {
+  background-color: #444444;
+}
+.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-item::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: black;
+  margin: auto;
+  display: block;
+  background-color: #fff;
+}
+.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-item:hover::after {
+  width: 100%;
+  transition: width 150ms linear;
+  background-color: #fff;
+}
+.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-divider {
+  background-color: #fff;
+}
+.dark-mode main .pad-katastar #KatastarMapChoice button {
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid white;
+}
+.dark-mode main .pad-katastar #KatastarMapChoice button:hover {
+  background-color: #fff;
+  color: #000;
+}
+.dark-mode footer {
+  border-top: 1px solid white;
+}
+.dark-mode footer div span {
+  color: #fff;
+}
+.dark-mode footer .bi {
+  fill: #fff;
+}
+.dark-mode #Controls {
+  background-color: #121212;
+  border-bottom: 1px solid white;
+}
+.dark-mode #Controls p a {
+  color: #fff;
+}
+.dark-mode #Controls #MapChoice button {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode #Controls #MapChoice .active {
+  font-weight: bold !important;
+  color: #121212;
+}
+.dark-mode #Controls #MapChoice .dropdown-item.active {
+  background-color: #121212;
+  color: #000;
+}
+.dark-mode #Controls #MapChoice .dropdown-menu {
+  border: 1px solid white;
+  background-color: #121212;
+}
+.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-item {
+  font-size: 1rem;
+  color: #fff;
+}
+.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-item:hover {
+  background-color: #444444;
+}
+.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-item::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: black;
+  margin: auto;
+  display: block;
+  background-color: #fff;
+}
+.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-item:hover::after {
+  width: 100%;
+  transition: width 150ms linear;
+  background-color: #fff;
+}
+.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-divider {
+  background-color: #fff;
+}
+.dark-mode #Controls #active {
+  background-color: #121212;
+  color: #000;
+}
+.dark-mode .separator {
+  color: #fff;
+}
+.dark-mode .separator::before,
+.dark-mode .separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid white;
+}
+.dark-mode .pad-katastar-map #KatastarChoice button {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode .pad-katastar-map #KatastarChoice .active {
+  font-weight: bold !important;
+}
+.dark-mode .pad-katastar-map #KatastarChoice .dropdown-item.active {
+  background-color: #f3f6f4;
+  color: #000;
+}
+.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu {
+  border: 1px solid white;
+  background-color: #121212;
+}
+.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-item {
+  font-size: 1rem;
+  color: #fff;
+}
+.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-item:hover {
+  background-color: #444444;
+}
+.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-item::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: black;
+  margin: auto;
+  display: block;
+  background-color: #fff;
+}
+.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-item:hover::after {
+  width: 100%;
+  transition: width 150ms linear;
+  background-color: #fff;
+}
+.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-divider {
+  background-color: #fff;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  animation: FadeInLoad 1s ease;
+  animation-fill-mode: both;
+  overflow-x: hidden;
+  font-family: Lora, serif;
+  color: #000;
+  background-attachment: fixed;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  opacity: 100%;
+  background-color: #f3f6f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 10px;
+  width: 1px;
+}
+
+::-moz-scrollbar {
+  width: 3px;
+  height: 3px;
+  opacity: 100%;
+  background-color: #f3f6f4;
+}
+
+::-moz-scrollbar-thumb {
+  background-color: #000;
+  border-radius: 10px;
+  width: 1px;
+}
+
+.navbar {
+  box-shadow: 0 4px 3px 0px #000;
+  animation: TopBottomLoad 1s ease;
+  background-color: #f3f6f4;
+  padding: 0 3rem;
+  font-family: Lora, serif;
+}
+.navbar .navbar-brand img {
+  max-width: 15vw;
+  display: block;
+  width: 100%;
+  animation: HoverZoomOut 0.5s ease;
+}
+.navbar .navbar-brand img:hover {
+  animation: HoverZoom 0.5s ease;
+  animation-fill-mode: both;
+}
+.navbar .navbar-nav {
+  color: #000;
+}
+.navbar .nav-item {
+  font-size: 1.5em;
+  margin: 30px;
+}
+.navbar .nav-link {
+  animation: HoverZoomOut 0.3s ease;
+}
+.navbar .nav-link:hover {
+  animation: HoverZoom 150ms ease;
+  animation-fill-mode: both;
+}
+.navbar .nav-link::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: black;
+  margin: auto;
+  display: block;
+}
+.navbar .nav-link:hover::after {
+  width: 100%;
+  transition: width 150ms linear;
+}
+.navbar .nav-link {
+  color: #000;
+}
+.navbar .active {
+  font-weight: bold !important;
+}
+.navbar .dropdown-item.active {
+  background-color: #f3f6f4;
+  color: #000;
+}
+.navbar .dropdown-menu {
+  animation: DropDownLoad 0.3s ease;
+  border: 1px solid black;
+}
+.navbar .dropdown-menu .dropdown-item {
+  font-size: 1.2rem;
+}
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #eeeeee;
+}
+.navbar .dropdown-menu .dropdown-item::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  background-color: black;
+  margin: auto;
+  display: block;
+}
+.navbar .dropdown-menu .dropdown-item:hover::after {
+  width: 100%;
+  transition: width 150ms linear;
+}
+
+footer {
+  border-top: 1px solid black;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  bottom: 0;
+  font-style: italic;
+}
+footer div a {
+  text-decoration: none;
+}
+footer div span {
+  color: black;
+  margin-right: 20px;
+}
+footer .bi {
+  color: black;
+}/*# sourceMappingURL=style.css.map */
