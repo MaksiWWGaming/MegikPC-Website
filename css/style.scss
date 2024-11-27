@@ -135,3 +135,18 @@ footer {
 }
 
 //Form
+
+form {
+    .ValidInput {
+        background-color: $whitebg;
+    }
+    .InvalidInput {
+        background-color: $whiteinvalidinput;
+    }        
+    span {
+        color: red;
+    }
+    #SubmitHelp {
+        color: red;
+    }
+}

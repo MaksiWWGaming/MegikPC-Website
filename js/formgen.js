@@ -119,16 +119,16 @@ document.addEventListener("DOMContentLoaded", function() {
     Space3.classList.add('col-1');
 
     const dayCol = document.createElement('div');
-    dayCol.classList.add('col-1');
+    dayCol.classList.add('col-2');
     const dayLabel = document.createElement('label');
     dayLabel.classList.add('form-label');
-    dayLabel.innerHTML = 'Datum<span class="RequiredField"> *</span>';
+    dayLabel.innerHTML = 'Dan<span class="RequiredField"> *</span>';
     dayCol.appendChild(dayLabel);
     const dayInput = document.createElement('input');
     dayInput.classList.add('form-control');
     dayInput.setAttribute('type', 'text');
     dayInput.setAttribute('id', 'Day');
-    dayInput.setAttribute('placeholder', 'dd');
+    dayInput.setAttribute('placeholder', '01-31');
     dayCol.appendChild(dayInput);
     const dayHelp = document.createElement('div');
     dayHelp.setAttribute('id', 'DayHelp');
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
     dayCol.appendChild(dayHelp);
 
     const monthCol = document.createElement('div');
-    monthCol.classList.add('col-1','ms-1');
+    monthCol.classList.add('col-2','ms-1');
     const monthLabel = document.createElement('label');
     monthLabel.classList.add('form-label');
     monthLabel.innerHTML = 'Mesec<span class="RequiredField"> *</span>';
@@ -145,35 +145,35 @@ document.addEventListener("DOMContentLoaded", function() {
     monthInput.classList.add('form-control');
     monthInput.setAttribute('type', 'text');
     monthInput.setAttribute('id', 'Month');
-    monthInput.setAttribute('placeholder', 'mm');
+    monthInput.setAttribute('placeholder', '01-12');
     monthCol.appendChild(monthInput);
     const monthHelp = document.createElement('div');
     monthHelp.setAttribute('id', 'MonthHelp');
     monthHelp.classList.add('form-text', 'HelpText');
     monthCol.appendChild(monthHelp);
 
-    const yearCol = document.createElement('div');
-    yearCol.classList.add('col-1', 'ms-1');
-    const yearLabel = document.createElement('label');
-    yearLabel.classList.add('form-label');
-    yearLabel.innerHTML = 'Godina<span class="RequiredField"> *</span>';
-    yearCol.appendChild(yearLabel);
-    const yearInput = document.createElement('input');
-    yearInput.classList.add('form-control');
-    yearInput.setAttribute('type', 'text');
-    yearInput.setAttribute('id', 'Year');
-    yearInput.setAttribute('placeholder', 'yyyy');
-    yearCol.appendChild(yearInput);
-    const yearHelp = document.createElement('div');
-    yearHelp.setAttribute('id', 'YearHelp');
-    yearHelp.classList.add('form-text', 'HelpText');
-    yearCol.appendChild(yearHelp);
+    // const yearCol = document.createElement('div');
+    // yearCol.classList.add('col-1', 'ms-1');
+    // const yearLabel = document.createElement('label');
+    // yearLabel.classList.add('form-label');
+    // yearLabel.innerHTML = 'Godina<span class="RequiredField"> *</span>';
+    // yearCol.appendChild(yearLabel);
+    // const yearInput = document.createElement('input');
+    // yearInput.classList.add('form-control');
+    // yearInput.setAttribute('type', 'text');
+    // yearInput.setAttribute('id', 'Year');
+    // yearInput.setAttribute('placeholder', 'yyyy');
+    // yearCol.appendChild(yearInput);
+    // const yearHelp = document.createElement('div');
+    // yearHelp.setAttribute('id', 'YearHelp');
+    // yearHelp.classList.add('form-text', 'HelpText');
+    // yearCol.appendChild(yearHelp);
 
     InputGroup2.appendChild(TimeOfArrivalCol);
     InputGroup2.appendChild(Space3);
     InputGroup2.appendChild(dayCol);
     InputGroup2.appendChild(monthCol);
-    InputGroup2.appendChild(yearCol);
+    // InputGroup2.appendChild(yearCol);
     form.appendChild(InputGroup2);
 
     const Margin2 = document.createElement('div');
@@ -220,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ModelInput.classList.add('form-control');
     ModelInput.setAttribute('type', 'text');
     ModelInput.setAttribute('id', 'Model');
-    ModelInput.setAttribute('placeholder', 'Unesite model/matičnu ploču uređaja');
+    ModelInput.setAttribute('placeholder', 'Unesite model/matičnu ploču uređaja (opciono)');
     ModelCol.appendChild(ModelInput);
 
     InputGroup3.appendChild(ManufacturerCol);
@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function() {
     CommentTextArea.classList.add('form-control');
     CommentTextArea.setAttribute('id', 'ExtraComment');
     CommentTextArea.setAttribute('rows', '5');
-    CommentTextArea.setAttribute('placeholder', 'Opišite problem koji imate sa uređajem. To nam pomaže da vam damo adekvatan predračun.');
+    CommentTextArea.setAttribute('placeholder', 'Opišite problem koji imate sa uređajem. To nam pomaže da vam damo adekvatan predračun. (opciono)');
     CommentCol.appendChild(CommentTextArea);
 
     InputGroup4.appendChild(CommentCol);
@@ -267,6 +267,10 @@ document.addEventListener("DOMContentLoaded", function() {
     SubmitButton.classList.add('btn', 'bg-black', 'text-white', 'form-buttons');
     SubmitButton.setAttribute('id', 'SubmitRequest');
     SubmitButton.innerHTML = 'Podnesite zahtev';
+    const SubmitHelp = document.createElement('div');
+    SubmitHelp.setAttribute('id', 'SubmitHelp');
+    SubmitHelp.classList.add('form-text', 'HelpText');
+    SubmitButton.appendChild(SubmitHelp);
 
     const ResetButton = document.createElement('button');
     ResetButton.setAttribute('type', 'reset');
@@ -294,13 +298,19 @@ document.addEventListener("DOMContentLoaded", function() {
     const DayHelpText = document.getElementById("DayHelp");
     const Month = document.getElementById("Month");
     const MonthHelpText = document.getElementById("MonthHelp");
-    const Year = document.getElementById("Year");
-    const YearHelpText = document.getElementById("YearHelp");
     const ManufacturerSelected = document.getElementById("ManufacturerSelect");
     const Model = document.getElementById("Model");
     const ExtraComment = document.getElementById("ExtraComment");
     const SubmitRequest = document.getElementById("SubmitRequest");
+    const SubmitHelpText = document.getElementById("SubmitHelp");
     const ResetRequest = document.getElementById("ResetRequest");
+
+    //Color invalid input
+    Name.classList.add("InvalidInput");
+    Phone.classList.add("InvalidInput");
+    TimeOfArrival.classList.add("InvalidInput");
+    Day.classList.add("InvalidInput");
+    Month.classList.add("InvalidInput");
 
     //Regex
 
@@ -315,13 +325,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     //Phone regex
-    let PhoneRegex = /^06\d{8}$/;
-    Phone.addEventListener("click", function(){
+    let PhoneRegex = /^06\d{7,8}$/;
+    Phone.addEventListener("focus", function(){
         Phone.value = "06";
     });
     Phone.addEventListener("blur", function(){  
         if (!PhoneRegex.test(Phone.value)) {
-            PhoneHelpText.innerHTML = "Telefon počinje sa 06x i ima još 8 cifara.";
+            PhoneHelpText.innerHTML = "Telefon počinje sa 06x i ima još 7 do 8 cifara.";
         } else {
             PhoneHelpText.innerHTML = "";
         }
@@ -348,37 +358,136 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //Day regex
     let DayRegex = /^([0-2][0-9]|(3)[0-1])$/;
-    Day.addEventListener("blur", function(){  
+    const DayValue = new Date().getDate();
+    // console.log("Current date " + DayValue);
+    Day.addEventListener("blur", function () {  
         if (!DayRegex.test(Day.value)) {
-            DayHelpText.innerHTML = "Dan može biti između 01 i 31";
+            DayHelpText.innerHTML = "Dan mora biti između 01 i 31.";
+            return;
+        }
+        if (Number(Day.value) < DayValue) {
+            DayHelpText.innerHTML = "Uneseni datum ne može biti manji od trenutnog datuma.";
         } else {
             DayHelpText.innerHTML = "";
         }
+
+        // function GetDaysInMonth(year, month) {
+        //     return new Date(year, month, 0).getDate(); 
+        // }
+    
+        // if (!DayRegex.test(Day.value)) {
+        //     DayHelpText.innerHTML = "Dan mora biti između 01 i 31.";
+        //     return;
+        // }
+    
+        // const InputDay = Number(Day.value);
+        // const MaxDays = GetDaysInMonth(Date().getFullYear(), Number(Month.value));
+    
+        // if (InputDay < DayValue && Number(Month.value) === new Date().getMonth() + 1) {
+        //     DayHelpText.innerHTML = "Uneseni datum ne može biti manji od trenutnog datuma.";
+        // } else if (InputDay > MaxDays) {
+        //     DayHelpText.innerHTML = `Uneseni mesec ima maksimalno ${MaxDays} dana.`;
+        // } else {
+        //     DayHelpText.innerHTML = "";
+        // }
     });
 
     //Month regex
     let MonthRegex = /^(0[1-9]|1[0-2])$/;
-    Month.addEventListener("blur", function(){  
+    const MonthValue = new Date().getMonth();
+    Month.addEventListener("blur", function () {  
         if (!MonthRegex.test(Month.value)) {
-            MonthHelpText.innerHTML = "Mesec može biti između 01 i 12";
+            MonthHelpText.innerHTML = "Mesec mora biti između 01 i 12.";
+            console.log("Ok");
+            return;
+        } 
+
+        //NOT WORKING
+        if (Number(Month.value) === MonthValue) {
+            console.log("Nije trenutan mesec");
+            MonthHelpText.innerHTML = ""; // Current month
+        } else if (Number(Month.value) === MonthValue + 1 || (MonthValue === 12 && Number(Month.value) === 1)) {
+            console.log("Da da")
+            MonthHelpText.innerHTML = ""; // Next month is valid, considering year transition
         } else {
-            MonthHelpText.innerHTML = "";
+            MonthHelpText.innerHTML = "Uneseni mesec može biti trenutni ili naredni.";
         }
     });
+
+    // Onload disable submit
+    window.addEventListener("load", function(){
+        SubmitRequest.setAttribute('disabled', 'true');
+    });
+
+    // Enable button
+    function CheckFormValidity() {
+        const NameValid = NameRegex.test(Name.value);
+        const PhoneValid = PhoneRegex.test(Phone.value);
+        const TimeOfArrivalValid = TimeOfArrival.selectedIndex !== 0;
+        const DayValid = DayRegex.test(Day.value) && Number(Day.value) >= DayValue;
+        const MonthValid = MonthRegex.test(Month.value) && 
+                             Number(Month.value) >= MonthValue &&
+                             Number(Month.value) <= MonthValue + 1;
     
-    //Year regex
-    let YearRegex = /^(0[1-9]|1[0-2])$/;
-    Year.addEventListener("blur", function(){  
-        if (!YearRegex.test(Year.value)) {
-            YearHelpText.innerHTML = "Godina mora biti tekuća";
+        console.log("NameValid:", NameValid);
+        console.log("PhoneValid:", PhoneValid);
+        console.log("TimeOfArrivalValid:", TimeOfArrivalValid);
+        console.log("DayValid:", DayValid);
+        console.log("MonthValid:", MonthValid);
+        
+        if (NameValid && PhoneValid && TimeOfArrivalValid && DayValid && MonthValid) {
+            SubmitRequest.removeAttribute('disabled');
+            SubmitButton.innerHTML = 'Podnesite zahtev';
+            SubmitHelpText.innerHTML = '';
         } else {
-            YearHelpText.innerHTML = "";
+            SubmitRequest.setAttribute('disabled', 'true');
+            SubmitHelpText.innerHTML = 'Morate popuniti sva obavezna polja';
         }
-    });
+
+        //Color valid input
+        if (NameValid) {
+            Name.classList.add("ValidInput");
+            Name.classList.remove("InvalidInput");
+        } else {
+            Name.classList.remove("ValidInput");
+            Name.classList.add("InvalidInput");
+        }
+        if (PhoneValid) {
+            Phone.classList.add("ValidInput");
+            Phone.classList.remove("InvalidInput");
+        } else {
+            Phone.classList.remove("ValidInput");
+            Phone.classList.add("InvalidInput");
+        }
+        if (TimeOfArrivalValid) {
+            TimeOfArrival.classList.add("ValidInput");
+            TimeOfArrival.classList.remove("InvalidInput");
+        } else {
+            TimeOfArrival.classList.remove("ValidInput");
+            TimeOfArrival.classList.add("InvalidInput");
+        }
+        if (DayValid) {
+            Day.classList.add("ValidInput");
+            Day.classList.remove("InvalidInput");
+        } else {
+            Day.classList.remove("ValidInput");
+            Day.classList.add("InvalidInput");
+        }
+        if (MonthValid) {
+            Month.classList.add("ValidInput");
+            Month.classList.remove("InvalidInput");
+        } else {
+            Month.classList.remove("ValidInput");
+            Month.classList.add("InvalidInput");
+        }
+    }
+
+    Name.addEventListener("blur", CheckFormValidity);
+    Phone.addEventListener("blur", CheckFormValidity);
+    TimeOfArrival.addEventListener("blur", CheckFormValidity);
+    Day.addEventListener("blur", CheckFormValidity);
+    Month.addEventListener("blur", CheckFormValidity);
+
 });
 
-//Onload disable submit
-// window.addEventListener("load", function(){
-//     SubmitButton.setAttribute('disabled', 'true');
-// })
 

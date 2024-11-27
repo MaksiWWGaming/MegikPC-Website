@@ -266,101 +266,42 @@
             fill: $darktxt;
         }
     }
-    //Interactive map
-    #Controls {
-        background-color: $darkbg;
-        border-bottom: $darkborder;
-        p {
-            a {
-                color: $darktxt;
-            }
-        }
-        #MapChoice {
-            button {
-                background-color: $darkbg;
-                color: $darktxt;
-            }
-            .active {
-                font-weight: bold !important;
-                color: $darkbg;
-            }
-            .dropdown-item.active {
-                background-color: $darkbg;
-                color: $whitetxt;
-            }
-            .dropdown-menu {
-                    border: $darkborder;
-                    background-color: $darkbg;
-                .dropdown-item {
-                    font-size: 1rem;
-                    color: $darktxt;
-                }
-                .dropdown-item:hover {
-                    background-color: $darklinkhover;
-                }
-                .dropdown-item::after{
-                    @include underline-hover-after;
-                    background-color: $darktxt;
-                }
-                .dropdown-item:hover::after{
-                    @include underline-hover-after2;
-                    background-color: $darktxt;
-                }
-                .dropdown-divider {
-                    background-color: $darktxt;
-                }
-            }    
-        }
-        #active {
+    form {
+        input {
             background-color: $darkbg;
-            color: $whitetxt;
+            color: $darktxt;
+            border: $darkborder;
         }
-    }
-    .separator {
-        color: $darktxt;
-    }
-    .separator::before,
-    .separator::after {
-    content: '';
-    flex: 1;
-    border-bottom: $darkborder;
-    }
-    //External katastar map
-    .pad-katastar-map {
-        #KatastarChoice {
-            button {
-                background-color: $darkbg;
-                color: $darktxt;
-            }
-            .active {
-                font-weight: bold !important;
-            }
-            .dropdown-item.active {
-                background-color: $whitenavbar;
-                color: $whitetxt;
-            }
-            .dropdown-menu {
-                    border: $darkborder;
-                    background-color: $darkbg;
-                .dropdown-item {
-                    font-size: 1rem;
-                    color: $darktxt;
-                }
-                .dropdown-item:hover {
-                    background-color: $darklinkhover;
-                }
-                .dropdown-item::after{
-                    @include underline-hover-after;
-                    background-color: $darktxt;
-                }
-                .dropdown-item:hover::after{
-                    @include underline-hover-after2;
-                    background-color: $darktxt;
-                }
-                .dropdown-divider {
-                    background-color: $darktxt;
-                }
-            }    
+        textarea {
+            background-color: $darkbg;
+            color: $darktxt;
+            border: $darkborder;
+        }
+        select {
+            background-color: $darkbg;
+            color: $darktxt;
+            border: $darkborder;
+        }
+        .HelpText {
+            opacity: 0.8;
+            color: $darktxt;
+        }
+        .ValidInput {
+            background-color: $darkbg;
+            color: $darktxt;
+            border: $darkborder;
+        }
+        .InvalidInput {
+            background-color: $darkinvaliinput;
+        }        
+        ::placeholder {
+            color: $darktxt;
+        }
+        span {
+            color: red;
+        }
+        #SubmitHelp {
+            color: red;
         }
     }
 }

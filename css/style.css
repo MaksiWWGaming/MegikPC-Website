@@ -275,104 +275,44 @@
 .dark-mode footer .bi {
   fill: #fff;
 }
-.dark-mode #Controls {
-  background-color: #121212;
-  border-bottom: 1px solid white;
-}
-.dark-mode #Controls p a {
-  color: #fff;
-}
-.dark-mode #Controls #MapChoice button {
+.dark-mode form input {
   background-color: #121212;
   color: #fff;
-}
-.dark-mode #Controls #MapChoice .active {
-  font-weight: bold !important;
-  color: #121212;
-}
-.dark-mode #Controls #MapChoice .dropdown-item.active {
-  background-color: #121212;
-  color: #000;
-}
-.dark-mode #Controls #MapChoice .dropdown-menu {
   border: 1px solid white;
-  background-color: #121212;
 }
-.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-item {
-  font-size: 1rem;
-  color: #fff;
-}
-.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-item:hover {
-  background-color: #444444;
-}
-.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-item::after {
-  content: "";
-  width: 0;
-  height: 2px;
-  background-color: black;
-  margin: auto;
-  display: block;
-  background-color: #fff;
-}
-.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-item:hover::after {
-  width: 100%;
-  transition: width 150ms linear;
-  background-color: #fff;
-}
-.dark-mode #Controls #MapChoice .dropdown-menu .dropdown-divider {
-  background-color: #fff;
-}
-.dark-mode #Controls #active {
-  background-color: #121212;
-  color: #000;
-}
-.dark-mode .separator {
-  color: #fff;
-}
-.dark-mode .separator::before,
-.dark-mode .separator::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px solid white;
-}
-.dark-mode .pad-katastar-map #KatastarChoice button {
+.dark-mode form textarea {
   background-color: #121212;
   color: #fff;
-}
-.dark-mode .pad-katastar-map #KatastarChoice .active {
-  font-weight: bold !important;
-}
-.dark-mode .pad-katastar-map #KatastarChoice .dropdown-item.active {
-  background-color: #f3f6f4;
-  color: #000;
-}
-.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu {
   border: 1px solid white;
-  background-color: #121212;
 }
-.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-item {
-  font-size: 1rem;
+.dark-mode form select {
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid white;
+}
+.dark-mode form .HelpText {
+  opacity: 0.8;
   color: #fff;
 }
-.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-item:hover {
-  background-color: #444444;
+.dark-mode form .ValidInput {
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid white;
 }
-.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-item::after {
-  content: "";
-  width: 0;
-  height: 2px;
-  background-color: black;
-  margin: auto;
-  display: block;
-  background-color: #fff;
+.dark-mode form .InvalidInput {
+  background-color: #6b5856;
 }
-.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-item:hover::after {
-  width: 100%;
-  transition: width 150ms linear;
-  background-color: #fff;
+.dark-mode form ::-moz-placeholder {
+  color: #fff;
 }
-.dark-mode .pad-katastar-map #KatastarChoice .dropdown-menu .dropdown-divider {
-  background-color: #fff;
+.dark-mode form ::placeholder {
+  color: #fff;
+}
+.dark-mode form span {
+  color: red;
+}
+.dark-mode form #SubmitHelp {
+  color: red;
 }
 
 * {
@@ -512,4 +452,17 @@ footer div span {
 }
 footer .bi {
   color: black;
+}
+
+form .ValidInput {
+  background-color: #fff;
+}
+form .InvalidInput {
+  background-color: #ffebe8;
+}
+form span {
+  color: red;
+}
+form #SubmitHelp {
+  color: red;
 }/*# sourceMappingURL=style.css.map */
