@@ -15,7 +15,7 @@ const navItems = [
             { label: "Ostalo", link: "pages/services/Other.html" }
         ]
     },
-    { label: "Contact", link: "pages/Contact.html" },
+    { label: "Kontakt", link: "pages/Contact.html" },
     { label: "O nama", link: "pages/About_Us.html" }
 ];
 
