@@ -43,14 +43,6 @@
     100% {transform: translateY(0px);}
 }
 
-//Card hover
-@keyframes CardHover {
-    0% {background: linear-gradient(to top left, transparent 0%, #ffffff1a 0%) left;
-    }
-    100% {background: linear-gradient(to top left, transparent 10%, #ffffff1a 100%) center;
-    }
-}
-
 //Breathing animation
 @keyframes BreathingXY {
     0% {transform: scaleX(1); transform: scaleY(1);}
@@ -65,21 +57,8 @@
 }
 
 //Tugging animation
-@keyframes Tugging {
-    0% {transform: translateY(-5px);}
-    50% {transform: translateY(0px);}
-    100% {transform: translateY(-5px);}
-}
-
-//New Katastar
-@keyframes BGMove {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
+// @keyframes Tugging {
+//     0% {transform: translateY(-5px);}
+//     50% {transform: translateY(0px);}
+//     100% {transform: translateY(-5px);}
+// }

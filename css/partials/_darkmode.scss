@@ -77,6 +77,11 @@
                             color: $darktxt;
                         }
                     }
+                    .card-title {
+                        a {
+                            color: $darktxt;
+                        }
+                    }
                     .btn-primary {
                         border: $darkborder;
                         background-color: $whitebg;
@@ -306,9 +311,13 @@
         #SubmitHelp {
             color: red;
         }
-        button {
+        #SubmitRequest {
             background-color: $whitebg;
             color: $whitetxt;
+        }
+        #ResetRequest {
+            background-color: $whitebg;
+            color: $whitetxt; 
         }
     }
 }

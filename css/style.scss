@@ -156,11 +156,13 @@ main {
                     border: $darkborder;
                     background-color: $darkbg;
                     color: $darktxt;
+                    animation: HoverZoomOut 0.3s ease;
                 }
                 .btn-primary:hover {
                     border: $whiteborder;
                     background-color: $whitebg;
                     color: $whitetxt;  
+                    animation: HoverZoom 300ms ease;
                 }
                 details {
                     summary {
@@ -176,6 +178,15 @@ main {
             width: 70%;
             margin: 15px auto;
             border: 2px solid $whitetxt;
+        }
+        #MainContent {
+            .card {
+                animation: HoverZoomOut 0.3s ease;
+            }
+            .card:hover {
+                animation: HoverZoom 0.3s ease;
+                animation-fill-mode: both;
+            }
         }
         .accordion {
             .accordion-button {
@@ -230,8 +241,12 @@ form {
     span {
         color: red;
     }
-    button {
-        background-color: black;
-        color: $whitetxt;
+    #SubmitRequest {
+        background-color: $darkbg;
+        color: $darktxt;
+    }
+    #ResetRequest {
+        background-color: $darkbg;
+        color: $darktxt; 
     }
 }
