@@ -9,16 +9,15 @@ const navItems = [
         label: "Usluge", 
         link: "", 
         dropdown: [
-            { label: "Servisiranje laptopova", link: "pages/services/LaptopServis.html" },
-            { label: "Servisiranje desktopova", link: "pages/services/DekstopServis.html" },
-            { label: "Online podrška", link: "pages/services/OnlineSupport.html" },
-            { label: "Ostalo", link: "pages/services/Other.html" }
+            { label: "Servisiranje laptopova", link: "pages/LaptopServis.html" },
+            { label: "Servisiranje desktopova", link: "pages/DesktopServis.html" },
+            { label: "Online podrška", link: "pages/OnlineSupport.html" },
+            { label: "Ostalo", link: "pages/Other.html" }
         ]
     },
     { label: "Kontakt", link: "pages/Contact.html" },
     { label: "O nama", link: "pages/About_Us.html" }
 ];
-
 // Pagination
 const CurrentPath = window.location.pathname;
 const IsRootPage = CurrentPath === '/'; //Check if on root
@@ -141,17 +140,18 @@ DivContainer.appendChild(NavbarCollapse);
 Nav.appendChild(DivContainer);
 
 // Append the nav to the document
+// document.querySelector('#navbar-container')
 document.querySelector('#navbar-container').appendChild(Nav);
 
 // Add active id on current page currently not working
-const CurrentPage = window.location.pathname;
-const NavLinks = document.querySelectorAll(".navbar-nav .nav-link");
+// const CurrentPage = window.location.pathname;
+// const NavLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
-NavLinks.forEach(link => {
-    if (link.getAttribute("href") === CurrentPage) {
-        link.classList.add("active");
-    }
-});
+// NavLinks.forEach(link => {
+//     if (link.getAttribute("href") === CurrentPage) {
+//         link.classList.add("active");
+//     }
+// });
 
 //Create nav --ENDS HERE--  
 
@@ -182,21 +182,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Auto Hide Navbar
 document.addEventListener("DOMContentLoaded", function(){
-    el_autohide = document.querySelector('.autohide');
-    el_dropdown = document.querySelector('.dropdown-menu')
-    if(el_autohide){
-        var last_scroll_top = 5;
+    ElAutoHide = document.querySelector('.autohide');
+    ElDropDown = document.querySelector('.dropdown-menu')
+    if(ElAutoHide){
+        var LastScrollTop = 5;
         window.addEventListener('scroll', function() {
-            let scroll_top = window.scrollY;
-            if(scroll_top < last_scroll_top) {
-                el_autohide.classList.remove('scrolled-down');
-                el_autohide.classList.add('scrolled-up');
+            let ScrollTop = window.scrollY;
+            if(ScrollTop < LastScrollTop) {
+                ElAutoHide.classList.remove('scrolled-down');
+                ElAutoHide.classList.add('scrolled-up');
             } else {
-                el_autohide.classList.remove('scrolled-up');
-                el_autohide.classList.add('scrolled-down');
-                el_dropdown.classList.remove('show');
+                ElAutoHide.classList.remove('scrolled-up');
+                ElAutoHide.classList.add('scrolled-down');
+                ElDropDown.classList.remove('show');
             }
-            last_scroll_top = scroll_top;
+            LastScrollTop = ScrollTop;
         }); 
     }  
 }); 

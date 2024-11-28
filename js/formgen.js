@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
     InputGroup1.classList.add('mb-3'); 
 
     const NameCol = document.createElement('div');
-    NameCol.classList.add('col-3');
+    NameCol.classList.add('col-12', 'col-sm-3');
     const NameLabel = document.createElement('label');
     NameLabel.setAttribute('for', 'Name');
     NameLabel.classList.add('form-label');
@@ -30,10 +30,10 @@ document.addEventListener("DOMContentLoaded", function() {
     NameCol.appendChild(NameHelp);
 
     const Space1 = document.createElement('div');
-    Space1.classList.add('col-1');
+    Space1.classList.add('col-1', 'col-sm-1');
 
     const PhoneCol = document.createElement('div');
-    PhoneCol.classList.add('col-4');
+    PhoneCol.classList.add('col-12', 'col-sm-4');
     const PhoneLabel = document.createElement('label');
     PhoneLabel.setAttribute('for', 'Phone');
     PhoneLabel.classList.add('form-label');
@@ -51,10 +51,10 @@ document.addEventListener("DOMContentLoaded", function() {
     PhoneCol.appendChild(PhoneHelp);
 
     const Space2 = document.createElement('div');
-    Space2.classList.add('col-1');
+    Space2.classList.add('col-1', 'col-sm-1');
 
     const EmailCol = document.createElement('div');
-    EmailCol.classList.add('col-3');
+    EmailCol.classList.add('col-12', 'col-sm-3');
     const EmailLabel = document.createElement('label');
     EmailLabel.setAttribute('for', 'Email');
     EmailLabel.classList.add('form-label');
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
     InputGroup2.classList.add('mb-3'); 
 
     const TimeOfArrivalCol = document.createElement('div');
-    TimeOfArrivalCol.classList.add('col-3');
+    TimeOfArrivalCol.classList.add('col-12', 'col-sm-3');
     const TimeOfArrivalLabel = document.createElement('label');
     TimeOfArrivalLabel.setAttribute('for', 'TimeOfArrival');
     TimeOfArrivalLabel.classList.add('form-label');
@@ -109,48 +109,51 @@ document.addEventListener("DOMContentLoaded", function() {
         TimeOfArrivalSelect.appendChild(option);
     });
     TimeOfArrivalCol.appendChild(TimeOfArrivalSelect);
-    const timeHelp = document.createElement('div');
-    timeHelp.setAttribute('id', 'TimeOfArrivalHelp');
-    timeHelp.classList.add('form-text', 'HelpText');
-    timeHelp.textContent = 'Vreme dolaska je bitno radi planiranja aktivnosti servisa za taj dan.';
-    TimeOfArrivalCol.appendChild(timeHelp);
+    const TimeHelp = document.createElement('div');
+    TimeHelp.setAttribute('id', 'TimeOfArrivalHelp');
+    TimeHelp.classList.add('form-text', 'HelpText');
+    TimeHelp.textContent = 'Vreme dolaska je bitno radi planiranja aktivnosti servisa za taj dan.';
+    TimeOfArrivalCol.appendChild(TimeHelp);
 
     const Space3 = document.createElement('div');
-    Space3.classList.add('col-1');
+    Space3.classList.add('col-sm-1');
 
-    const dayCol = document.createElement('div');
-    dayCol.classList.add('col-2');
-    const dayLabel = document.createElement('label');
-    dayLabel.classList.add('form-label');
-    dayLabel.innerHTML = 'Dan<span class="RequiredField"> *</span>';
-    dayCol.appendChild(dayLabel);
-    const dayInput = document.createElement('input');
-    dayInput.classList.add('form-control');
-    dayInput.setAttribute('type', 'text');
-    dayInput.setAttribute('id', 'Day');
-    dayInput.setAttribute('placeholder', '01-31');
-    dayCol.appendChild(dayInput);
-    const dayHelp = document.createElement('div');
-    dayHelp.setAttribute('id', 'DayHelp');
-    dayHelp.classList.add('form-text', 'HelpText');
-    dayCol.appendChild(dayHelp);
+    const DayCol = document.createElement('div');
+    DayCol.classList.add('col-5', 'col-sm-2');
+    const DayLabel = document.createElement('label');
+    DayLabel.classList.add('form-label');
+    DayLabel.innerHTML = 'Dan<span class="RequiredField"> *</span>';
+    DayCol.appendChild(DayLabel);
+    const DayInput = document.createElement('input');
+    DayInput.classList.add('form-control');
+    DayInput.setAttribute('type', 'text');
+    DayInput.setAttribute('id', 'Day');
+    DayInput.setAttribute('placeholder', '01-31');
+    DayCol.appendChild(DayInput);
+    const DayHelp = document.createElement('div');
+    DayHelp.setAttribute('id', 'DayHelp');
+    DayHelp.classList.add('form-text', 'HelpText');
+    DayCol.appendChild(DayHelp);
 
-    const monthCol = document.createElement('div');
-    monthCol.classList.add('col-2','ms-1');
-    const monthLabel = document.createElement('label');
-    monthLabel.classList.add('form-label');
-    monthLabel.innerHTML = 'Mesec<span class="RequiredField"> *</span>';
-    monthCol.appendChild(monthLabel);
-    const monthInput = document.createElement('input');
-    monthInput.classList.add('form-control');
-    monthInput.setAttribute('type', 'text');
-    monthInput.setAttribute('id', 'Month');
-    monthInput.setAttribute('placeholder', '01-12');
-    monthCol.appendChild(monthInput);
-    const monthHelp = document.createElement('div');
-    monthHelp.setAttribute('id', 'MonthHelp');
-    monthHelp.classList.add('form-text', 'HelpText');
-    monthCol.appendChild(monthHelp);
+    // const Space5 = document.createElement('div');
+    // Space5.classList.add('col-2', 'col-sm-');
+
+    const MonthCol = document.createElement('div');
+    MonthCol.classList.add('col-5', 'col-sm-2', 'ms-1');
+    const MonthLabel = document.createElement('label');
+    MonthLabel.classList.add('form-label');
+    MonthLabel.innerHTML = 'Mesec<span class="RequiredField"> *</span>';
+    MonthCol.appendChild(MonthLabel);
+    const MonthInput = document.createElement('input');
+    MonthInput.classList.add('form-control');
+    MonthInput.setAttribute('type', 'text');
+    MonthInput.setAttribute('id', 'Month');
+    MonthInput.setAttribute('placeholder', '01-12');
+    MonthCol.appendChild(MonthInput);
+    const MonthHelp = document.createElement('div');
+    MonthHelp.setAttribute('id', 'MonthHelp');
+    MonthHelp.classList.add('form-text', 'HelpText');
+    MonthCol.appendChild(MonthHelp);
 
     // const yearCol = document.createElement('div');
     // yearCol.classList.add('col-1', 'ms-1');
@@ -171,8 +174,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     InputGroup2.appendChild(TimeOfArrivalCol);
     InputGroup2.appendChild(Space3);
-    InputGroup2.appendChild(dayCol);
-    InputGroup2.appendChild(monthCol);
+    InputGroup2.appendChild(DayCol);
+    // InputGroup2.appendChild(Space5);
+    InputGroup2.appendChild(MonthCol);
     // InputGroup2.appendChild(yearCol);
     form.appendChild(InputGroup2);
 
@@ -186,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function() {
     InputGroup3.classList.add('mb-3');
 
     const ManufacturerCol = document.createElement('div');
-    ManufacturerCol.classList.add('col-5');
+    ManufacturerCol.classList.add('col-12', 'col-sm-5');
     const ManufacturerLabel = document.createElement('label');
     ManufacturerLabel.setAttribute('for', 'ManufacturerSelect');
     ManufacturerLabel.classList.add('form-label');
@@ -207,10 +211,10 @@ document.addEventListener("DOMContentLoaded", function() {
     ManufacturerCol.appendChild(ManufacturerSelect);
 
     const Space4 = document.createElement('div');
-    Space4.classList.add('col-2');
+    Space4.classList.add('col-sm-2');
 
     const ModelCol = document.createElement('div');
-    ModelCol.classList.add('col-5');
+    ModelCol.classList.add('col-12', 'col-sm-5');
     const ModelLabel = document.createElement('label');
     ModelLabel.setAttribute('for', 'Model');
     ModelLabel.classList.add('form-label');
@@ -264,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const SubmitButton = document.createElement('button');
     SubmitButton.setAttribute('type', 'submit');
-    SubmitButton.classList.add('btn', 'bg-black', 'text-white', 'form-buttons');
+    SubmitButton.classList.add('btn', 'form-buttons');
     SubmitButton.setAttribute('id', 'SubmitRequest');
     SubmitButton.innerHTML = 'Podnesite zahtev';
     const SubmitHelp = document.createElement('div');
@@ -274,9 +278,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const ResetButton = document.createElement('button');
     ResetButton.setAttribute('type', 'reset');
-    ResetButton.classList.add('btn', 'bg-black', 'text-white', 'form-buttons');
+    ResetButton.classList.add('btn', 'form-buttons');
     ResetButton.setAttribute('id', 'ResetRequest');
-    ResetButton.innerHTML = 'Obrišite zahtev';
+    ResetButton.innerHTML = 'Očistite polja';
 
     ButtonGroup.appendChild(ResetButton);
     ButtonGroup.appendChild(SubmitButton);
@@ -394,29 +398,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //Month regex
     let MonthRegex = /^(0[1-9]|1[0-2])$/;
-    const MonthValue = new Date().getMonth();
+    const MonthValue = new Date().getMonth()+1;
+    console.log("Sistemski mesec " + MonthValue);
+    console.log(Number(Month.value));
     Month.addEventListener("blur", function () {  
         if (!MonthRegex.test(Month.value)) {
             MonthHelpText.innerHTML = "Mesec mora biti između 01 i 12.";
             console.log("Ok");
             return;
         } 
+        if (Month.value+1 == MonthValue+1 || Month.value != MonthValue-1) {
+            console.log("Sistemski mesec " + MonthValue);
+            MonthHelpText.innerHTML = "";
+        } else {
+            MonthHelpText.innerHTML = "Mesec može biti ili tekući ili sledeći.";
+        }
+
 
         //NOT WORKING
-        if (Number(Month.value) === MonthValue) {
-            console.log("Nije trenutan mesec");
-            MonthHelpText.innerHTML = ""; // Current month
-        } else if (Number(Month.value) === MonthValue + 1 || (MonthValue === 12 && Number(Month.value) === 1)) {
-            console.log("Da da")
-            MonthHelpText.innerHTML = ""; // Next month is valid, considering year transition
-        } else {
-            MonthHelpText.innerHTML = "Uneseni mesec može biti trenutni ili naredni.";
-        }
+        // if (Number(Month.value) === MonthValue) {
+        //     console.log("Nije trenutan mesec");
+        //     MonthHelpText.innerHTML = ""; // Current month
+        // } else if (Number(Month.value) === MonthValue + 1 || (MonthValue === 12 && Number(Month.value) === 1)) {
+        //     console.log("Da da")
+        //     MonthHelpText.innerHTML = ""; // Next month is valid, considering year transition
+        // } else {
+        //     MonthHelpText.innerHTML = "Uneseni mesec može biti trenutni ili naredni.";
+        // }
     });
 
     // Onload disable submit
     window.addEventListener("load", function(){
         SubmitRequest.setAttribute('disabled', 'true');
+        // MonthHelpText.innerHTML = "Ukoliko imate problem sa unosom meseca, unesite tekući mesec i napišite u komentaru ispravku."
     });
 
     // Enable button

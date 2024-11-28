@@ -110,6 +110,9 @@
                     }
                 }
             }
+            hr.separate-content {
+                border: 1px solid $darktxt;
+            }
         }
         .pad-join {
             .container {
@@ -302,6 +305,10 @@
         }
         #SubmitHelp {
             color: red;
+        }
+        button {
+            background-color: $whitebg;
+            color: $whitetxt;
         }
     }
 }

@@ -3,6 +3,119 @@
 @import url(https://fonts.cdnfonts.com/css/minecraft-4);
 @import url(https://fonts.googleapis.com/css2?family=Special+Elite&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Special+Elite&display=swap);
+@keyframes FadeInLoad {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes TopBottomLoad {
+  0% {
+    transform: translateY(-200px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+.scrolled-down {
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.scrolled-up {
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+@keyframes HoverZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+@keyframes HoverZoomOut {
+  0% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes NavItemHover {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+@keyframes DropDownLoad {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes CardHover {
+  0% {
+    background: linear-gradient(to top left, transparent 0%, rgba(255, 255, 255, 0.1019607843) 0%) left;
+  }
+  100% {
+    background: linear-gradient(to top left, transparent 10%, rgba(255, 255, 255, 0.1019607843) 100%) center;
+  }
+}
+@keyframes BreathingXY {
+  0% {
+    transform: scaleX(1);
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleX(1.05);
+    transform: scaleY(1.02);
+  }
+  100% {
+    transform: scaleX(1);
+    transform: scaleY(1);
+  }
+}
+@keyframes BreathingX {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(1.05);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+@keyframes Tugging {
+  0% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+@keyframes BGMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 .dark-mode {
   background-color: #121212;
   color: #fff;
@@ -109,6 +222,9 @@
 }
 .dark-mode main .container .accordion .accordion-body a {
   color: #fff;
+}
+.dark-mode main .container hr.separate-content {
+  border: 1px solid #fff;
 }
 .dark-mode main .pad-join .container p span {
   background-color: #121212;
@@ -314,6 +430,10 @@
 .dark-mode form #SubmitHelp {
   color: red;
 }
+.dark-mode form button {
+  background-color: #fff;
+  color: #000;
+}
 
 * {
   padding: 0;
@@ -357,6 +477,20 @@ body {
   background-color: #000;
   border-radius: 10px;
   width: 1px;
+}
+
+.scrolled-down {
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.scrolled-up {
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}
+
+#navbar-container {
+  height: 150px;
 }
 
 .navbar {
@@ -412,6 +546,9 @@ body {
   background-color: #f3f6f4;
   color: #000;
 }
+.navbar a.nav-link.dropdown-toggle::after {
+  visibility: hidden;
+}
 .navbar .dropdown-menu {
   animation: DropDownLoad 0.3s ease;
   border: 1px solid black;
@@ -433,6 +570,54 @@ body {
 .navbar .dropdown-menu .dropdown-item:hover::after {
   width: 100%;
   transition: width 150ms linear;
+}
+
+main .pad .container span {
+  background-color: #121212;
+}
+main .container .card .card-body .index-images {
+  width: 50%;
+  height: 50%;
+}
+main .container .card .card-body .card-title a {
+  color: #000;
+  text-decoration: none;
+  font-style: italic;
+}
+main .container .card .card-body .card-text a {
+  color: #fff;
+}
+main .container .card .card-body .btn-primary {
+  border: 1px solid white;
+  background-color: #121212;
+  color: #fff;
+}
+main .container .card .card-body .btn-primary:hover {
+  border: 1px solid black;
+  background-color: #fff;
+  color: #000;
+}
+main .container .card .card-body details summary {
+  padding: 1% 0;
+}
+main .container .card .card-body details a {
+  color: #fff;
+}
+main .container hr.separate-content {
+  width: 70%;
+  margin: 15px auto;
+  border: 2px solid #000;
+}
+main .container .accordion .accordion-button {
+  background-color: #0d0d0d;
+  color: #fff;
+}
+main .container .accordion .accordion-body {
+  background-color: #121212;
+  color: #fff;
+}
+main .container .accordion .accordion-body a {
+  color: #fff;
 }
 
 footer {
@@ -460,9 +645,13 @@ form .ValidInput {
 form .InvalidInput {
   background-color: #ffebe8;
 }
+form #SubmitHelp {
+  color: red;
+}
 form span {
   color: red;
 }
-form #SubmitHelp {
-  color: red;
+form button {
+  background-color: black;
+  color: #000;
 }/*# sourceMappingURL=style.css.map */

@@ -45,7 +45,19 @@ body {
     @include scrollbar-thumb;
 }
 
+.scrolled-down {
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
+  }
+  .scrolled-up {  
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
+  }
+
 //Navbar
+#navbar-container {
+    height: 150px;
+}
 .navbar {
     box-shadow: 0 4px 3px 0px #000;
     animation: TopBottomLoad 1s ease;
@@ -92,6 +104,9 @@ body {
         background-color: $whitenavbar;
         color: $whitetxt;
     }
+    a.nav-link.dropdown-toggle::after {
+        visibility: hidden;
+    }
     .dropdown-menu {
             animation: DropDownLoad 0.3s ease;
             border: $whiteborder;
@@ -110,7 +125,73 @@ body {
     }
 }
 
-
+main {
+    .pad {
+        .container {
+            span {
+                background-color: $darkbg;
+            }
+        }
+    }
+    .container {
+        .card {
+            .card-body {
+                .index-images {
+                    width: 50%;
+                    height: 50%;
+                }
+                .card-title {
+                    a {
+                        color: $whitetxt;
+                        text-decoration: none;
+                        font-style: italic;
+                    }
+                }
+                .card-text {
+                    a {
+                        color: $darktxt;
+                    }
+                }
+                .btn-primary {
+                    border: $darkborder;
+                    background-color: $darkbg;
+                    color: $darktxt;
+                }
+                .btn-primary:hover {
+                    border: $whiteborder;
+                    background-color: $whitebg;
+                    color: $whitetxt;  
+                }
+                details {
+                    summary {
+                        padding: 1% 0;
+                    }
+                    a {
+                        color: $darktxt;
+                    }
+                }
+            }
+        }
+        hr.separate-content {
+            width: 70%;
+            margin: 15px auto;
+            border: 2px solid $whitetxt;
+        }
+        .accordion {
+            .accordion-button {
+                background-color: #0d0d0d;
+                color: $darktxt;
+            }
+            .accordion-body {
+                background-color: $darkbg;
+                color: $darktxt;
+                a {
+                    color: $darktxt;                        
+                }
+            }
+        }
+    }
+}
 
 //Footer
 footer {
@@ -143,10 +224,14 @@ form {
     .InvalidInput {
         background-color: $whiteinvalidinput;
     }        
+    #SubmitHelp {
+        color: red;
+    }
     span {
         color: red;
     }
-    #SubmitHelp {
-        color: red;
+    button {
+        background-color: black;
+        color: $whitetxt;
     }
 }
