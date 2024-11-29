@@ -1,127 +1,20 @@
-@media only screen and (max-width:1400px) {
-    .pad-katastar-mappa {
-        #KatastarInteractMapBlock {
-            #KatastarInteractMap {
-                height: 700px;
-            }
-        }
-    }
-}
+// @media only screen and (max-width:1774px) {
+//     footer {
+//         ul {
+//             li {
+//                 font-size: 0.5rem;
+//             }
+//         }
+//     }
+// }
 
-@media only screen and (max-width:1200px) {
-    .navbar {
-        .nav-item {
-            margin: 15px;
+@media only screen and (max-width:780px) {
+    #ContactButton {
+        h4 {
+            font-size: 1.1rem;
         }
-    }
-    .carousel-content {
-        h1 {
-            font-size: 60px;
-        }
-    }
-}
-
-@media only screen and (max-width:992px) {
-    .navbar {
-        padding: 0% 2%;
-        .navbar-brand img {
-            max-width: 20vw;
-        }
-        #dark-mode-button {
-            margin-bottom: 5%;
-            margin-left: 2%;
-        }
-    }
-    .carousel-content {
-        h1 {
-            font-size: $sizemd;
-        }
-        h2 {
-            font-size: $sizemd;
-        }
-    }
-    .col-12.col-sm-12.col-md-12.col-lg-6 {//only touches the cards on main page
-        margin-bottom: 3%;
-    }
-    .col-12.col-lg-4 {//only touches the top and bottom 3rd card on minecraft page
-        margin-top: 3%;
-    }
-    .col-12.col-lg-3 {//only touches the mc ranks
-        margin-top: 3%;
-    }
-    #Toast-Alert {
-        width: 75% !important;
-        .toast-header {
-            img {
-                width: 7% !important;
-            }
-        }
-    }
-    .pad-katastar-mappa {
-        #KatastarImageMapBlock {
-            #KatastarImageMappedBlock {
-                height: 1000px;
-            }
-        }
-        #KatastarInteractMapBlock {
-            #KatastarInteractMap {
-                height: 820px;
-            }
-        }
-    }
-}
-
-@media only screen and (max-width:768px) {
-    .col-12.col-md-6.col-lg-5 {//cards around changing text
-        margin: 1%;
-    }
-    #join-button {
-        width: 80%;
-        margin: 0 auto;
-    }
-    .pad-katastar-mappa {
-        #KatastarImageMapBlock {
-            padding-bottom: 2%;
-            #KatastarImageMappedBlock {
-                height: 30px;
-            }
-        }
-        #KatastarInteractMapBlock {
-            #KatastarInteractMap {
-                height: 300px;
-            }
-        }
-    }
-}
-
-@media only screen and (max-width:576px) {
-    .carousel-content {
-        h1 {
-            font-size: $sizesm;
-        }
-        h2 {
-            font-size: $sizesm;
-        }
-    }
-    .div-random-text {
-        margin: 0% 0% 10% 0%;
-    }
-    .card {
-        animation: none;
-    }
-    .card:hover{
-        animation: none;
-    }
-    .pad-katastar-mappa {
-        #KatastarImageMapBlock {
-            #KatastarImageMappedBlock {
-                height: 420px;
-            }
-        }
-        #KatastarInteractMapBlock {
-            #KatastarInteractMap {
-                height: 420px;
-            }
+        p {
+            font-size: 0.8rem;
         }
     }
 }

@@ -16,7 +16,7 @@ const navItems = [
         ]
     },
     { label: "Kontakt", link: "pages/Contact.html" },
-    { label: "O nama", link: "pages/About_Us.html" }
+    { label: "O autoru", link: "pages/About_Us.html" }
 ];
 // Pagination
 const CurrentPath = window.location.pathname;
@@ -127,33 +127,67 @@ const DarkModeButton = document.createElement("i");
 DarkModeButton.classList.add("fa-solid", "fa-moon");
 DarkModeButton.setAttribute("id", "DarkMode");
 
-
-// Add elements to navbar collapse
 NavbarCollapse.appendChild(NavbarList);
 NavbarCollapse.appendChild(DarkModeButton);
 
-// Add everything to the navigation container
 DivContainer.appendChild(LogoLink);
 DivContainer.appendChild(HamburgerMenu);
 DivContainer.appendChild(NavbarCollapse);
 
 Nav.appendChild(DivContainer);
 
-// Append the nav to the document
 // document.querySelector('#navbar-container')
 document.querySelector('#navbar-container').appendChild(Nav);
 
 // Add active id on current page currently not working
-// const CurrentPage = window.location.pathname;
-// const NavLinks = document.querySelectorAll(".navbar-nav .nav-link");
+const CurrentPage = window.location.pathname;
+const NavLinks = document.querySelectorAll(".navbar-nav .nav-link");
 
-// NavLinks.forEach(link => {
-//     if (link.getAttribute("href") === CurrentPage) {
-//         link.classList.add("active");
-//     }
-// });
+NavLinks.forEach(link => {
+    if (link.getAttribute("href") === CurrentPage) {
+        link.classList.add("active");
+    }
+});
 
 //Create nav --ENDS HERE--  
+
+//Create footer
+
+document.addEventListener("DOMContentLoaded", function() {
+    const CurrentYear = new Date().getFullYear();
+
+    const FooterDiv = `
+                    <div class="col-3 col-md-9 d-flex align-items-center">
+                        <span class="mb-4 mb-md-0">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> Megik PC</span> 
+                    </div>
+                    <div class="col-4 col-md-1 d-flex align-items-center">
+                        <a href="https://www.google.com/maps/place/Servis+Računara+Megik/@44.7459116,20.4544301,18.75z/data=!4m6!3m5!1s0x475a710017d9c723:0x5907459db511e708!8m2!3d44.7455926!4d20.4549122!16s%2Fg%2F11wjfwf4bs?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.kupujemprodajem.com/maksim-megik-servis/svi-oglasi/1781418/1" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-5 col-md-2 d-flex align-items-center">
+                        <ul>
+                            <li>Pon - Pet: 10:00 - 20:00</li>
+                            <li>Subotom: 10:00 - 16:00</li>
+                            <li>Nedeljom: Ne radimo</li>
+                        </ul>
+                    </div>
+                    <div class="d-flex align-items-center">
+
+                    </div>
+    `;
+
+    document.querySelector('#FooterDiv').innerHTML = FooterDiv;
+
+    document.getElementById("MegikCopyYear").textContent = CurrentYear;
+});
 
 //Retain darkmode icon
 DarkModeButton.addEventListener("click", function(){
@@ -200,7 +234,3 @@ document.addEventListener("DOMContentLoaded", function(){
         }); 
     }  
 }); 
-
-//Auto add year for copyright
-document.getElementById("MegikCopyYear").textContent = new Date().getFullYear();
-

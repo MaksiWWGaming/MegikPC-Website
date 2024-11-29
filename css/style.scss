@@ -10,6 +10,7 @@
 @import "partials/animations";
 @import "partials/mixins";
 @import "partials/darkmode";
+@import "partials/responsive";
 * {
     padding: 0;
     margin: 0;
@@ -126,12 +127,8 @@ body {
 }
 
 main {
-    .pad {
-        .container {
-            span {
-                background-color: $darkbg;
-            }
-        }
+    a {
+        text-decoration: none;
     }
     .container {
         .card {
@@ -148,15 +145,16 @@ main {
                     }
                 }
                 .card-text {
+                    font-size: 1.14rem;
                     a {
-                        color: $darktxt;
+                        color: $whitetxt;
                     }
                 }
                 .btn-primary {
                     border: $darkborder;
                     background-color: $darkbg;
                     color: $darktxt;
-                    animation: HoverZoomOut 0.3s ease;
+                    animation: HoverZoomOut 300ms ease;
                 }
                 .btn-primary:hover {
                     border: $whiteborder;
@@ -171,6 +169,17 @@ main {
                     a {
                         color: $darktxt;
                     }
+                }
+                .ServicesList {
+                    ul {
+                        // list-style-type: none;
+                        li {
+                            margin-top: 1%;
+                        }
+                    }
+                }
+                .OtherServicesButton {
+                    width: 70%;
                 }
             }
         }
@@ -188,19 +197,31 @@ main {
                 animation-fill-mode: both;
             }
         }
-        .accordion {
-            .accordion-button {
-                background-color: #0d0d0d;
-                color: $darktxt;
-            }
-            .accordion-body {
-                background-color: $darkbg;
-                color: $darktxt;
-                a {
-                    color: $darktxt;                        
-                }
+        #ContactButton {
+            background-color: #000;
+            color: $darktxt;
+            animation: BreathingX 6s ease;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite;
+            &:hover {
+                background-color: $whitebg;
+                color: $whitetxt;
+                border: $whiteborder;
             }
         }
+        // .accordion {
+        //     .accordion-button {
+        //         background-color: #0d0d0d;
+        //         color: $darktxt;
+        //     }
+        //     .accordion-body {
+        //         background-color: $darkbg;
+        //         color: $darktxt;
+        //         a {
+        //             color: $darktxt;                        
+        //         }
+        //     }
+        // }
     }
 }
 

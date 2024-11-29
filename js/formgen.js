@@ -363,37 +363,34 @@ document.addEventListener("DOMContentLoaded", function() {
     //Day regex
     let DayRegex = /^([0-2][0-9]|(3)[0-1])$/;
     const DayValue = new Date().getDate();
-    // console.log("Current date " + DayValue);
+    // const InputDay = Number(Day.value);  // Get the day as a number
+    // const CurrentYear = new Date().getFullYear();  // Get the current year
+    // const CurrentMonth = new Date().getMonth() + 1;  // Get the current month (1-based)
+    // const MaxDays = GetDaysInMonth(CurrentYear, Number(Month.value));  // Max days in the selected month
+    // function GetDaysInMonth(year, month) {
+    //     return new Date(year, month, 0).getDate();  // Get the number of days in the specified month
+    // }
     Day.addEventListener("blur", function () {  
+
+        
         if (!DayRegex.test(Day.value)) {
-            DayHelpText.innerHTML = "Dan mora biti između 01 i 31.";
+            DayHelpText.innerHTML = "Dan mora biti između 01 i 31."; // Validate day input with regex
             return;
         }
-        if (Number(Day.value) < DayValue) {
-            DayHelpText.innerHTML = "Uneseni datum ne može biti manji od trenutnog datuma.";
-        } else {
-            DayHelpText.innerHTML = "";
-        }
-
-        // function GetDaysInMonth(year, month) {
-        //     return new Date(year, month, 0).getDate(); 
-        // }
-    
-        // if (!DayRegex.test(Day.value)) {
-        //     DayHelpText.innerHTML = "Dan mora biti između 01 i 31.";
-        //     return;
-        // }
-    
-        // const InputDay = Number(Day.value);
-        // const MaxDays = GetDaysInMonth(Date().getFullYear(), Number(Month.value));
-    
-        // if (InputDay < DayValue && Number(Month.value) === new Date().getMonth() + 1) {
+        
+        
+        
+        // if (InputDay < DayValue) {
         //     DayHelpText.innerHTML = "Uneseni datum ne može biti manji od trenutnog datuma.";
-        // } else if (InputDay > MaxDays) {
+        // } 
+
+        // // Check if the input day exceeds the max days in the selected month
+        // else if (InputDay > MaxDays) {
         //     DayHelpText.innerHTML = `Uneseni mesec ima maksimalno ${MaxDays} dana.`;
         // } else {
-        //     DayHelpText.innerHTML = "";
+        //     DayHelpText.innerHTML = "";  
         // }
+        
     });
 
     //Month regex
@@ -407,30 +404,16 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("Ok");
             return;
         } 
-        if (Month.value+1 == MonthValue+1 || Month.value != MonthValue-1) {
-            console.log("Sistemski mesec " + MonthValue);
+        if (Month.value >= MonthValue || Month.value == MonthValue+1) {
             MonthHelpText.innerHTML = "";
         } else {
-            MonthHelpText.innerHTML = "Mesec može biti ili tekući ili sledeći.";
+            MonthHelpText.innerHTML = "Mesec ne može biti manji od tekućeg.";
         }
-
-
-        //NOT WORKING
-        // if (Number(Month.value) === MonthValue) {
-        //     console.log("Nije trenutan mesec");
-        //     MonthHelpText.innerHTML = ""; // Current month
-        // } else if (Number(Month.value) === MonthValue + 1 || (MonthValue === 12 && Number(Month.value) === 1)) {
-        //     console.log("Da da")
-        //     MonthHelpText.innerHTML = ""; // Next month is valid, considering year transition
-        // } else {
-        //     MonthHelpText.innerHTML = "Uneseni mesec može biti trenutni ili naredni.";
-        // }
     });
 
     // Onload disable submit
     window.addEventListener("load", function(){
         SubmitRequest.setAttribute('disabled', 'true');
-        // MonthHelpText.innerHTML = "Ukoliko imate problem sa unosom meseca, unesite tekući mesec i napišite u komentaru ispravku."
     });
 
     // Enable button
@@ -438,10 +421,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const NameValid = NameRegex.test(Name.value);
         const PhoneValid = PhoneRegex.test(Phone.value);
         const TimeOfArrivalValid = TimeOfArrival.selectedIndex !== 0;
-        const DayValid = DayRegex.test(Day.value) && Number(Day.value) >= DayValue;
+        // const DayValid = DayRegex.test(Day.value) && 
+        //                     Number(Day.value) >= DayValue &&
+        //                     InputDay > MaxDays;
         const MonthValid = MonthRegex.test(Month.value) && 
-                             Number(Month.value) >= MonthValue &&
-                             Number(Month.value) <= MonthValue + 1;
+                            Number(Month.value) >= MonthValue || 
+                            Number(Month.value) == MonthValue+1;
     
         console.log("NameValid:", NameValid);
         console.log("PhoneValid:", PhoneValid);

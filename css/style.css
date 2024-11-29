@@ -185,16 +185,14 @@
 .dark-mode main .container .card .card-body details a {
   color: #fff;
 }
-.dark-mode main .container .accordion .accordion-button {
-  background-color: #0d0d0d;
-  color: #fff;
+.dark-mode main .container #ContactButton {
+  background-color: #fff;
+  color: #000;
 }
-.dark-mode main .container .accordion .accordion-body {
+.dark-mode main .container #ContactButton:hover {
   background-color: #121212;
   color: #fff;
-}
-.dark-mode main .container .accordion .accordion-body a {
-  color: #fff;
+  border: 1px solid white;
 }
 .dark-mode main .container hr.separate-content {
   border: 1px solid #fff;
@@ -412,6 +410,14 @@
   color: #000;
 }
 
+@media only screen and (max-width: 780px) {
+  #ContactButton h4 {
+    font-size: 1.1rem;
+  }
+  #ContactButton p {
+    font-size: 0.8rem;
+  }
+}
 * {
   padding: 0;
   margin: 0;
@@ -549,8 +555,8 @@ body {
   transition: width 150ms linear;
 }
 
-main .pad .container span {
-  background-color: #121212;
+main a {
+  text-decoration: none;
 }
 main .container .card .card-body .index-images {
   width: 50%;
@@ -561,14 +567,17 @@ main .container .card .card-body .card-title a {
   text-decoration: none;
   font-style: italic;
 }
+main .container .card .card-body .card-text {
+  font-size: 1.14rem;
+}
 main .container .card .card-body .card-text a {
-  color: #fff;
+  color: #000;
 }
 main .container .card .card-body .btn-primary {
   border: 1px solid white;
   background-color: #121212;
   color: #fff;
-  animation: HoverZoomOut 0.3s ease;
+  animation: HoverZoomOut 300ms ease;
 }
 main .container .card .card-body .btn-primary:hover {
   border: 1px solid black;
@@ -582,6 +591,12 @@ main .container .card .card-body details summary {
 main .container .card .card-body details a {
   color: #fff;
 }
+main .container .card .card-body .ServicesList ul li {
+  margin-top: 1%;
+}
+main .container .card .card-body .OtherServicesButton {
+  width: 70%;
+}
 main .container hr.separate-content {
   width: 70%;
   margin: 15px auto;
@@ -594,16 +609,17 @@ main .container #MainContent .card:hover {
   animation: HoverZoom 0.3s ease;
   animation-fill-mode: both;
 }
-main .container .accordion .accordion-button {
-  background-color: #0d0d0d;
+main .container #ContactButton {
+  background-color: #000;
   color: #fff;
+  animation: BreathingX 6s ease;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
 }
-main .container .accordion .accordion-body {
-  background-color: #121212;
-  color: #fff;
-}
-main .container .accordion .accordion-body a {
-  color: #fff;
+main .container #ContactButton:hover {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid black;
 }
 
 footer {
