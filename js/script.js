@@ -9,15 +9,15 @@ const navItems = [
         label: "Usluge", 
         link: "", 
         dropdown: [
-            { label: "Servisiranje laptopova", link: "pages/LaptopServis.html" },
-            { label: "Servisiranje desktopova", link: "pages/DesktopServis.html" },
-            { label: "Online podrška", link: "pages/OnlineSupport.html" },
-            { label: "Ostalo", link: "pages/Other.html" }
+            { label: "Servisiranje laptopova", link: "MegikPC.github.io/pages/LaptopServis.html" },
+            { label: "Servisiranje desktopova", link: "MegikPC.github.io/pages/DesktopServis.html" },
+            { label: "Online podrška", link: "MegikPC.github.io/pages/OnlineSupport.html" },
+            { label: "Ostalo", link: "MegikPC.github.io/pages/Other.html" }
         ]
     },
-    { label: "Kontakt", link: "pages/Contact.html" },
-    { label: "Autor", link: "pages/About_Us.html" },
-    { label: "Dokum.", link: "pages/Docs.pdf" }
+    { label: "Kontakt", link: "MegikPC.github.io/pages/Contact.html" },
+    { label: "Autor", link: "MegikPC.github.io/pages/About_Us.html" },
+    { label: "Dokum.", link: "MegikPC.github.io/pages/Docs.pdf" }
 ];
 // Pagination
 const CurrentPath = window.location.pathname;
@@ -78,7 +78,7 @@ LogoLink.setAttribute("href", getLink("index.html"));
 // Add logo link image
 const LogoImage = document.createElement("img");
 LogoImage.classList.add("img-fluid", "col-4");
-LogoImage.setAttribute("src", "/img/Trademarks/banner.png");
+LogoImage.setAttribute("src", "img/Trademarks/banner.png");
 LogoImage.setAttribute("alt", "Megik PC Logo");
 LogoLink.appendChild(LogoImage);
 
