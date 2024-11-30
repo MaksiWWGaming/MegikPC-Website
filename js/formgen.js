@@ -155,29 +155,11 @@ document.addEventListener("DOMContentLoaded", function() {
     MonthHelp.classList.add('form-text', 'HelpText');
     MonthCol.appendChild(MonthHelp);
 
-    // const yearCol = document.createElement('div');
-    // yearCol.classList.add('col-1', 'ms-1');
-    // const yearLabel = document.createElement('label');
-    // yearLabel.classList.add('form-label');
-    // yearLabel.innerHTML = 'Godina<span class="RequiredField"> *</span>';
-    // yearCol.appendChild(yearLabel);
-    // const yearInput = document.createElement('input');
-    // yearInput.classList.add('form-control');
-    // yearInput.setAttribute('type', 'text');
-    // yearInput.setAttribute('id', 'Year');
-    // yearInput.setAttribute('placeholder', 'yyyy');
-    // yearCol.appendChild(yearInput);
-    // const yearHelp = document.createElement('div');
-    // yearHelp.setAttribute('id', 'YearHelp');
-    // yearHelp.classList.add('form-text', 'HelpText');
-    // yearCol.appendChild(yearHelp);
-
     InputGroup2.appendChild(TimeOfArrivalCol);
     InputGroup2.appendChild(Space3);
     InputGroup2.appendChild(DayCol);
     // InputGroup2.appendChild(Space5);
     InputGroup2.appendChild(MonthCol);
-    // InputGroup2.appendChild(yearCol);
     form.appendChild(InputGroup2);
 
     const Margin2 = document.createElement('div');
@@ -363,7 +345,8 @@ document.addEventListener("DOMContentLoaded", function() {
     //Day regex
     let DayRegex = /^([0-2][0-9]|(3)[0-1])$/;
     const DayValue = new Date().getDate();
-    // const InputDay = Number(Day.value);  // Get the day as a number
+    console.log(DayValue);
+    const InputDay = Number(Day.value); 
     // const CurrentYear = new Date().getFullYear();  // Get the current year
     // const CurrentMonth = new Date().getMonth() + 1;  // Get the current month (1-based)
     // const MaxDays = GetDaysInMonth(CurrentYear, Number(Month.value));  // Max days in the selected month
@@ -371,18 +354,18 @@ document.addEventListener("DOMContentLoaded", function() {
     //     return new Date(year, month, 0).getDate();  // Get the number of days in the specified month
     // }
     Day.addEventListener("blur", function () {  
-
-        
         if (!DayRegex.test(Day.value)) {
             DayHelpText.innerHTML = "Dan mora biti između 01 i 31."; // Validate day input with regex
+            console.log(DayRegex.test(Day.value));
+            console.log(Number(Day.value));
             return;
+        } else {
+            DayHelpText.innerHTML = ""; 
         }
         
-        
-        
-        // if (InputDay < DayValue) {
-        //     DayHelpText.innerHTML = "Uneseni datum ne može biti manji od trenutnog datuma.";
-        // } 
+        if (Number(Day.value) <= DayValue) {
+            DayHelpText.innerHTML = "Datum mora biti barem sutrašnji.";
+        } 
 
         // // Check if the input day exceeds the max days in the selected month
         // else if (InputDay > MaxDays) {
@@ -393,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
     });
 
-    //Month regex
+    // Month regex
     let MonthRegex = /^(0[1-9]|1[0-2])$/;
     const MonthValue = new Date().getMonth()+1;
     console.log("Sistemski mesec " + MonthValue);
@@ -421,9 +404,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const NameValid = NameRegex.test(Name.value);
         const PhoneValid = PhoneRegex.test(Phone.value);
         const TimeOfArrivalValid = TimeOfArrival.selectedIndex !== 0;
-        // const DayValid = DayRegex.test(Day.value) && 
-        //                     Number(Day.value) >= DayValue &&
-        //                     InputDay > MaxDays;
+        const DayValid = DayRegex.test(Day.value) && 
+                            Number(Day.value) > DayValue;
         const MonthValid = MonthRegex.test(Month.value) && 
                             Number(Month.value) >= MonthValue || 
                             Number(Month.value) == MonthValue+1;

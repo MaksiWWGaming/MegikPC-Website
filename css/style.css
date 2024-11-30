@@ -95,9 +95,6 @@
   background-color: #121212;
   color: #fff;
 }
-.dark-mode .carousel-inner .carousel-item img {
-  filter: brightness(80%);
-}
 .dark-mode .navbar {
   background-color: #121212;
   box-shadow: 0 4px 3px 0px #e2e2e2;
@@ -197,162 +194,6 @@
 .dark-mode main .container hr.separate-content {
   border: 1px solid #fff;
 }
-.dark-mode main .pad-join .container p span {
-  background-color: #121212;
-}
-.dark-mode main .pad-mc-roles table {
-  border: 1px solid black;
-}
-.dark-mode main .pad-mc-roles table thead tr th {
-  color: #fff;
-  background-color: #121212;
-}
-.dark-mode main .pad-mc-roles table thead #thPasa {
-  color: #FFFF55;
-}
-.dark-mode main .pad-mc-roles table tbody tr th {
-  color: #fff;
-  background-color: #121212;
-}
-.dark-mode main .pad-mc-roles table tbody tr td {
-  background-color: #121212;
-}
-.dark-mode main #join-button {
-  background-color: #fff;
-  color: #000;
-}
-.dark-mode main #join-button:hover {
-  background-color: #121212;
-  color: #fff;
-  border: 1px solid white;
-}
-.dark-mode main .pad-katastar {
-  margin-top: 8%;
-  margin-bottom: -5%;
-}
-@media only screen and (max-width: 1250px) {
-  .dark-mode main .pad-katastar {
-    margin-top: 10%;
-  }
-}
-@media only screen and (max-width: 992px) {
-  .dark-mode main .pad-katastar {
-    margin-top: 10%;
-    margin-bottom: 0%;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .dark-mode main .pad-katastar {
-    margin-bottom: 9%;
-  }
-}
-@media only screen and (max-width: 576px) {
-  .dark-mode main .pad-katastar {
-    margin-top: 10%;
-    margin-bottom: 15%;
-  }
-}
-.dark-mode main .pad-katastar #Toast-Alert {
-  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.15);
-  background-color: #121212;
-}
-.dark-mode main .pad-katastar #Toast-Alert .toast-header {
-  background-color: #121212;
-  color: #fff;
-  border-bottom: 1px solid white;
-}
-.dark-mode main .pad-katastar #Toast-Alert .toast-header .btn-close {
-  color: #fff;
-  background-color: #fff;
-}
-.dark-mode main .pad-katastar #DisplayOptions1 button {
-  background-color: #121212;
-  color: #fff;
-  border: 1px solid white;
-}
-.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-item.active {
-  background-color: #f3f6f4;
-  color: #000;
-}
-.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu {
-  border: 1px solid white;
-  background-color: #121212;
-}
-.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-item {
-  font-size: 1rem;
-  color: #fff;
-}
-.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-item:hover {
-  background-color: #444444;
-}
-.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-item::after {
-  content: "";
-  width: 0;
-  height: 2px;
-  background-color: black;
-  margin: auto;
-  display: block;
-  background-color: #fff;
-}
-.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-item:hover::after {
-  width: 100%;
-  transition: width 150ms linear;
-  background-color: #fff;
-}
-.dark-mode main .pad-katastar #DisplayOptions1 .dropdown-menu .dropdown-divider {
-  background-color: #fff;
-}
-.dark-mode main .pad-katastar hr {
-  color: #fff;
-}
-.dark-mode main .pad-katastar #KatastarChoice button {
-  background-color: #121212;
-  color: #fff;
-}
-.dark-mode main .pad-katastar #KatastarChoice .active {
-  font-weight: bold !important;
-}
-.dark-mode main .pad-katastar #KatastarChoice .dropdown-item.active {
-  background-color: #f3f6f4;
-  color: #000;
-}
-.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu {
-  border: 1px solid white;
-  background-color: #121212;
-}
-.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-item {
-  font-size: 1rem;
-  color: #fff;
-}
-.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-item:hover {
-  background-color: #444444;
-}
-.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-item::after {
-  content: "";
-  width: 0;
-  height: 2px;
-  background-color: black;
-  margin: auto;
-  display: block;
-  background-color: #fff;
-}
-.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-item:hover::after {
-  width: 100%;
-  transition: width 150ms linear;
-  background-color: #fff;
-}
-.dark-mode main .pad-katastar #KatastarChoice .dropdown-menu .dropdown-divider {
-  background-color: #fff;
-}
-.dark-mode main .pad-katastar #KatastarMapChoice button {
-  background-color: #121212;
-  color: #fff;
-  border: 1px solid white;
-}
-.dark-mode main .pad-katastar #KatastarMapChoice button:hover {
-  background-color: #fff;
-  color: #000;
-}
 .dark-mode footer {
   border-top: 1px solid white;
 }
@@ -416,6 +257,10 @@
   }
   #ContactButton p {
     font-size: 0.8rem;
+  }
+  iframe {
+    width: 400px;
+    height: 350px;
   }
 }
 * {
@@ -555,12 +400,24 @@ body {
   transition: width 150ms linear;
 }
 
+#DarkMode {
+  font-size: 24px;
+}
+
+main h1 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
 main a {
   text-decoration: none;
 }
 main .container .card .card-body .index-images {
   width: 50%;
   height: 50%;
+}
+main .container .card .card-body .card-title {
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 main .container .card .card-body .card-title a {
   color: #000;
@@ -578,18 +435,23 @@ main .container .card .card-body .btn-primary {
   background-color: #121212;
   color: #fff;
   animation: HoverZoomOut 300ms ease;
+  font-weight: bold;
 }
 main .container .card .card-body .btn-primary:hover {
   border: 1px solid black;
   background-color: #fff;
   color: #000;
-  animation: HoverZoom 300ms ease;
+  animation: HoverZoom 300ms forwards;
 }
 main .container .card .card-body details summary {
   padding: 1% 0;
 }
 main .container .card .card-body details a {
   color: #fff;
+}
+main .container .card .card-body iframe {
+  width: 400px;
+  height: 300px;
 }
 main .container .card .card-body .ServicesList ul li {
   margin-top: 1%;
@@ -640,6 +502,9 @@ footer div span {
 footer .bi {
   color: black;
 }
+footer #MegikCopyYear {
+  margin: 0;
+}
 
 form .ValidInput {
   background-color: #fff;
@@ -656,8 +521,10 @@ form span {
 form #SubmitRequest {
   background-color: #121212;
   color: #fff;
+  font-weight: bold;
 }
 form #ResetRequest {
   background-color: #121212;
   color: #fff;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

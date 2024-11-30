@@ -125,8 +125,15 @@ body {
         }
     }
 }
+#DarkMode {
+    font-size: 24px;
+}
 
 main {
+    h1 {
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
     a {
         text-decoration: none;
     }
@@ -138,6 +145,8 @@ main {
                     height: 50%;
                 }
                 .card-title {
+                    font-weight: bold;
+                    margin-bottom: 15px;
                     a {
                         color: $whitetxt;
                         text-decoration: none;
@@ -155,12 +164,13 @@ main {
                     background-color: $darkbg;
                     color: $darktxt;
                     animation: HoverZoomOut 300ms ease;
+                    font-weight: bold;
                 }
                 .btn-primary:hover {
                     border: $whiteborder;
                     background-color: $whitebg;
                     color: $whitetxt;  
-                    animation: HoverZoom 300ms ease;
+                    animation: HoverZoom 300ms forwards;
                 }
                 details {
                     summary {
@@ -169,6 +179,10 @@ main {
                     a {
                         color: $darktxt;
                     }
+                }
+                iframe {
+                    width: 400px;
+                    height: 300px;
                 }
                 .ServicesList {
                     ul {
@@ -245,6 +259,9 @@ footer {
     .bi {
         color: black;
     }
+    #MegikCopyYear {
+        margin: 0;
+    }
 }
 
 //Form
@@ -265,9 +282,11 @@ form {
     #SubmitRequest {
         background-color: $darkbg;
         color: $darktxt;
+        font-weight: bold;
     }
     #ResetRequest {
         background-color: $darkbg;
         color: $darktxt; 
+        font-weight: bold;
     }
 }

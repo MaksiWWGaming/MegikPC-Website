@@ -16,7 +16,8 @@ const navItems = [
         ]
     },
     { label: "Kontakt", link: "pages/Contact.html" },
-    { label: "O autoru", link: "pages/About_Us.html" }
+    { label: "Autor", link: "pages/About_Us.html" },
+    { label: "Dokum.", link: "pages/Docs.pdf" }
 ];
 // Pagination
 const CurrentPath = window.location.pathname;
@@ -139,13 +140,24 @@ Nav.appendChild(DivContainer);
 // document.querySelector('#navbar-container')
 document.querySelector('#navbar-container').appendChild(Nav);
 
-// Add active id on current page currently not working
+// Add active id on current page
 const CurrentPage = window.location.pathname;
-const NavLinks = document.querySelectorAll(".navbar-nav .nav-link");
+const NavLinks = document.querySelectorAll(".nav-link");
+console.log("Current page link" + CurrentPage);
 
 NavLinks.forEach(link => {
-    if (link.getAttribute("href") === CurrentPage) {
+    if (link.getAttribute("href") === ".." + CurrentPage) {
         link.classList.add("active");
+    }
+});
+
+document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
+    console.log("Selected dropdown href " + dropdownItem.getAttribute("href"));
+    if (dropdownItem.getAttribute("href") === ".." + CurrentPage) {
+        const dropdownToggle = dropdownItem.closest(".dropdown").querySelector(".dropdown-toggle");
+        if (dropdownToggle) {
+            dropdownToggle.classList.add("active");
+        }
     }
 });
 
@@ -157,10 +169,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const CurrentYear = new Date().getFullYear();
 
     const FooterDiv = `
-                    <div class="col-3 col-md-9 d-flex align-items-center">
+                    <div class="col-4 col-md-9 d-flex align-items-center">
                         <span class="mb-4 mb-md-0">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> Megik PC</span> 
                     </div>
-                    <div class="col-4 col-md-1 d-flex align-items-center">
+                    <div class="col-3 col-md-1 d-flex align-items-center">
                         <a href="https://www.google.com/maps/place/Servis+Računara+Megik/@44.7459116,20.4544301,18.75z/data=!4m6!3m5!1s0x475a710017d9c723:0x5907459db511e708!8m2!3d44.7455926!4d20.4549122!16s%2Fg%2F11wjfwf4bs?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                 <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
@@ -175,8 +187,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div class="col-5 col-md-2 d-flex align-items-center">
                         <ul>
                             <li>Pon - Pet: 10:00 - 20:00</li>
-                            <li>Subotom: 10:00 - 16:00</li>
-                            <li>Nedeljom: Ne radimo</li>
+                            <li>Subota: 10:00 - 16:00</li>
+                            <li>Nedelja: Neradan dan </li>
                         </ul>
                     </div>
                     <div class="d-flex align-items-center">
