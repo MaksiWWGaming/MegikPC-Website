@@ -9,15 +9,15 @@ const navItems = [
         label: "Usluge", 
         link: "", 
         dropdown: [
-            { label: "Servisiranje laptopova", link: "/pages/LaptopServis.html" },
-            { label: "Servisiranje desktopova", link: "/pages/DesktopServis.html" },
-            { label: "Online podrška", link: "/pages/OnlineSupport.html" },
-            { label: "Ostalo", link: "/pages/Other.html" }
+            { label: "Servisiranje laptopova", link: "pages/LaptopServis.html" },
+            { label: "Servisiranje desktopova", link: "pages/DesktopServis.html" },
+            { label: "Online podrška", link: "pages/OnlineSupport.html" },
+            { label: "Ostalo", link: "pages/Other.html" }
         ]
     },
-    { label: "Kontakt", link: "/pages/Contact.html" },
-    { label: "Autor", link: "/pages/About_Us.html" },
-    { label: "Dokum.", link: "/pages/Docs.pdf" }
+    { label: "Kontakt", link: "pages/Contact.html" },
+    { label: "Autor", link: "pages/About_Us.html" },
+    { label: "Dokum.", link: "pages/Docs.pdf" }
 ];
 // Pagination
 const CurrentPath = window.location.pathname;
