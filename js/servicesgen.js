@@ -65,7 +65,6 @@ $(document).ready(function () {
         $(targetSelector).append(ul);
     }
 
-    // Determine the type of service and load services accordingly
     if (GetLink.includes("Laptop")) {
         console.log("Load laptop services");
         loadServices("Laptop", servicesMap.Laptop, "#GivenServicesList");
