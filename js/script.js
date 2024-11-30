@@ -9,27 +9,27 @@ const navItems = [
         label: "Usluge", 
         link: "", 
         dropdown: [
-            { label: "Servisiranje laptopova", link: "MegikPC.github.io/pages/LaptopServis.html" },
-            { label: "Servisiranje desktopova", link: "MegikPC.github.io/pages/DesktopServis.html" },
-            { label: "Online podrška", link: "MegikPC.github.io/pages/OnlineSupport.html" },
-            { label: "Ostalo", link: "MegikPC.github.io/pages/Other.html" }
+            { label: "Servisiranje laptopova", link: "pages/LaptopServis.html" },
+            { label: "Servisiranje desktopova", link: "pages/DesktopServis.html" },
+            { label: "Online podrška", link: "pages/OnlineSupport.html" },
+            { label: "Ostalo", link: "pages/Other.html" }
         ]
     },
-    { label: "Kontakt", link: "MegikPC.github.io/pages/Contact.html" },
-    { label: "Autor", link: "MegikPC.github.io/pages/About_Us.html" },
-    { label: "Dokum.", link: "MegikPC.github.io/pages/Docs.pdf" }
+    { label: "Kontakt", link: "pages/Contact.html" },
+    { label: "Autor", link: "pages/About_Us.html" },
+    { label: "Dokum.", link: "pages/Docs.pdf" }
 ];
 // Pagination
-const CurrentPath = window.location.pathname;
-const IsRootPage = CurrentPath === '/'; //Check if on root
+// const CurrentPath = window.location.pathname;
+// const IsRootPage = CurrentPath === '/'; //Check if on root
 
-function getLink(RelativePath) {
-    if (IsRootPage) {
-        return RelativePath;
-    } else {
-        return `../${RelativePath}`; // Go to root, then to page
-    }
-}
+// function getLink(RelativePath) {
+//     if (IsRootPage) {
+//         return RelativePath;
+//     } else {
+//         return `../${RelativePath}`; // Go to root, then to page
+//     }
+// }
 
 // Function to create a dropdown menu
 function createDropdownMenu(dropdownItems) {
