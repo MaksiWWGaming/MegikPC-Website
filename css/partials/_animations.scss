@@ -1,0 +1,64 @@
+//Webpage load
+@keyframes FadeInLoad{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+//Navbar on load
+@keyframes TopBottomLoad {
+    0% {transform: translateY(-200px);}
+    100% {transform: translateY(0px);}
+}
+
+//Navbar hide on scroll (uses JS)
+.scrolled-down{
+    transform: translateY(-100%); 
+    transition: all 0.3s ease-in-out;
+}
+
+.scrolled-up{
+    transform: translateY(0); 
+    transition: all 0.3s ease-in-out;
+}
+
+//Logo hover 
+@keyframes HoverZoom {
+    0% {transform: scale(1);}
+    100% {transform: scale(1.05);}
+}
+
+@keyframes HoverZoomOut {
+    0% {transform: scale(1.05);}
+    100% {transform: scale(1);}
+}
+
+//Navbar item hover 
+@keyframes NavItemHover {
+    0% {transform: rotateY(0deg);}
+    100% {transform: rotateY(180deg);}
+}
+
+@keyframes DropDownLoad {
+    0% {transform: translateY(50px);}
+    100% {transform: translateY(0px);}
+}
+
+//Breathing animation
+@keyframes BreathingXY {
+    0% {transform: scaleX(1); transform: scaleY(1);}
+    50% {transform: scaleX(1.05); transform: scaleY(1.02);}
+    100% {transform: scaleX(1); transform: scaleY(1);}
+}
+
+@keyframes BreathingX {
+    0%{transform: scaleX(1);}
+    50%{transform: scaleX(1.05);}
+    100%{transform: scaleX(1);}
+}
+
+//Tugging animation
+// @keyframes Tugging {
+//     0% {transform: translateY(-5px);}
+//     50% {transform: translateY(0px);}
+//     100% {transform: translateY(-5px);}
+// }
