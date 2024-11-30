@@ -78,7 +78,7 @@ LogoLink.setAttribute("href", getLink("index.html"));
 // Add logo link image
 const LogoImage = document.createElement("img");
 LogoImage.classList.add("img-fluid", "col-4");
-LogoImage.setAttribute("src", "img/Trademarks/banner.png");
+LogoImage.setAttribute("src", "/img/Trademarks/banner.png");
 LogoImage.setAttribute("alt", "Megik PC Logo");
 LogoLink.appendChild(LogoImage);
 
