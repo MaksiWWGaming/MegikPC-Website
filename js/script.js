@@ -73,7 +73,7 @@ DivContainer.classList.add("container-fluid");
 // Logo link
 const LogoLink = document.createElement("a");
 LogoLink.classList.add("navbar-brand");
-LogoLink.setAttribute("href", getLink("index.html"));
+LogoLink.setAttribute("href", getLink("/index.html"));
 
 // Add logo link image
 const LogoImage = document.createElement("img");
