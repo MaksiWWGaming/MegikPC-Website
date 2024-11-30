@@ -20,16 +20,16 @@ const navItems = [
     { label: "Dokum.", link: "/pages/Docs.pdf" }
 ];
 // Pagination
-// const CurrentPath = window.location.pathname;
-// const IsRootPage = CurrentPath === '/'; //Check if on root
+const CurrentPath = window.location.pathname;
+const IsRootPage = CurrentPath === '/'; //Check if on root
 
-// function getLink(RelativePath) {
-//     if (IsRootPage) {
-//         return RelativePath;
-//     } else {
-//         return `../${RelativePath}`; // Go to root, then to page
-//     }
-// }
+function getLink(RelativePath) {
+    if (IsRootPage) {
+        return RelativePath;
+    } else {
+        return `../${RelativePath}`; // Go to root, then to page
+    }
+}
 
 // Function to create a dropdown menu
 function createDropdownMenu(dropdownItems) {
