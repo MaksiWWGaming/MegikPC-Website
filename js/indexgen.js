@@ -35,35 +35,55 @@ const ServicesArray = [
 
 // Function to generate and append service cards
 function GenerateServiceCards() {
-    const MainContent = $('#MainContent');
-    let DivRow = $('<div>').addClass('row');
+    const MainContent = document.getElementById('MainContent');
+    let DivRow = document.createElement('div');
+    DivRow.classList.add('row');
 
     ServicesArray.forEach(service => {
-        let DivCol = $('<div>').addClass('col-md-6 col-lg-3 mb-3');
+        let DivCol = document.createElement('div');
+        DivCol.classList.add('col-md-6', 'col-lg-3', 'mb-3');
         
-        let Card = $('<div>').addClass('card text-center px-0').attr('id', service.id);
+        let Card = document.createElement('div');
+        Card.classList.add('card', 'text-center', 'px-0');
+        Card.id = service.id;
 
-        let CardBody = $('<div>').addClass('card-body');
+        let CardBody = document.createElement('div');
+        CardBody.classList.add('card-body');
         
-        let Title = $('<h5>').addClass('card-title').text(service.title);
+        let Title = document.createElement('h5');
+        Title.classList.add('card-title');
+        Title.innerText = service.title;
 
-        let Description = $('<p>').addClass('card-text').text(service.description);
+        let Description = document.createElement('p');
+        Description.classList.add('card-text');
+        Description.innerText = service.description;
 
-        let Img = $('<img>').addClass('card-img-top index-images').attr({
-            'src': service.image,
-            'alt': service.alt
-        });
+        let Img = document.createElement('img');
+        Img.classList.add('card-img-top', 'index-images');
+        Img.src = service.image;
+        Img.alt = service.alt;
 
-        let Link = $('<a>').addClass('btn btn-primary').attr('href', service.link).text('Saznajte više');
+        let Link = document.createElement('a');
+        Link.classList.add('btn', 'btn-primary');
+        Link.href = service.link;
+        Link.innerText = 'Saznajte više';
 
-        CardBody.append(Title, Description, Img, $('<br>'), $('<br>'), Link);
+        CardBody.appendChild(Title);
+        CardBody.appendChild(Description);
 
-        Card.append(CardBody);
-        DivCol.append(Card);
-        DivRow.append(DivCol);
+        CardBody.appendChild(Img);
+        CardBody.appendChild(document.createElement('br'));  
+        CardBody.appendChild(document.createElement('br')); 
+        CardBody.appendChild(Link);
+
+        Card.appendChild(CardBody);
+
+        DivCol.appendChild(Card);
+
+        DivRow.appendChild(DivCol);
     });
 
-    MainContent.append(DivRow);
+    MainContent.appendChild(DivRow);
 }
 
 GenerateServiceCards();
@@ -74,8 +94,7 @@ function Reviews() {
     const ReviewText = [
         "<p>Jovan Vučetić</p><span style='color:$whitetxt'>Dečko je ljubazan, efikasan, pouzdan, sve preporuke !</span>",
         "<p>Andrej</p><span style='color:$whitetxt'>Odličan servis. Odnet laptop na zamenu termalne paste i čišćenje. Završen za manje od jednog dana. Moje preporuke</span>",
-        "<p>Marina Bogic</p><span style='color:$whitetxt'>Saradnja sa Megikom je odlicna. Odnela sam stari desktop racunar na kom nije mogao sistem da se podigne i u najkracem roku je bilo reseno. Za vrlo krtako vreme i po veoma povoljnoj ceni je racunar popravljen. Pritom veliki dzentlmeni koji mi nisu mi dozvolili da ponesem racunar do kola sama. :) Sve preporuke za Servis racunara Megik</span>",
-        "<p>Nikola Radivojević</p><span style='color:$whitetxt'>Laptop popravljen u rekordnom roku ( jedan dan), sada radi kao na dan kada sam ga kupio. Sve pohvale za momka, stručan, učtiv i maksimalno profesionalan. Bio je čak i voljan da meni, laiku, objasni šta je tačno bio razlog kvara i dao pismenu garanciju za svoj rad.</span>",
+        "<p>Marina Bogic</p><span style='color:$whitetxt'>Saradnja sa Megikom je odlicna. Odnela sam stari desktop racunar na kom nije mogao sistem da se podigne i u najkracem roku je bilo reseno. Za vrlo krtako vreme i po veoma povoljnoj ceni je racunar popravljen. Pritom veliki dzentlmeni koji mi nisu mi dozvolili da ponesem racunar do kola sama. :) Sve preporuke za Servis racunara Megik</span>"
     ];
 
     const el = document.querySelector('#MovingText');

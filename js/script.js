@@ -4,33 +4,21 @@ console.log("Working JS");
 
 // Array with nav items
 const navItems = [
-    { 
-        label: "Početna", 
-        link: "index.html",
-    },
+    { label: "Početna", link: "index.html" },
     { 
         label: "Usluge", 
         link: "", 
         dropdown: [
             { label: "Servisiranje laptopova", link: "pages/LaptopServis.html" },
             { label: "Servisiranje desktopova", link: "pages/DesktopServis.html" },
-            { label: "Online podrška ", link: "pages/OnlineSupport.html" },
-            { label: "Ostalo", link: "pages/Other.html" },
+            { label: "Online podrška", link: "pages/OnlineSupport.html" },
+            { label: "Ostalo", link: "pages/Other.html" }
         ]
     },
-    { 
-        label: "Kontakt", 
-        link: "pages/Contact.html",
-    },
-    {
-        label: "Naši oglasi",
-        link: "https://www.kupujemprodajem.com/maksim-megik-servis/svi-oglasi/1781418/1",
-        target: "_blank",
-        rel: "noopener noreferrer",
-        // id: "oglasi"
-    },
+    { label: "Kontakt", link: "pages/Contact.html" },
+    { label: "Autor", link: "pages/About_Us.html" },
+    { label: "Dokum.", link: "pages/Docs.pdf" }
 ];
-
 // Pagination
 const CurrentPath = window.location.pathname;
 const IsRootPage = CurrentPath === '/'; //Check if on root
@@ -38,43 +26,40 @@ const IsRootPage = CurrentPath === '/'; //Check if on root
 function getLink(RelativePath) {
     if (IsRootPage) {
         return RelativePath;
-    } else if (RelativePath.includes("kupujem")){
-        return 'https://www.kupujemprodajem.com/maksim-megik-servis/svi-oglasi/1781418/1';
-    } 
-    else {
+    } else {
         return `../${RelativePath}`; // Go to root, then to page
     }
 }
 
 // Function to create a dropdown menu
-function createDropdownMenu(DropdownItems) {
-    const Dropdown = document.createElement("li");
-    Dropdown.classList.add("nav-item", "dropdown");
+function createDropdownMenu(dropdownItems) {
+    const dropdown = document.createElement("li");
+    dropdown.classList.add("nav-item", "dropdown");
 
-    const DropdownLink = document.createElement("a");
-    DropdownLink.classList.add("nav-link", "dropdown-toggle");
-    DropdownLink.setAttribute("role", "button");
-    DropdownLink.setAttribute("data-bs-toggle", "dropdown");
-    DropdownLink.setAttribute("aria-expanded", "false");
-    DropdownLink.innerHTML = `${DropdownItems.label} <i class="fa fa-caret-down" aria-hidden="true"></i>`;
+    const dropdownLink = document.createElement("a");
+    dropdownLink.classList.add("nav-link", "dropdown-toggle");
+    dropdownLink.setAttribute("role", "button");
+    dropdownLink.setAttribute("data-bs-toggle", "dropdown");
+    dropdownLink.setAttribute("aria-expanded", "false");
+    dropdownLink.innerHTML = `${dropdownItems.label} <i class="fa fa-caret-down" aria-hidden="true"></i>`;
 
-    const DropdownMenu = document.createElement("ul");
-    DropdownMenu.classList.add("dropdown-menu");
+    const dropdownMenu = document.createElement("ul");
+    dropdownMenu.classList.add("dropdown-menu");
 
-    DropdownItems.dropdown.forEach(item => {
-        const DropdownItem = document.createElement("li");
+    dropdownItems.dropdown.forEach(item => {
+        const dropdownItem = document.createElement("li");
         const link = document.createElement("a");
         link.classList.add("dropdown-item");
         link.setAttribute("href", getLink(item.link));
         link.textContent = item.label;
-        DropdownItem.appendChild(link);
-        DropdownMenu.appendChild(DropdownItem);
+        dropdownItem.appendChild(link);
+        dropdownMenu.appendChild(dropdownItem);
     });
 
-    Dropdown.appendChild(DropdownLink);
-    Dropdown.appendChild(DropdownMenu);
+    dropdown.appendChild(dropdownLink);
+    dropdown.appendChild(dropdownMenu);
 
-    return Dropdown;
+    return dropdown;
 }
 
 const Nav = document.createElement("nav");
@@ -136,19 +121,6 @@ navItems.forEach(item => {
         NavItem.appendChild(NavLink);
         NavbarList.appendChild(NavItem);
     }
-
-    // if (item.label === "Naši oglasi") {
-    //     const a = 
-    //     const icon = document.createElement('i');
-    //     icon.classList.add('bi', 'bi-cart'); // Adding Bootstrap icon classes
-        
-    //     // Append the icon first, then the label
-    //     a.appendChild(icon);
-    //     a.appendChild(document.createTextNode(` ${item.label}`));
-    // } else {
-    //     // Just the label if it's not "Naši oglasi"
-    //     a.appendChild(document.createTextNode(item.label));
-    // }
 });
 
 // Darkmode
@@ -193,68 +165,84 @@ document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
 
 //Create footer
 
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function() {
     const CurrentYear = new Date().getFullYear();
+
     const FooterDiv = `
-                    <div class="col-12 col-md-10">
+                    <div class="col-4 col-md-9 d-flex align-items-center">
                         <span class="mb-4 mb-md-0">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> Megik PC</span> 
                     </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="col-12 col-md-2">
+                    <div class="col-3 col-md-1 d-flex align-items-center">
+                        <a href="https://www.google.com/maps/place/Servis+Računara+Megik/@44.7459116,20.4544301,18.75z/data=!4m6!3m5!1s0x475a710017d9c723:0x5907459db511e708!8m2!3d44.7455926!4d20.4549122!16s%2Fg%2F11wjfwf4bs?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.kupujemprodajem.com/maksim-megik-servis/svi-oglasi/1781418/1" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-5 col-md-2 d-flex align-items-center">
                         <ul>
-                            <li>Pon - Pet: 10:00 - 19:00</li>
+                            <li>Pon - Pet: 10:00 - 20:00</li>
                             <li>Subota: 10:00 - 16:00</li>
                             <li>Nedelja: Neradan dan </li>
                         </ul>
                     </div>
                     <div class="d-flex align-items-center">
+
                     </div>
     `;
-    $('#FooterDiv').html(FooterDiv);
-    $('#MegikCopyYear').text(CurrentYear);
+
+    document.querySelector('#FooterDiv').innerHTML = FooterDiv;
+
+    document.getElementById("MegikCopyYear").textContent = CurrentYear;
 });
 
 //Retain darkmode icon
-$('#DarkMode').click(function (e) { 
-    e.preventDefault();
-    $(this).toggleClass("fa-moon fa-sun");
-    const DarkBody = $("body");
-    DarkBody.toggleClass("dark-mode");
-    localStorage.setItem('RememberDarkMode', DarkBody.hasClass('dark-mode'));
+DarkModeButton.addEventListener("click", function(){
+    DarkModeButton.classList.toggle("fa-moon");
+    DarkModeButton.classList.toggle("fa-sun");
+    var DarkBody = document.body;
+    DarkBody.classList.toggle("dark-mode");  
+    localStorage.setItem('RememberDarkMode', DarkBody.classList.contains('dark-mode'));
 });
 
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
     const DarkMode = localStorage.getItem('RememberDarkMode');
-    const DarkModeIcon = $(".fa-solid");
-
-    if (DarkMode === 'true') {
-        $("body").addClass("dark-mode");
-        DarkModeIcon.addClass("fa-sun").removeClass("fa-moon");
+    const DarkModeIcon = document.querySelector(".fa-solid");
+    if (DarkMode==='true') {
+        document.body.classList.add("dark-mode");
+        DarkModeIcon.classList.add("fa-sun");
+        DarkModeIcon.classList.remove("fa-moon");
         console.log("You have dark mode saved from last session");
     } else {
-        $("body").removeClass("dark-mode");
-        DarkModeIcon.addClass("fa-moon").removeClass("fa-sun");
+        document.body.classList.remove("dark-mode");
+        DarkModeIcon.classList.add("fa-moon");
+        DarkModeIcon.classList.remove("fa-sun");
         console.log("You have light mode saved from last session");
     }
 });
 
 //Auto Hide Navbar
-$(document).ready(function () {
-    var ElAutoHide = $('.autohide');
-    var ElDropDown = $('.dropdown-menu');
-    if (ElAutoHide.length) {
+document.addEventListener("DOMContentLoaded", function(){
+    ElAutoHide = document.querySelector('.autohide');
+    ElDropDown = document.querySelector('.dropdown-menu')
+    if(ElAutoHide){
         var LastScrollTop = 5;
-        $(window).on('scroll', function () {
-            var ScrollTop = $(this).scrollTop();
-            if (ScrollTop < LastScrollTop) {
-                ElAutoHide.removeClass('scrolled-down').addClass('scrolled-up');
+        window.addEventListener('scroll', function() {
+            let ScrollTop = window.scrollY;
+            if(ScrollTop < LastScrollTop) {
+                ElAutoHide.classList.remove('scrolled-down');
+                ElAutoHide.classList.add('scrolled-up');
             } else {
-                ElAutoHide.removeClass('scrolled-up').addClass('scrolled-down');
-                ElDropDown.removeClass('show');
+                ElAutoHide.classList.remove('scrolled-up');
+                ElAutoHide.classList.add('scrolled-down');
+                ElDropDown.classList.remove('show');
             }
             LastScrollTop = ScrollTop;
-        });
-    }
-});
+        }); 
+    }  
+}); 

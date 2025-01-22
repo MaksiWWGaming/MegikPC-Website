@@ -206,19 +206,9 @@
 .dark-mode form input {
   background-color: #121212;
   color: #fff;
-  border: 1px solid white !important;
-}
-.dark-mode form input:focus {
-  background-color: #121212;
-  color: #fff;
   border: 1px solid white;
 }
 .dark-mode form textarea {
-  background-color: #121212;
-  color: #fff;
-  border: 1px solid white !important;
-}
-.dark-mode form textarea:focus {
   background-color: #121212;
   color: #fff;
   border: 1px solid white;
@@ -226,7 +216,7 @@
 .dark-mode form select {
   background-color: #121212;
   color: #fff;
-  border: 1px solid white !important;
+  border: 1px solid white;
 }
 .dark-mode form .HelpText {
   opacity: 0.8;
@@ -238,7 +228,7 @@
   border: 1px solid white;
 }
 .dark-mode form .InvalidInput {
-  background-color: #5d5d5d;
+  background-color: #6b5856;
 }
 .dark-mode form ::-moz-placeholder {
   color: #fff;
@@ -268,8 +258,8 @@
   #ContactButton p {
     font-size: 0.8rem;
   }
-  #Maps {
-    width: 300px;
+  iframe {
+    width: 400px;
     height: 350px;
   }
 }
@@ -460,8 +450,8 @@ main .container .card .card-body details a {
   color: #fff;
 }
 main .container .card .card-body iframe {
-  width: 600px;
-  height: 350px;
+  width: 400px;
+  height: 300px;
 }
 main .container .card .card-body .ServicesList ul li {
   margin-top: 1%;
@@ -516,18 +506,6 @@ footer #MegikCopyYear {
   margin: 0;
 }
 
-form input {
-  border: 1px solid black !important;
-}
-form textarea {
-  border: 1px solid black !important;
-}
-form select {
-  border: 1px solid black !important;
-}
-form label {
-  font-weight: bold;
-}
 form .ValidInput {
   background-color: #fff;
 }
