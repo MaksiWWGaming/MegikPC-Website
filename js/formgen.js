@@ -3,8 +3,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Form
     const form = document.createElement('form');
-    form.setAttribute('action', '');
-    form.setAttribute('method', 'get');
+    form.setAttribute('action', 'https://api.web3forms.com/submit');
+    form.setAttribute('method', 'post');
+
+    const KeyValid = document.createElement("input");
+    KeyValid.type = "hidden";
+    KeyValid.name = "access_key";
+    KeyValid.value = "a2cd7e59-5eec-4bf9-bce9-72727f94470f";
+
+    const BotCheck = document.createElement("input");
+    BotCheck.type = "checkbox";
+    BotCheck.name = "botcheck";
+    BotCheck.classList.add("hidden");
+    BotCheck.style.display = "none";
+
+    $(form).append(KeyValid);
+    $(form).append(BotCheck);
 
     // Name, Phone, Email
     const InputGroup1 = document.createElement('div');
@@ -22,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     NameInput.classList.add('form-control');
     NameInput.setAttribute('type', 'text');
     NameInput.setAttribute('id', 'Name');
+    NameInput.setAttribute('name', 'Name');
     NameInput.setAttribute('placeholder', 'Vaše ime');
     NameCol.appendChild(NameInput);
     const NameHelp = document.createElement('div');
@@ -43,6 +58,7 @@ document.addEventListener("DOMContentLoaded", function() {
     PhoneInput.classList.add('form-control');
     PhoneInput.setAttribute('type', 'tel');
     PhoneInput.setAttribute('id', 'Phone');
+    PhoneInput.setAttribute('name', 'Phone');
     PhoneInput.setAttribute('placeholder', 'Vaš broj telefona');
     PhoneCol.appendChild(PhoneInput);
     const PhoneHelp = document.createElement('div');
@@ -64,7 +80,8 @@ document.addEventListener("DOMContentLoaded", function() {
     EmailInput.classList.add('form-control');
     EmailInput.setAttribute('type', 'email');
     EmailInput.setAttribute('id', 'Email');
-    EmailInput.setAttribute('placeholder', 'email@primer.com (opciono)');
+    EmailInput.setAttribute('name', 'Email');
+    EmailInput.setAttribute('placeholder', 'email@primer.com');
     EmailCol.appendChild(EmailInput);
     const EmailHelp = document.createElement('div');
     EmailHelp.setAttribute('id', 'EmailHelp');
@@ -77,90 +94,6 @@ document.addEventListener("DOMContentLoaded", function() {
     InputGroup1.appendChild(Space2);
     InputGroup1.appendChild(EmailCol);
     form.appendChild(InputGroup1);
-
-    const Margin1 = document.createElement('div');
-    Margin1.classList.add('m-3');
-    form.appendChild(Margin1);
-
-    // Date
-    const InputGroup2 = document.createElement('div');
-    InputGroup2.classList.add('input-group');
-    InputGroup2.classList.add('mb-3'); 
-
-    const TimeOfArrivalCol = document.createElement('div');
-    TimeOfArrivalCol.classList.add('col-12', 'col-sm-3');
-    const TimeOfArrivalLabel = document.createElement('label');
-    TimeOfArrivalLabel.setAttribute('for', 'TimeOfArrival');
-    TimeOfArrivalLabel.classList.add('form-label');
-    TimeOfArrivalLabel.innerHTML = 'Vreme dolaska<span class="RequiredField"> *</span>';
-    TimeOfArrivalCol.appendChild(TimeOfArrivalLabel);
-    const TimeOfArrivalSelect = document.createElement('select');
-    TimeOfArrivalSelect.classList.add('form-select');
-    TimeOfArrivalSelect.setAttribute('id', 'TimeOfArrival');
-
-    const TimeOptionsArray = [
-        "Izaberite vreme dolaska", "10:00 - 11:00", "11:00 - 12:00", "12:00 - 13:00",
-        "13:00 - 14:00", "14:00 - 15:00", "15:00 - 16:00", "16:00 - 17:00",
-        "17:00 - 18:00", "18:00 - 19:00", "19:00 - 20:00"
-    ];
-    TimeOptionsArray.forEach(time => {
-        const option = document.createElement('option');
-        option.textContent = time;
-        TimeOfArrivalSelect.appendChild(option);
-    });
-    TimeOfArrivalCol.appendChild(TimeOfArrivalSelect);
-    const TimeHelp = document.createElement('div');
-    TimeHelp.setAttribute('id', 'TimeOfArrivalHelp');
-    TimeHelp.classList.add('form-text', 'HelpText');
-    TimeHelp.textContent = 'Vreme dolaska je bitno radi planiranja aktivnosti servisa za taj dan.';
-    TimeOfArrivalCol.appendChild(TimeHelp);
-
-    const Space3 = document.createElement('div');
-    Space3.classList.add('col-sm-1');
-
-    const DayCol = document.createElement('div');
-    DayCol.classList.add('col-5', 'col-sm-2');
-    const DayLabel = document.createElement('label');
-    DayLabel.classList.add('form-label');
-    DayLabel.innerHTML = 'Dan<span class="RequiredField"> *</span>';
-    DayCol.appendChild(DayLabel);
-    const DayInput = document.createElement('input');
-    DayInput.classList.add('form-control');
-    DayInput.setAttribute('type', 'text');
-    DayInput.setAttribute('id', 'Day');
-    DayInput.setAttribute('placeholder', '01-31');
-    DayCol.appendChild(DayInput);
-    const DayHelp = document.createElement('div');
-    DayHelp.setAttribute('id', 'DayHelp');
-    DayHelp.classList.add('form-text', 'HelpText');
-    DayCol.appendChild(DayHelp);
-
-    // const Space5 = document.createElement('div');
-    // Space5.classList.add('col-2', 'col-sm-');
-
-    const MonthCol = document.createElement('div');
-    MonthCol.classList.add('col-5', 'col-sm-2', 'ms-1');
-    const MonthLabel = document.createElement('label');
-    MonthLabel.classList.add('form-label');
-    MonthLabel.innerHTML = 'Mesec<span class="RequiredField"> *</span>';
-    MonthCol.appendChild(MonthLabel);
-    const MonthInput = document.createElement('input');
-    MonthInput.classList.add('form-control');
-    MonthInput.setAttribute('type', 'text');
-    MonthInput.setAttribute('id', 'Month');
-    MonthInput.setAttribute('placeholder', '01-12');
-    MonthCol.appendChild(MonthInput);
-    const MonthHelp = document.createElement('div');
-    MonthHelp.setAttribute('id', 'MonthHelp');
-    MonthHelp.classList.add('form-text', 'HelpText');
-    MonthCol.appendChild(MonthHelp);
-
-    InputGroup2.appendChild(TimeOfArrivalCol);
-    InputGroup2.appendChild(Space3);
-    InputGroup2.appendChild(DayCol);
-    // InputGroup2.appendChild(Space5);
-    InputGroup2.appendChild(MonthCol);
-    form.appendChild(InputGroup2);
 
     const Margin2 = document.createElement('div');
     Margin2.classList.add('m-3');
@@ -183,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ManufacturerSelect.setAttribute('id', 'ManufacturerSelect');
     
     const ManufacturerArray = [
-        "Izaberite proizvođača (opciono)", "HP", "Dell", "Lenovo", "Acer", "Asus", "Desktop", "Nema na listi"
+        "Izaberite proizvođača", "HP", "Dell", "Lenovo", "Acer", "Asus", "Apple", "Desktop", "Nema na listi"
     ];
     ManufacturerArray.forEach(manufacturer => {
         const option = document.createElement('option');
@@ -206,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ModelInput.classList.add('form-control');
     ModelInput.setAttribute('type', 'text');
     ModelInput.setAttribute('id', 'Model');
-    ModelInput.setAttribute('placeholder', 'Unesite model/matičnu ploču uređaja (opciono)');
+    ModelInput.setAttribute('placeholder', 'Unesite model/matičnu ploču uređaja');
     ModelCol.appendChild(ModelInput);
 
     InputGroup3.appendChild(ManufacturerCol);
@@ -226,16 +159,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const CommentCol = document.createElement('div');
     CommentCol.classList.add('col-12');
     const CommentLabel = document.createElement('label');
-    CommentLabel.setAttribute('for', 'ExtraComment');
+    CommentLabel.setAttribute('for', 'ProblemDescription');
     CommentLabel.classList.add('form-label');
-    CommentLabel.innerHTML = 'Dodatni komentar';
+    CommentLabel.innerHTML = 'Opišite problem<span class="RequiredField"> *</span>';
     CommentCol.appendChild(CommentLabel);
     const CommentTextArea = document.createElement('textarea');
     CommentTextArea.classList.add('form-control');
-    CommentTextArea.setAttribute('id', 'ExtraComment');
+    CommentTextArea.setAttribute('id', 'ProblemDescription');
+    CommentTextArea.setAttribute('name', 'ProblemDescription');
     CommentTextArea.setAttribute('rows', '5');
-    CommentTextArea.setAttribute('placeholder', 'Opišite problem koji imate sa uređajem. To nam pomaže da vam damo adekvatan predračun. (opciono)');
+    CommentTextArea.setAttribute('placeholder', 'Opišite problem koji imate sa uređajem. To nam pomaže da vam damo adekvatan predračun. Takođe upišite i dodatne informacije za koje mislite da su nam potrebne.');
     CommentCol.appendChild(CommentTextArea);
+    const ProblemDescriptionHelp = document.createElement('div');
+    ProblemDescriptionHelp.setAttribute('id', 'ProblemDescriptionHelp');
+    ProblemDescriptionHelp.classList.add('form-text', 'HelpText');
+    CommentCol.appendChild(ProblemDescriptionHelp);
 
     InputGroup4.appendChild(CommentCol);
     form.appendChild(InputGroup4);
@@ -278,15 +216,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const PhoneHelpText = document.getElementById("PhoneHelp");
     const Email = document.getElementById("Email");
     const EmailHelpText = document.getElementById("EmailHelp");
-    const TimeOfArrival = document.getElementById("TimeOfArrival");
-    const TimeOfArrivalHelpText = document.getElementById("TimeOfArrivalHelp");
-    const Day = document.getElementById("Day");
-    const DayHelpText = document.getElementById("DayHelp");
-    const Month = document.getElementById("Month");
-    const MonthHelpText = document.getElementById("MonthHelp");
-    const ManufacturerSelected = document.getElementById("ManufacturerSelect");
-    const Model = document.getElementById("Model");
-    const ExtraComment = document.getElementById("ExtraComment");
+    // const ManufacturerSelected = document.getElementById("ManufacturerSelect");
+    // const Model = document.getElementById("Model");
+    const ProblemDescription = document.getElementById("ProblemDescription");
+    const ProblemDescriptionHelpText = document.getElementById("ProblemDescriptionHelp");
     const SubmitRequest = document.getElementById("SubmitRequest");
     const SubmitHelpText = document.getElementById("SubmitHelp");
     const ResetRequest = document.getElementById("ResetRequest");
@@ -294,9 +227,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //Color invalid input
     Name.classList.add("InvalidInput");
     Phone.classList.add("InvalidInput");
-    TimeOfArrival.classList.add("InvalidInput");
-    Day.classList.add("InvalidInput");
-    Month.classList.add("InvalidInput");
+    ProblemDescription.classList.add("InvalidInput");
 
     //Regex
 
@@ -333,66 +264,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    //Time of arrival check
-    TimeOfArrival.addEventListener("blur", function(){  
-        if (TimeOfArrival.selectedIndex == 0) {
-            TimeOfArrivalHelpText.innerHTML = " Morate izabrati neko od ponuđenog vremena.";
+    ProblemDescription.addEventListener("blur", function() {
+        if (ProblemDescription.value == "") {
+            ProblemDescriptionHelpText.innerHTML = "Potrebno je opisati problem";
         } else {
-            TimeOfArrivalHelpText.innerHTML = "Vreme dolaska je bitno radi planiranja aktivnosti servisa za taj dan.";
+            ProblemDescriptionHelpText.innerHTML = "";
         }
-    });
-
-    //Day regex
-    let DayRegex = /^([0-2][0-9]|(3)[0-1])$/;
-    const DayValue = new Date().getDate();
-    console.log(DayValue);
-    const InputDay = Number(Day.value); 
-    // const CurrentYear = new Date().getFullYear();  // Get the current year
-    // const CurrentMonth = new Date().getMonth() + 1;  // Get the current month (1-based)
-    // const MaxDays = GetDaysInMonth(CurrentYear, Number(Month.value));  // Max days in the selected month
-    // function GetDaysInMonth(year, month) {
-    //     return new Date(year, month, 0).getDate();  // Get the number of days in the specified month
-    // }
-    Day.addEventListener("blur", function () {  
-        if (!DayRegex.test(Day.value)) {
-            DayHelpText.innerHTML = "Dan mora biti između 01 i 31."; // Validate day input with regex
-            console.log(DayRegex.test(Day.value));
-            console.log(Number(Day.value));
-            return;
-        } else {
-            DayHelpText.innerHTML = ""; 
-        }
-        
-        if (Number(Day.value) <= DayValue) {
-            DayHelpText.innerHTML = "Datum mora biti barem sutrašnji.";
-        } 
-
-        // // Check if the input day exceeds the max days in the selected month
-        // else if (InputDay > MaxDays) {
-        //     DayHelpText.innerHTML = `Uneseni mesec ima maksimalno ${MaxDays} dana.`;
-        // } else {
-        //     DayHelpText.innerHTML = "";  
-        // }
-        
-    });
-
-    // Month regex
-    let MonthRegex = /^(0[1-9]|1[0-2])$/;
-    const MonthValue = new Date().getMonth()+1;
-    console.log("Sistemski mesec " + MonthValue);
-    console.log(Number(Month.value));
-    Month.addEventListener("blur", function () {  
-        if (!MonthRegex.test(Month.value)) {
-            MonthHelpText.innerHTML = "Mesec mora biti između 01 i 12.";
-            console.log("Ok");
-            return;
-        } 
-        if (Month.value >= MonthValue || Month.value == MonthValue+1) {
-            MonthHelpText.innerHTML = "";
-        } else {
-            MonthHelpText.innerHTML = "Mesec ne može biti manji od tekućeg.";
-        }
-    });
+    })
 
     // Onload disable submit
     window.addEventListener("load", function(){
@@ -403,20 +281,17 @@ document.addEventListener("DOMContentLoaded", function() {
     function CheckFormValidity() {
         const NameValid = NameRegex.test(Name.value);
         const PhoneValid = PhoneRegex.test(Phone.value);
-        const TimeOfArrivalValid = TimeOfArrival.selectedIndex !== 0;
-        const DayValid = DayRegex.test(Day.value) && 
-                            Number(Day.value) > DayValue;
-        const MonthValid = MonthRegex.test(Month.value) && 
-                            Number(Month.value) >= MonthValue || 
-                            Number(Month.value) == MonthValue+1;
-    
+        var ProblemDescriptionValid = 0;
+        if (ProblemDescription.value == "") {
+            ProblemDescriptionValid = 0;
+        } else {
+            ProblemDescriptionValid = 1;
+        }
         console.log("NameValid:", NameValid);
         console.log("PhoneValid:", PhoneValid);
-        console.log("TimeOfArrivalValid:", TimeOfArrivalValid);
-        console.log("DayValid:", DayValid);
-        console.log("MonthValid:", MonthValid);
+        console.log("ProblemDescriptionValid:", ProblemDescriptionValid);
         
-        if (NameValid && PhoneValid && TimeOfArrivalValid && DayValid && MonthValid) {
+        if (NameValid && PhoneValid && ProblemDescriptionValid == 1) {
             SubmitRequest.removeAttribute('disabled');
             SubmitButton.innerHTML = 'Podnesite zahtev';
             SubmitHelpText.innerHTML = '';
@@ -440,35 +315,17 @@ document.addEventListener("DOMContentLoaded", function() {
             Phone.classList.remove("ValidInput");
             Phone.classList.add("InvalidInput");
         }
-        if (TimeOfArrivalValid) {
-            TimeOfArrival.classList.add("ValidInput");
-            TimeOfArrival.classList.remove("InvalidInput");
+        if (ProblemDescriptionValid) {
+            ProblemDescription.classList.add("ValidInput");
+            ProblemDescription.classList.remove("InvalidInput");
         } else {
-            TimeOfArrival.classList.remove("ValidInput");
-            TimeOfArrival.classList.add("InvalidInput");
-        }
-        if (DayValid) {
-            Day.classList.add("ValidInput");
-            Day.classList.remove("InvalidInput");
-        } else {
-            Day.classList.remove("ValidInput");
-            Day.classList.add("InvalidInput");
-        }
-        if (MonthValid) {
-            Month.classList.add("ValidInput");
-            Month.classList.remove("InvalidInput");
-        } else {
-            Month.classList.remove("ValidInput");
-            Month.classList.add("InvalidInput");
+            ProblemDescription.classList.remove("ValidInput");
+            ProblemDescription.classList.add("InvalidInput");
         }
     }
 
     Name.addEventListener("blur", CheckFormValidity);
     Phone.addEventListener("blur", CheckFormValidity);
-    TimeOfArrival.addEventListener("blur", CheckFormValidity);
-    Day.addEventListener("blur", CheckFormValidity);
-    Month.addEventListener("blur", CheckFormValidity);
-
+    ProblemDescription.addEventListener("blur", CheckFormValidity);
+    ResetRequest.addEventListener("blur", CheckFormValidity);
 });
-
-

@@ -105,6 +105,12 @@ body {
         background-color: $whitenavbar;
         color: $whitetxt;
     }
+    // a.nav-link.dropdown-toggle::after {
+    //     @include underline-hover-after;
+    // }
+    // a.nav-link.dropdown-toggle:hover::after {
+    //     @include underline-hover-after2;
+    // }
     a.nav-link.dropdown-toggle::after {
         visibility: hidden;
     }
@@ -181,8 +187,8 @@ main {
                     }
                 }
                 iframe {
-                    width: 400px;
-                    height: 300px;
+                    width: 600px;
+                    height: 350px;
                 }
                 .ServicesList {
                     ul {
@@ -194,6 +200,7 @@ main {
                 }
                 .OtherServicesButton {
                     width: 70%;
+
                 }
             }
         }
@@ -267,6 +274,18 @@ footer {
 //Form
 
 form {
+    input {
+        border: $whiteborder !important;
+    }
+    textarea {
+        border: $whiteborder !important;
+    }
+    select {
+        border: $whiteborder !important;
+    }
+    label {
+        font-weight: bold;
+    }
     .ValidInput {
         background-color: $whitebg;
     }

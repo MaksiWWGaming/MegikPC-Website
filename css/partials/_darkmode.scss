@@ -147,17 +147,27 @@
         input {
             background-color: $darkbg;
             color: $darktxt;
-            border: $darkborder;
-        }
+            border: $darkborder !important;
+            &:focus {
+                background-color: $darkbg;
+                color: $darktxt;
+                border: $darkborder;
+            }
+        } 
         textarea {
             background-color: $darkbg;
             color: $darktxt;
-            border: $darkborder;
+            border: $darkborder !important;
+            &:focus {
+                background-color: $darkbg;
+                color: $darktxt;
+                border: $darkborder;
+            }
         }
         select {
             background-color: $darkbg;
             color: $darktxt;
-            border: $darkborder;
+            border: $darkborder !important;
         }
         .HelpText {
             opacity: 0.8;
