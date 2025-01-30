@@ -6,8 +6,8 @@ $(document).ready(function () {
     const servicesMap = {
         Laptop: [
             "Dijagnostika",
-            "Zamena delova",
-            "Nabavka delova",
+            "Zamena komponenti",
+            "Nabavka komponenti",
             "Čišćenje iznutra i spolja",
             "Zamena termalne paste",
         ],
@@ -22,16 +22,16 @@ $(document).ready(function () {
         Online: [
             "Dijagnostika softverskih problema",
             "Aktivacija Windows OS i Office paketa",
-            "Instalacija Office paketa",
+            "Instalacija Office 2016 paketa",
             "Instalacija i update drivera",
             "Uklanjanje virusa i ostalih malicioznih programa",
-            "Konvertovanje fajlova i kompresija fajlova",
         ],
         Other: [
             "Dijagnostika softverskih problema",
             "Uklanjanje virusa i ostalih malicioznih programa (offline)",
             "Kloniranje diskova (mogućnost prenosa OSa sa svim podacima sa jednog na drugi disk)",
             "Spašavanje podataka sa diskova",
+            "Konvertovanje fajlova i kompresija fajlova",
             "Prenos fajlova sa jednog tipa medijuma na drugi",
         ],
     };

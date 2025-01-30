@@ -126,6 +126,9 @@
             hr.separate-content {
                 border: 1px solid $darktxt;
             }
+            hr.separate-service {
+                border: 1px solid $darktxt;
+            }
         }
     }
 
@@ -147,17 +150,27 @@
         input {
             background-color: $darkbg;
             color: $darktxt;
-            border: $darkborder;
-        }
+            border: $darkborder !important;
+            &:focus {
+                background-color: $darkbg;
+                color: $darktxt;
+                border: $darkborder;
+            }
+        } 
         textarea {
             background-color: $darkbg;
             color: $darktxt;
-            border: $darkborder;
+            border: $darkborder !important;
+            &:focus {
+                background-color: $darkbg;
+                color: $darktxt;
+                border: $darkborder;
+            }
         }
         select {
             background-color: $darkbg;
             color: $darktxt;
-            border: $darkborder;
+            border: $darkborder !important;
         }
         .HelpText {
             opacity: 0.8;

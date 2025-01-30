@@ -105,9 +105,12 @@ body {
         background-color: $whitenavbar;
         color: $whitetxt;
     }
-    a.nav-link.dropdown-toggle::after {
-        visibility: hidden;
-    }
+    // a.nav-link.dropdown-toggle::before {
+    //     visibility: hidden;
+    // }
+    // a.nav-link.dropdown-toggle::after {
+    //     visibility: hidden;
+    // }
     .dropdown-menu {
             animation: DropDownLoad 0.3s ease;
             border: $whiteborder;
@@ -181,8 +184,8 @@ main {
                     }
                 }
                 iframe {
-                    width: 400px;
-                    height: 300px;
+                    width: 600px;
+                    height: 350px;
                 }
                 .ServicesList {
                     ul {
@@ -194,6 +197,7 @@ main {
                 }
                 .OtherServicesButton {
                     width: 70%;
+
                 }
             }
         }
@@ -201,6 +205,12 @@ main {
             width: 70%;
             margin: 15px auto;
             border: 2px solid $whitetxt;
+        }
+        hr.separate-service {
+            width: 70%;
+            margin: 15px auto;
+            border: 2px solid $whitetxt;
+            display: none;
         }
         #MainContent {
             .card {
@@ -267,6 +277,22 @@ footer {
 //Form
 
 form {
+    input {
+        border: $whiteborder !important;
+    }
+    textarea {
+        border: $whiteborder !important;
+    }
+    select {
+        border: $whiteborder !important;
+        margin-bottom: 10px;
+    }
+    label {
+        font-weight: bold;
+    }
+    .HelpText {
+        margin-bottom: 10px;
+    }
     .ValidInput {
         background-color: $whitebg;
     }

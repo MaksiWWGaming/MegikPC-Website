@@ -194,6 +194,9 @@
 .dark-mode main .container hr.separate-content {
   border: 1px solid #fff;
 }
+.dark-mode main .container hr.separate-service {
+  border: 1px solid #fff;
+}
 .dark-mode footer {
   border-top: 1px solid white;
 }
@@ -206,9 +209,19 @@
 .dark-mode form input {
   background-color: #121212;
   color: #fff;
+  border: 1px solid white !important;
+}
+.dark-mode form input:focus {
+  background-color: #121212;
+  color: #fff;
   border: 1px solid white;
 }
 .dark-mode form textarea {
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid white !important;
+}
+.dark-mode form textarea:focus {
   background-color: #121212;
   color: #fff;
   border: 1px solid white;
@@ -216,7 +229,7 @@
 .dark-mode form select {
   background-color: #121212;
   color: #fff;
-  border: 1px solid white;
+  border: 1px solid white !important;
 }
 .dark-mode form .HelpText {
   opacity: 0.8;
@@ -228,7 +241,7 @@
   border: 1px solid white;
 }
 .dark-mode form .InvalidInput {
-  background-color: #6b5856;
+  background-color: #5d5d5d;
 }
 .dark-mode form ::-moz-placeholder {
   color: #fff;
@@ -251,16 +264,41 @@
   color: #000;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 1069px) {
+  a.nav-link {
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  #DarkMode {
+    padding: 0px 0px 30px 30px;
+  }
+  a.nav-link {
+    font-size: 24px;
+  }
+  hr.separate-service {
+    display: block !important;
+  }
+  #ContactButton .card-body h4 {
+    font-size: 20px;
+  }
+  #ContactButton .card-body .small {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 767px) {
   #ContactButton h4 {
     font-size: 1.1rem;
   }
   #ContactButton p {
     font-size: 0.8rem;
   }
-  iframe {
-    width: 400px;
+  #Maps {
+    width: 350px;
     height: 350px;
+  }
+  .welcome {
+    text-align: center;
   }
 }
 * {
@@ -374,9 +412,6 @@ body {
   background-color: #f3f6f4;
   color: #000;
 }
-.navbar a.nav-link.dropdown-toggle::after {
-  visibility: hidden;
-}
 .navbar .dropdown-menu {
   animation: DropDownLoad 0.3s ease;
   border: 1px solid black;
@@ -450,8 +485,8 @@ main .container .card .card-body details a {
   color: #fff;
 }
 main .container .card .card-body iframe {
-  width: 400px;
-  height: 300px;
+  width: 600px;
+  height: 350px;
 }
 main .container .card .card-body .ServicesList ul li {
   margin-top: 1%;
@@ -463,6 +498,12 @@ main .container hr.separate-content {
   width: 70%;
   margin: 15px auto;
   border: 2px solid #000;
+}
+main .container hr.separate-service {
+  width: 70%;
+  margin: 15px auto;
+  border: 2px solid #000;
+  display: none;
 }
 main .container #MainContent .card {
   animation: HoverZoomOut 0.3s ease;
@@ -506,6 +547,22 @@ footer #MegikCopyYear {
   margin: 0;
 }
 
+form input {
+  border: 1px solid black !important;
+}
+form textarea {
+  border: 1px solid black !important;
+}
+form select {
+  border: 1px solid black !important;
+  margin-bottom: 10px;
+}
+form label {
+  font-weight: bold;
+}
+form .HelpText {
+  margin-bottom: 10px;
+}
 form .ValidInput {
   background-color: #fff;
 }

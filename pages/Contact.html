@@ -40,7 +40,7 @@
         <!--FontAwesome-->
         <script src="https://kit.fontawesome.com/9343e2a586.js" crossorigin="anonymous"></script>
         <!--JQuery-->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <!--My script is at the bottom of the page-->
     </head>
     <body>
@@ -54,7 +54,7 @@
                 <div class="container">
                     <div class="row">
                         <div id="ContactForm" class="col col-12 align-middle">
-                            <h1 class="text-center">Zakažite servis</h1>
+                            <h1 class="text-center">Pošaljite upit za servis</h1>
                             <div class="m-3"></div>
                         </div>
                     </div>
@@ -66,7 +66,12 @@
                             <div class="card text-center border-0">
                                 <div class="card-body">
                                     <h5 class="card-title mb-3">Ili nas kontaktirajte putem mobilnog, SMS, Whatsapp ili Vibera</h5>
-                                    <a href="tel:+3810605987444" class="btn btn-primary">Poziv na klik</a>
+                                    <a href="tel:+3810605987444" class="btn btn-primary">Poziv na klik 
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-outbound-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877zM11 .5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V1.707l-4.146 4.147a.5.5 0 0 1-.708-.708L14.293 1H11.5a.5.5 0 0 1-.5-.5"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#PhoneClick" id="PhoneClick" class="btn btn-primary">Prikaži broj</a>
                                 </div>
                             </div>
                         </div>
@@ -75,11 +80,56 @@
             </main>
 
             <footer id="FooterDiv" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"></footer>
-
         </div>
+        
+        <script>
+            //Show phone number on button click
+            $(document).ready(function() {
+                $('#PhoneClick').click(function() {
+                    $(this).text('+381 060-5987-444');
+                });
+            });
 
+            const form = document.getElementById('form');
+            const result = document.getElementById('result');
+            
+            form.addEventListener('submit', function(e) {
+              e.preventDefault();
+              const formData = new FormData(form);
+              const object = Object.fromEntries(formData);
+              const json = JSON.stringify(object);
+              result.innerHTML = "Please wait..."
+            
+                fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                    .then(async (response) => {
+                        let json = await response.json();
+                        if (response.status == 200) {
+                            result.innerHTML = "Upsešno poslat upit";
+                        } else {
+                            console.log(response);
+                            result.innerHTML = json.message;
+                        }
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        result.innerHTML = "Something went wrong!";
+                    })
+                    .then(function() {
+                        form.reset();
+                        setTimeout(() => {
+                            result.style.display = "none";
+                        }, 3000);
+                    });
+            });
+        </script>
         <script src="../js/script.js"></script>
         <script src="../js/formgen.js"></script>
-
     </body>
 </html>

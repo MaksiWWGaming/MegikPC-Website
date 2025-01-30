@@ -1,14 +1,39 @@
-// @media only screen and (max-width:1774px) {
-//     footer {
-//         ul {
-//             li {
-//                 font-size: 0.5rem;
-//             }
-//         }
-//     }
-// }
+@media only screen and (max-width:1069px) {
+    a.nav-link {
+        font-size: 20px;
+    }
+}
 
-@media only screen and (max-width:780px) {
+@media only screen and (max-width:992px) {
+    #DarkMode {
+        padding: 0px 0px 30px 30px;
+    }
+    a.nav-link {
+        font-size: 24px;
+    }
+    // .card {
+    //     .card-body {
+    //         p {
+    //             font-size: 12px;
+    //         }
+    //     }
+    // }
+    hr.separate-service {
+        display: block !important;
+    }
+    #ContactButton {
+        .card-body {
+            h4 {
+                font-size: 20px;
+            }
+            .small {
+                font-size: 12px;
+            }
+        }
+    }
+} 
+
+@media only screen and (max-width:767px) {
     #ContactButton {
         h4 {
             font-size: 1.1rem;
@@ -17,8 +42,11 @@
             font-size: 0.8rem;
         }
     }
-    iframe {
-        width: 400px;
-        height: 350px;
+    #Maps {
+        width: 350px;
+        height: 350px; 
+    }
+    .welcome {
+        text-align: center;
     }
 }
