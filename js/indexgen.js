@@ -92,3 +92,4 @@ GenerateServiceCards();
 // setTimeout(function() {
 //     document.querySelector('#ReviewSpinner').classList.remove("spinner-border");
 // }, 5000);
+

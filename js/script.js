@@ -166,6 +166,12 @@ NavLinks.forEach(link => {
     }
 });
 
+NavLinks.forEach(link => {
+    if (CurrentPage == "/" && link.textContent.trim() === "Početna") {
+        link.classList.add("active");
+    }
+});
+
 document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
     console.log("Selected dropdown href " + dropdownItem.getAttribute("href"));
     if (dropdownItem.getAttribute("href") === ".." + CurrentPage) {
