@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let IsFirstFocus = true;
     Phone.addEventListener("focus", function() {
         if (IsFirstFocus) {
-            Phone.value = "+381 06";
+            Phone.value = "+38106";
             IsFirstFocus = false;
         }
     });
