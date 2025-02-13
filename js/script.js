@@ -143,8 +143,13 @@ const DarkModeButton = document.createElement("i");
 DarkModeButton.classList.add("fa-solid", "fa-moon");
 DarkModeButton.setAttribute("id", "DarkMode");
 
+const LanguageButton = document.createElement("i");
+LanguageButton.classList.add("fa-solid", "fa-globe");
+LanguageButton.setAttribute("id", "Language");
+
 NavbarCollapse.appendChild(NavbarList);
 NavbarCollapse.appendChild(DarkModeButton);
+NavbarCollapse.appendChild(LanguageButton);
 
 DivContainer.appendChild(LogoLink);
 DivContainer.appendChild(HamburgerMenu);
@@ -154,6 +159,9 @@ Nav.appendChild(DivContainer);
 
 // document.querySelector('#navbar-container')
 document.querySelector('#navbar-container').appendChild(Nav);
+
+console.log("Dark Mode Button:", document.getElementById("DarkMode"));
+console.log("Language Button:", document.getElementById("Language"));
 
 // Add active id on current page
 const CurrentPage = window.location.pathname;
@@ -221,7 +229,7 @@ $('#DarkMode').click(function (e) {
 
 $(document).ready(function () {
     const DarkMode = localStorage.getItem('RememberDarkMode');
-    const DarkModeIcon = $(".fa-solid");
+    const DarkModeIcon = $("#DarkMode");
 
     if (DarkMode === 'true') {
         $("body").addClass("dark-mode");
@@ -233,6 +241,37 @@ $(document).ready(function () {
         console.log("You have light mode saved from last session");
     }
 });
+
+//Language button
+$('#Language').click(function (e) { 
+    e.preventDefault();
+        var toastHTML = `
+        <div class="toast text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+                English language currently not available.<br>
+                Please check again later.
+            </div>
+        </div>`;
+
+    // Append toast to the body or a container
+    var toastContainer = $(".toast-container");
+    if (toastContainer.length === 0) {
+        toastContainer = $('<div class="toast-container position-fixed bottom-0 end-0 p-3"></div>');
+        $("body").append(toastContainer);
+    }
+    toastContainer.append(toastHTML);
+
+    // Initialize and show the toast
+    var toastElement = toastContainer.find(".toast").last();
+    var toast = new bootstrap.Toast(toastElement[0]);
+    toast.show();
+});
+
+$(document).ready(function () {
+
+});
+
+
 
 //Auto Hide Navbar
 $(document).ready(function () {

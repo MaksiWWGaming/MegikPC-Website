@@ -49,16 +49,17 @@ body {
 .scrolled-down {
     transform: translateY(-100%);
     transition: all 0.3s ease-in-out;
-  }
+}
   .scrolled-up {  
     transform: translateY(0);
     transition: all 0.3s ease-in-out;
-  }
+}
 
 //Navbar
 #navbar-container {
     height: 150px;
 }
+
 .navbar {
     box-shadow: 0 4px 3px 0px #000;
     animation: TopBottomLoad 1s ease;
@@ -128,7 +129,13 @@ body {
         }
     }
 }
+
 #DarkMode {
+    font-size: 24px;
+    padding-right: 10px;
+}
+
+#Language {
     font-size: 24px;
 }
 
@@ -136,6 +143,12 @@ main {
     h1 {
         font-weight: bold;
         margin-bottom: 15px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 20px;
     }
     a {
         text-decoration: none;
@@ -187,6 +200,9 @@ main {
                     width: 600px;
                     height: 350px;
                 }
+                .ServicesHead {
+                    font-size: 24px;
+                }
                 .ServicesList {
                     ul {
                         // list-style-type: none;
@@ -195,9 +211,14 @@ main {
                         }
                     }
                 }
+                .ServicesContact {
+                    font-size: 24px;
+                }
+                .OtherServicesHead {
+                    font-size: 20px;
+                }
                 .OtherServicesButton {
                     width: 70%;
-
                 }
             }
         }

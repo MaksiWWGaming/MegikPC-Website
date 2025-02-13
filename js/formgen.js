@@ -197,6 +197,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const SubmitHelp = document.createElement('div');
     SubmitHelp.setAttribute('id', 'SubmitHelp');
     SubmitHelp.classList.add('form-text', 'HelpText');
+    SubmitHelp.style.display = 'none';
     SubmitButton.appendChild(SubmitHelp);
 
     const ResetButton = document.createElement('button');
@@ -304,6 +305,7 @@ document.addEventListener("DOMContentLoaded", function() {
             SubmitHelpText.innerHTML = '';
         } else {
             SubmitRequest.setAttribute('disabled', 'true');
+            SubmitHelp.style.display = 'block';
             SubmitHelpText.innerHTML = 'Morate popuniti sva obavezna polja';
         }
 

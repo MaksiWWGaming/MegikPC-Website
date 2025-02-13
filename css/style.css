@@ -437,11 +437,22 @@ body {
 
 #DarkMode {
   font-size: 24px;
+  padding-right: 10px;
+}
+
+#Language {
+  font-size: 24px;
 }
 
 main h1 {
   font-weight: bold;
   margin-bottom: 15px;
+}
+main h2 {
+  font-size: 20px;
+}
+main h3 {
+  font-size: 20px;
 }
 main a {
   text-decoration: none;
@@ -488,8 +499,17 @@ main .container .card .card-body iframe {
   width: 600px;
   height: 350px;
 }
+main .container .card .card-body .ServicesHead {
+  font-size: 24px;
+}
 main .container .card .card-body .ServicesList ul li {
   margin-top: 1%;
+}
+main .container .card .card-body .ServicesContact {
+  font-size: 24px;
+}
+main .container .card .card-body .OtherServicesHead {
+  font-size: 20px;
 }
 main .container .card .card-body .OtherServicesButton {
   width: 70%;

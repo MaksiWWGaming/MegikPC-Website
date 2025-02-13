@@ -45,7 +45,7 @@ function GenerateServiceCards() {
 
         let CardBody = $('<div>').addClass('card-body');
         
-        let Title = $('<h5>').addClass('card-title').text(service.title);
+        let Title = $('<h3>').addClass('card-title').text(service.title);
 
         let Description = $('<p>').addClass('card-text').text(service.description);
 
