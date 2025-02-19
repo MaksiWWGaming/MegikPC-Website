@@ -2,31 +2,31 @@ const ServicesArray = [
     {
         id: 'Laptop',
         title: 'Servisiranje laptopova',
-        description: 'Nije bitan proizvođač laptopa, bitno je da mi možemo da rešimo problem!',
+        description: 'Nije bitan proizvođač, bitno je da mi sve možemo da rešimo!',
         image: 'img/Pages/Index/Laptop.png',
-        link: 'pages/LaptopServis.html',
+        link: 'pages/Laptop.html',
         alt: 'Laptop'
     },
     {
         id: 'Desktop',
         title: 'Servisiranje desktopova',
-        description: 'Vaš desktop računar ima problem? Tu smo da razrešimo u što kraćem roku!',
+        description: 'Muči vas desktop računar? Stojimo Vam na raspologanju!',
         image: 'img/Pages/Index/Desktop.png',
-        link: 'pages/DesktopServis.html',
+        link: 'pages/Desktop.html',
         alt: 'Desktop'
     },
     {
         id: 'AnyDesk',
         title: 'Online podrška',
-        description: 'Imate problem koji može da se reši na daljinu? Uvek smo tu preko AnyDesk!',
+        description: 'Daljinski rešivi problemi? Uvek smo tu preko AnyDesk!',
         image: 'img/Pages/Index/Anydesk.png',
-        link: 'pages/OnlineSupport.html',
+        link: 'pages/Online.html',
         alt: 'AnyDesk'
     },
     {
         id: 'Other',
         title: 'Ostali vidovi podrške',
-        description: 'Megik PC nema ono što tražite? Javite nam se, verovatno "znamo čoveka"!',
+        description: 'MegikPC nema ono što tražite? Verovatno "znamo čoveka"!',
         image: 'img/Pages/Index/Other.png',
         link: 'pages/Other.html',
         alt: 'Ostala podrška'

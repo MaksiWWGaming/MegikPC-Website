@@ -22,13 +22,14 @@ $(document).ready(function () {
         Online: [
             "Dijagnostika softverskih problema",
             "Aktivacija Windows OS i Office paketa",
-            "Instalacija Office 2016 paketa",
+            "Instalacija Office paketa",
+            "Instalacija Adobe programa",
             "Instalacija i update drivera",
             "Uklanjanje virusa i ostalih malicioznih programa",
         ],
         Other: [
             "Dijagnostika softverskih problema",
-            "Uklanjanje virusa i ostalih malicioznih programa (offline)",
+            "Uklanjanje virusa i ostalih malicioznih programa",
             "Kloniranje diskova (mogućnost prenosa OSa sa svim podacima sa jednog na drugi disk)",
             "Spašavanje podataka sa diskova",
             "Konvertovanje fajlova i kompresija fajlova",
@@ -39,20 +40,21 @@ $(document).ready(function () {
     const notGivenServicesMap = {
         Laptop: [
             "Mikro lemljenje (zamena delova na matičnoj ploči)",
-            "Uklanjanje šifara sa uređaja (iCloud Lock, BIOS lock, Firmware lock, itd.)",
-            "Spašavanje podataka sa mrtvih diskova (korišćenje specijalizovane opreme)",
+            "Uklanjanje šifara sa uređaja (iCloud, BIOS, Firmware lock, itd.)",
+            "Spašavanje podataka sa mrtvih diskova (korišćenjem specijalizovane opreme)",
         ],
         Desktop: [
             "Mikro lemljenje (zamena delova na matičnoj ploči)",
-            "Uklanjanje šifara sa uređaja (iCloud Lock, BIOS lock, Firmware lock, itd.)",
+            "Uklanjanje šifara sa uređaja (iCloud, BIOS, Firmware lock, itd.)",
+            "Spašavanje podataka sa mrtvih diskova (korišćenjem specijalizovane opreme)",
         ],
         Online: [
             "Povratak pristupa nalozima",
-            "Uklanjanje šifara sa uređaja (iCloud Lock, BIOS lock, Firmware lock, itd.)",
+            "Uklanjanje šifara sa uređaja (iCloud, BIOS, Firmware lock, itd.)",
         ],
         Other: [
             "Povratak pristupa nalozima",
-            "Uklanjanje šifara sa uređaja (iCloud Lock, BIOS lock, Firmware lock, itd.)",
+            "Uklanjanje šifara sa uređaja (iCloud, BIOS, Firmware lock, itd.)",
         ],
     };
 

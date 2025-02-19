@@ -12,10 +12,10 @@ const navItems = [
         label: "Usluge", 
         link: "", 
         dropdown: [
-            { label: "Servisiranje laptopova", link: "pages/LaptopServis.html" },
-            { label: "Servisiranje desktopova", link: "pages/DesktopServis.html" },
-            { label: "Online podrška ", link: "pages/OnlineSupport.html" },
-            { label: "Ostalo", link: "pages/Other.html" },
+            { label: "Laptop Servis", link: "pages/Laptop.html" },
+            { label: "Desktop Servis", link: "pages/Desktop.html" },
+            { label: "Online Rešenja", link: "pages/Online.html" },
+            { label: "Ostala Rešenja", link: "pages/Other.html" },
         ]
     },
     { 
@@ -23,12 +23,19 @@ const navItems = [
         link: "pages/Contact.html",
     },
     {
-        label: "Online prodaja",
+        label: "Prodaja",
         link: "https://www.kupujemprodajem.com/maksim-megik-servis/svi-oglasi/1781418/1",
-        target: "_blank",
-        rel: "noopener noreferrer",
     },
 ];
+
+//Opens Prodaja in new tab
+$(document).ready(function() {
+    $(".nav-item a").each(function() {
+        if ($(this).text().includes("Prodaja")) {
+            $(this).attr("target", "_blank").attr("rel", "noopener noreferrer");
+        }
+    });
+});
 
 // Pagination
 const CurrentPath = window.location.pathname;
@@ -265,6 +272,10 @@ $('#Language').click(function (e) {
     var toastElement = toastContainer.find(".toast").last();
     var toast = new bootstrap.Toast(toastElement[0]);
     toast.show();
+
+    // setTimeout(() => {
+    //     window.location.href = "en/index.html";
+    // }, 500); // Redirects after 3 seconds
 });
 
 $(document).ready(function () {
