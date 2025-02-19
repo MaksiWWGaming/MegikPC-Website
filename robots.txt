@@ -1,2 +1,11 @@
-User-agent: *
-Disallow: 404.html
+# Start of file
+user-agent: *
+disallow: /404.html
+
+# Allow specific resources
+Allow: /css/
+Allow: /js/
+Allow: /img/
+
+# Sitemap location
+sitemap: https://www.megikpc.com/sitemap.xml

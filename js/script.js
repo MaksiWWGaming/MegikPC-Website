@@ -100,13 +100,15 @@ LogoLink.setAttribute("href", getLink("/index.html"));
 // Add logo link image
 const LogoImage = document.createElement("img");
 LogoImage.classList.add("img-fluid", "col-4");
-LogoImage.setAttribute("src", "/img/Trademarks/banner.png");
+LogoImage.setAttribute("src", "/img/Trademarks/banner.webp");
 LogoImage.setAttribute("alt", "Megik PC Logo");
+LogoImage.setAttribute("width", "200");
+LogoImage.setAttribute("height", "100");
 LogoLink.appendChild(LogoImage);
 
 // Add hamburger menu
 const HamburgerMenu = document.createElement("button");
-HamburgerMenu.classList.add("navbar-toggler");
+HamburgerMenu.classList.add("navbar-toggler", "mt-2", "mt-lg-0");
 HamburgerMenu.setAttribute("type", "button");
 HamburgerMenu.setAttribute("data-bs-toggle", "collapse");
 HamburgerMenu.setAttribute("data-bs-target", "#navbarSupportedContent");
@@ -164,7 +166,6 @@ DivContainer.appendChild(NavbarCollapse);
 
 Nav.appendChild(DivContainer);
 
-// document.querySelector('#navbar-container')
 document.querySelector('#navbar-container').appendChild(Nav);
 
 console.log("Dark Mode Button:", document.getElementById("DarkMode"));
