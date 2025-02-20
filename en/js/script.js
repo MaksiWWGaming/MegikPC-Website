@@ -15,7 +15,7 @@ const navItems = [
             { label: "Laptop Services", link: "/en/pages/Laptop.html" },
             { label: "Desktop Services", link: "/en/pages/Desktop.html" },
             { label: "Online Solutions", link: "/en/pages/Online.html" },
-            { label: "Ostala Solutions", link: "/en/pages/Other.html" },
+            { label: "Other Solutions", link: "/en/pages/Other.html" },
         ]
     },
     { 

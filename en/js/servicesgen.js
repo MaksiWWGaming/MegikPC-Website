@@ -21,7 +21,7 @@ $(document).ready(function () {
         ],
         Online: [
             "Software problem diagnostics",
-            "Activating Windows OS i Office",
+            "Activating Windows OS and Office",
             "Office installations",
             "Adobe installations",
             "Updating or installing drivers",
