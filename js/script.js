@@ -254,10 +254,10 @@ $(document).ready(function () {
 $('#Language').click(function (e) { 
     e.preventDefault();
         var toastHTML = `
-        <div class="toast text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-body">
-                English language currently not available.<br>
-                Please check again later.
+                Redirecting to English page.<br>
+                Please wait...
             </div>
         </div>`;
 
@@ -274,9 +274,19 @@ $('#Language').click(function (e) {
     var toast = new bootstrap.Toast(toastElement[0]);
     toast.show();
 
-    // setTimeout(() => {
-    //     window.location.href = "en/index.html";
-    // }, 500); // Redirects after 3 seconds
+
+    setTimeout(() => {
+        // Get the current path
+        let currentPath = window.location.pathname;
+        if (currentPath === "/index.html" || currentPath === "/") {
+            // Redirect from Serbian index to English index
+            window.location.href = "/en/index.html";
+        } else if (currentPath.startsWith("/pages/")) {
+            // Redirect from Serbian pages to English pages
+            let newPath = currentPath.replace("/pages/", "/en/pages/");
+            window.location.href = newPath;
+        }
+    }, 2000);
 });
 
 $(document).ready(function () {

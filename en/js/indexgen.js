@@ -1,35 +1,35 @@
 const ServicesArray = [
     {
         id: 'Laptop',
-        title: 'Servisiranje laptopova',
-        description: 'Nije bitan proizvođač, bitno je da mi sve možemo da rešimo!',
-        image: 'img/Pages/Index/Laptop.png',
-        link: 'pages/Laptop.html',
+        title: 'Laptop Service',
+        description: 'No matter what the manufacturer is, the importnt thing is we can solve it all!',
+        image: '/img/Pages/Index/Laptop.webp',
+        link: '/en/pages/Laptop.html',
         alt: 'Laptop'
     },
     {
         id: 'Desktop',
-        title: 'Servisiranje desktopova',
-        description: 'Muči vas desktop računar? Stojimo Vam na raspologanju!',
-        image: 'img/Pages/Index/Desktop.png',
-        link: 'pages/Desktop.html',
+        title: 'Desktop Service',
+        description: 'Is your desktop giving you a headache? We are here for you at all times!',
+        image: '/img/Pages/Index/Desktop.webp',
+        link: '/en/pages/Desktop.html',
         alt: 'Desktop'
     },
     {
         id: 'AnyDesk',
-        title: 'Online podrška',
-        description: 'Daljinski rešivi problemi? Uvek smo tu preko AnyDesk!',
-        image: 'img/Pages/Index/Anydesk.png',
-        link: 'pages/Online.html',
+        title: 'Online Support',
+        description: 'Remotely resolvable issue? Contact us so we can help via AnyDesk!',
+        image: '/img/Pages/Index/Anydesk.webp',
+        link: '/en/pages/Online.html',
         alt: 'AnyDesk'
     },
     {
         id: 'Other',
-        title: 'Ostali vidovi podrške',
-        description: 'MegikPC nema ono što tražite? Verovatno "znamo čoveka"!',
-        image: 'img/Pages/Index/Other.png',
-        link: 'pages/Other.html',
-        alt: 'Ostala podrška'
+        title: 'Other Types of Support',
+        description: 'MegikPC doesn\' have what you are looking for? We might "know a guy"!',
+        image: '/img/Pages/Index/Other.webp',
+        link: '/en/pages/Other.html',
+        alt: 'Other support'
     }
 ];
 
@@ -54,7 +54,7 @@ function GenerateServiceCards() {
             'alt': service.alt
         });
 
-        let Link = $('<a>').addClass('btn btn-primary').attr('href', service.link).text('Saznajte više');
+        let Link = $('<a>').addClass('btn btn-primary').attr('href', service.link).text('Learn more');
 
         CardBody.append(Title, Description, Img, $('<br>'), $('<br>'), Link);
 
@@ -67,29 +67,3 @@ function GenerateServiceCards() {
 }
 
 GenerateServiceCards();
-
-// let ReviewIndex = 0; 
-
-// function Reviews() {
-//     const ReviewText = [
-//         "<p>Jovan Vučetić</p><span style='color:$whitetxt'>Dečko je ljubazan, efikasan, pouzdan, sve preporuke !</span>",
-//         "<p>Andrej</p><span style='color:$whitetxt'>Odličan servis. Odnet laptop na zamenu termalne paste i čišćenje. Završen za manje od jednog dana. Moje preporuke</span>",
-//         "<p>Marina Bogic</p><span style='color:$whitetxt'>Saradnja sa Megikom je odlicna. Odnela sam stari desktop racunar na kom nije mogao sistem da se podigne i u najkracem roku je bilo reseno. Za vrlo krtako vreme i po veoma povoljnoj ceni je racunar popravljen. Pritom veliki dzentlmeni koji mi nisu mi dozvolili da ponesem racunar do kola sama. :) Sve preporuke za Servis racunara Megik</span>",
-//         "<p>Nikola Radivojević</p><span style='color:$whitetxt'>Laptop popravljen u rekordnom roku ( jedan dan), sada radi kao na dan kada sam ga kupio. Sve pohvale za momka, stručan, učtiv i maksimalno profesionalan. Bio je čak i voljan da meni, laiku, objasni šta je tačno bio razlog kvara i dao pismenu garanciju za svoj rad.</span>",
-//     ];
-
-//     const el = document.querySelector('#MovingText');
-//     el.innerHTML = ReviewText[ReviewIndex];
-
-//     ReviewIndex++;
-//     if (ReviewIndex >= ReviewText.length) {
-//         ReviewIndex = 0;
-//     }
-// }
-
-// setInterval(Reviews, 5000);
-
-// setTimeout(function() {
-//     document.querySelector('#ReviewSpinner').classList.remove("spinner-border");
-// }, 5000);
-

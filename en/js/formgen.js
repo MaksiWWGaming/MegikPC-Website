@@ -31,14 +31,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const NameLabel = document.createElement('label');
     NameLabel.setAttribute('for', 'Name');
     NameLabel.classList.add('form-label');
-    NameLabel.innerHTML = 'Ime<span class="RequiredField"> *</span>';
+    NameLabel.innerHTML = 'Name<span class="RequiredField"> *</span>';
     NameCol.appendChild(NameLabel);
     const NameInput = document.createElement('input');
     NameInput.classList.add('form-control');
     NameInput.setAttribute('type', 'text');
     NameInput.setAttribute('id', 'Name');
     NameInput.setAttribute('name', 'Name');
-    NameInput.setAttribute('placeholder', 'Vaše ime');
+    NameInput.setAttribute('placeholder', 'Your name');
     NameCol.appendChild(NameInput);
     const NameHelp = document.createElement('div');
     NameHelp.setAttribute('id', 'NameHelp');
@@ -53,14 +53,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const PhoneLabel = document.createElement('label');
     PhoneLabel.setAttribute('for', 'Phone');
     PhoneLabel.classList.add('form-label');
-    PhoneLabel.innerHTML = 'Telefon<span class="RequiredField"> *</span>';
+    PhoneLabel.innerHTML = 'Phone<span class="RequiredField"> *</span>';
     PhoneCol.appendChild(PhoneLabel);
     const PhoneInput = document.createElement('input');
     PhoneInput.classList.add('form-control');
     PhoneInput.setAttribute('type', 'tel');
     PhoneInput.setAttribute('id', 'Phone');
     PhoneInput.setAttribute('name', 'Phone');
-    PhoneInput.setAttribute('placeholder', 'Vaš broj telefona');
+    PhoneInput.setAttribute('placeholder', 'Your phone number');
     PhoneCol.appendChild(PhoneInput);
     const PhoneHelp = document.createElement('div');
     PhoneHelp.setAttribute('id', 'PhoneHelp');
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
     EmailInput.setAttribute('type', 'email');
     EmailInput.setAttribute('id', 'Email');
     EmailInput.setAttribute('name', 'Email');
-    EmailInput.setAttribute('placeholder', 'email@primer.com');
+    EmailInput.setAttribute('placeholder', 'email@example.com');
     EmailCol.appendChild(EmailInput);
     const EmailHelp = document.createElement('div');
     EmailHelp.setAttribute('id', 'EmailHelp');
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const ManufacturerLabel = document.createElement('label');
     ManufacturerLabel.setAttribute('for', 'ManufacturerSelect');
     ManufacturerLabel.classList.add('form-label');
-    ManufacturerLabel.innerHTML = 'Proizvođač uređaja';
+    ManufacturerLabel.innerHTML = 'Device manufacturer';
     ManufacturerCol.appendChild(ManufacturerLabel);
     const ManufacturerSelect = document.createElement('select');
     ManufacturerSelect.classList.add('form-select');
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ManufacturerSelect.setAttribute('name', 'ManufacturerSelect');
     
     const ManufacturerArray = [
-        "Izaberite proizvođača", "HP", "Dell", "Lenovo", "Acer", "Asus", "Apple", "Desktop", "Nema na listi"
+        "Pick a manufacturer", "HP", "Dell", "Lenovo", "Acer", "Asus", "Apple", "Desktop", "Not on list"
     ];
     ManufacturerArray.forEach(manufacturer => {
         const option = document.createElement('option');
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ModelInput.setAttribute('type', 'text');
     ModelInput.setAttribute('id', 'Model');
     ModelInput.setAttribute('name', 'Model');
-    ModelInput.setAttribute('placeholder', 'Unesite model/matičnu ploču uređaja');
+    ModelInput.setAttribute('placeholder', 'Insert device model/motherboard');
     ModelCol.appendChild(ModelInput);
 
     InputGroup3.appendChild(ManufacturerCol);
@@ -164,14 +164,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const CommentLabel = document.createElement('label');
     CommentLabel.setAttribute('for', 'ProblemDescription');
     CommentLabel.classList.add('form-label');
-    CommentLabel.innerHTML = 'Opišite problem<span class="RequiredField"> *</span>';
+    CommentLabel.innerHTML = 'Problem description<span class="RequiredField"> *</span>';
     CommentCol.appendChild(CommentLabel);
     const CommentTextArea = document.createElement('textarea');
     CommentTextArea.classList.add('form-control');
     CommentTextArea.setAttribute('id', 'ProblemDescription');
     CommentTextArea.setAttribute('name', 'ProblemDescription');
     CommentTextArea.setAttribute('rows', '5');
-    CommentTextArea.setAttribute('placeholder', 'Bolji opis problema nam pomaže u proceni predračuna. Takođe upišite sve dodatne informacije za koje mislite da su potrebne.');
+    CommentTextArea.setAttribute('placeholder', 'Better descriptions allow us to give you a more accurate service cost. Also type any other info you deem necessary');
     CommentCol.appendChild(CommentTextArea);
     const ProblemDescriptionHelp = document.createElement('div');
     ProblemDescriptionHelp.setAttribute('id', 'ProblemDescriptionHelp');
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function() {
     SubmitButton.setAttribute('type', 'submit');
     SubmitButton.classList.add('btn', 'form-buttons');
     SubmitButton.setAttribute('id', 'SubmitRequest');
-    SubmitButton.innerHTML = 'Podnesite zahtev';
+    SubmitButton.innerHTML = 'Submit request';
     const SubmitHelp = document.createElement('div');
     SubmitHelp.setAttribute('id', 'SubmitHelp');
     SubmitHelp.classList.add('form-text', 'HelpText');
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ResetButton.setAttribute('type', 'reset');
     ResetButton.classList.add('btn', 'form-buttons');
     ResetButton.setAttribute('id', 'ResetRequest');
-    ResetButton.innerHTML = 'Očistite polja';
+    ResetButton.innerHTML = 'Clear fields';
 
     ButtonGroup.appendChild(ResetButton);
     ButtonGroup.appendChild(SubmitButton);
@@ -239,24 +239,24 @@ document.addEventListener("DOMContentLoaded", function() {
     let NameRegex = /^[A-Z][a-z]{1,29}$/;
     Name.addEventListener("blur", function(){  
         if (!NameRegex.test(Name.value)) {
-            NameHelpText.innerHTML = "Ime mora da počne sa velikim slovom.";
+            NameHelpText.innerHTML = "Name must begin with a capital letter.";
         } else {
             NameHelpText.innerHTML = "";
         }
     });
 
     //Phone regex
-    let PhoneRegex = /^\+38106\d{7,8}$/;
+    let PhoneRegex = /^\+\d{1,3}[-.\s]?\(?\d{1,4}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/;
     let IsFirstFocus = true;
     Phone.addEventListener("focus", function() {
         if (IsFirstFocus) {
-            Phone.value = "+38106";
+            // Phone.value = "+38106";
             IsFirstFocus = false;
         }
     });
     Phone.addEventListener("blur", function(){  
         if (!PhoneRegex.test(Phone.value)) {
-            PhoneHelpText.innerHTML = "Telefon po +38106 sa nastavkom od 7 do 8 cifara.";
+            PhoneHelpText.innerHTML = "Phone starts with +country code";
         } else {
             PhoneHelpText.innerHTML = "";
         }
@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     Email.addEventListener("blur", function(){  
         if (!EmailRegex.test(Email.value)) {
-            EmailHelpText.innerHTML = "Email se kuca kao 'email@primer.com'";
+            EmailHelpText.innerHTML = "Email format as 'email@example.com'";
         } else {
             EmailHelpText.innerHTML = "";
         }
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     ProblemDescription.addEventListener("blur", function() {
         if (ProblemDescription.value == "") {
-            ProblemDescriptionHelpText.innerHTML = "Potrebno je opisati problem";
+            ProblemDescriptionHelpText.innerHTML = "You must describe the issue";
         } else {
             ProblemDescriptionHelpText.innerHTML = "";
         }
@@ -301,12 +301,12 @@ document.addEventListener("DOMContentLoaded", function() {
         
         if (NameValid && PhoneValid && ProblemDescriptionValid == 1) {
             SubmitRequest.removeAttribute('disabled');
-            SubmitButton.innerHTML = 'Podnesite zahtev';
+            SubmitButton.innerHTML = 'Submit request';
             SubmitHelpText.innerHTML = '';
         } else {
             SubmitRequest.setAttribute('disabled', 'true');
             SubmitHelp.style.display = 'block';
-            SubmitHelpText.innerHTML = 'Morate popuniti sva obavezna polja';
+            SubmitHelpText.innerHTML = 'Mandatory fields mustn\'t be left empty';
         }
 
         //Color valid input

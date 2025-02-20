@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     Phone.addEventListener("blur", function(){  
         if (!PhoneRegex.test(Phone.value)) {
-            PhoneHelpText.innerHTML = "Telefon po +38106 sa nastavkom od 7 do 8 cifara.";
+            PhoneHelpText.innerHTML = "Telefon počinje sa +38106 sa nastavkom od 7 do 8 cifara.";
         } else {
             PhoneHelpText.innerHTML = "";
         }

@@ -6,7 +6,7 @@ console.log("Working JS");
 const navItems = [
     { 
         label: "Main", 
-        link: "index.html",
+        link: "/en/index.html",
     },
     { 
         label: "Services", 
@@ -20,7 +20,7 @@ const navItems = [
     },
     { 
         label: "Contact", 
-        link: "pages/Contact.html",
+        link: "/en/pages/Contact.html",
     },
     {
         label: "Sales",
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
 // Pagination
 const CurrentPath = window.location.pathname;
-const IsRootPage = CurrentPath === '/'; //Check if on root
+const IsRootPage = CurrentPath === '/en/'; //Check if on root
 
 function getLink(RelativePath) {
     if (IsRootPage) {
@@ -47,11 +47,13 @@ function getLink(RelativePath) {
     } else if (RelativePath.includes("kupujem")){
         return 'https://www.kupujemprodajem.com/maksim-megik-servis/svi-oglasi/1781418/1';
     } else if (RelativePath.includes("index")){
-        return 'index.html';
+        return '/en/index.html';
     } else {
-        return `../${RelativePath}`; // Go to root, then to page
+        return `${RelativePath}`; // Go to root, then to page
     }
 }
+
+// console.log("Rel path is" - RelativePath);
 
 // Function to create a dropdown menu
 function createDropdownMenu(DropdownItems) {
@@ -100,7 +102,7 @@ LogoLink.setAttribute("href", getLink("/index.html"));
 // Add logo link image
 const LogoImage = document.createElement("img");
 LogoImage.classList.add("img-fluid", "col-4");
-LogoImage.setAttribute("src", "/img/Trademarks/banner.png");
+LogoImage.setAttribute("src", "/img/Trademarks/banner.webp");
 LogoImage.setAttribute("alt", "Megik PC Logo");
 LogoLink.appendChild(LogoImage);
 
@@ -175,14 +177,14 @@ const CurrentPage = window.location.pathname;
 const NavLinks = document.querySelectorAll(".nav-link");
 console.log("Current page link: " + CurrentPage);
 
-NavLinks.forEach(link => {
-    if (link.getAttribute("href") === ".." + CurrentPage || link.getAttribute("href") === ".." + '/' + CurrentPage) {
+NavLinks.forEach(link => { //no workie
+    if (link.getAttribute("href") === CurrentPage || link.getAttribute("href") === '/' + CurrentPage) {
         link.classList.add("active");
     }
 });
 
 NavLinks.forEach(link => {
-    if (CurrentPage == "/" && link.textContent.trim() === "Početna") {
+    if (CurrentPage == "/" && link.textContent.trim() === "Main") {
         link.classList.add("active");
     }
 });
@@ -213,9 +215,9 @@ $(document).ready(function () {
                     <br>
                     <div class="col-12 col-sm-4 col-lg-2">
                         <ul>
-                            <li>Pon - Pet: 10:00 - 19:00</li>
-                            <li>Subota: 10:00 - 16:00</li>
-                            <li>Nedelja: Neradan dan </li>
+                            <li>Mon - Fri: 10 AM - 7 PM</li>
+                            <li>Saturday: 10 AM - 4 PM</li>
+                            <li>Sunday: Off day </li>
                         </ul>
                     </div>
                     <div class="d-flex align-items-center">
@@ -253,10 +255,10 @@ $(document).ready(function () {
 $('#Language').click(function (e) { 
     e.preventDefault();
         var toastHTML = `
-        <div class="toast text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-body">
-                English language currently not available.<br>
-                Please check again later.
+                Prebacujemo vas na srpsku stranicu.<br>
+                Molimo sačekajte...
             </div>
         </div>`;
 
@@ -273,9 +275,18 @@ $('#Language').click(function (e) {
     var toast = new bootstrap.Toast(toastElement[0]);
     toast.show();
 
-    // setTimeout(() => {
-    //     window.location.href = "";
-    // }, 500); // Redirects after 3 seconds
+    setTimeout(() => {
+        // Get the current path
+        let currentPath = window.location.pathname;
+        if (currentPath === "/en/index.html" || currentPath === "/") {
+            // Redirect from English index to Serbian index
+            window.location.href = "/index.html";
+        } else if (currentPath.startsWith("/en/pages/")) {
+            // Redirect from English pages to Serbian pages
+            let newPath = currentPath.replace("/en/pages/", "/pages/");
+            window.location.href = newPath;
+        }
+    }, 2000);
 });
 
 $(document).ready(function () {
