@@ -207,20 +207,19 @@ document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
 $(document).ready(function () {
     const CurrentYear = new Date().getFullYear();
     const FooterDiv = `
-                    <div class="col-12 col-sm-8 col-lg-10">
-                        <span class="mb-4 mb-md-0">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> Megik PC</span> 
+                    <div class="col-12 col-sm-9 col-lg-10">
+                        <span class="mb-4 mb-md-0">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span> 
+                        <a href="/pages/MegikPC - Garantni Uslovi.pdf"><span class="mb-4 mb-md-0">Terms of warranty</span></a>
                     </div>
                     <br>
                     <br>
                     <br>
-                    <div class="col-12 col-sm-4 col-lg-2">
+                    <div class="col-12 col-sm-3 col-lg-2">
                         <ul>
-                            <li>Mon - Fri: 10 AM - 7 PM</li>
-                            <li>Saturday: 10 AM - 4 PM</li>
-                            <li>Sunday: Off day </li>
+                            <li>Pon - Pet: 10:00 - 19:00</li>
+                            <li>Subota: 10:00 - 16:00</li>
+                            <li>Nedelja: Neradan dan </li>
                         </ul>
-                    </div>
-                    <div class="d-flex align-items-center">
                     </div>
     `;
     $('#FooterDiv').html(FooterDiv);
@@ -286,7 +285,7 @@ $('#Language').click(function (e) {
             let newPath = currentPath.replace("/en/pages/", "/pages/");
             window.location.href = newPath;
         }
-    }, 2000);
+    }, 1500);
 });
 
 $(document).ready(function () {
