@@ -67,3 +67,36 @@ function GenerateServiceCards() {
 }
 
 GenerateServiceCards();
+
+let ReviewIndex = 0;
+let ReviewText = [];
+
+async function LoadReviews() {
+    try {
+        const response = await fetch('/en/js/data/reviews.txt');
+        const text = await response.text();
+        ReviewText = text.split('\n').map(line => {
+            let parts = line.split('|');
+            return `<p>${parts[0]}</p><span>${parts[1]}</span>`;
+        });
+
+        Reviews(); // Start cycling reviews once loaded
+        setInterval(Reviews, 5000);
+    } catch (error) {
+        console.error('Error loading reviews:', error);
+    }
+}
+
+function Reviews() {
+    if (ReviewText.length === 0) return;
+
+    const el = document.querySelector('#MovingText');
+    el.innerHTML = ReviewText[ReviewIndex];
+
+    ReviewIndex = (ReviewIndex + 1) % ReviewText.length;
+}
+
+setTimeout(() => {
+    document.querySelector('#ReviewSpinner').classList.remove("spinner-border");
+    LoadReviews();
+}, 5000);

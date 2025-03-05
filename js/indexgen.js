@@ -68,28 +68,35 @@ function GenerateServiceCards() {
 
 GenerateServiceCards();
 
-// let ReviewIndex = 0; 
+let ReviewIndex = 0;
+let ReviewText = [];
 
-// function Reviews() {
-//     const ReviewText = [
-//         "<p>Jovan Vučetić</p><span style='color:$whitetxt'>Dečko je ljubazan, efikasan, pouzdan, sve preporuke !</span>",
-//         "<p>Andrej</p><span style='color:$whitetxt'>Odličan servis. Odnet laptop na zamenu termalne paste i čišćenje. Završen za manje od jednog dana. Moje preporuke</span>",
-//         "<p>Marina Bogic</p><span style='color:$whitetxt'>Saradnja sa Megikom je odlicna. Odnela sam stari desktop racunar na kom nije mogao sistem da se podigne i u najkracem roku je bilo reseno. Za vrlo krtako vreme i po veoma povoljnoj ceni je racunar popravljen. Pritom veliki dzentlmeni koji mi nisu mi dozvolili da ponesem racunar do kola sama. :) Sve preporuke za Servis racunara Megik</span>",
-//         "<p>Nikola Radivojević</p><span style='color:$whitetxt'>Laptop popravljen u rekordnom roku ( jedan dan), sada radi kao na dan kada sam ga kupio. Sve pohvale za momka, stručan, učtiv i maksimalno profesionalan. Bio je čak i voljan da meni, laiku, objasni šta je tačno bio razlog kvara i dao pismenu garanciju za svoj rad.</span>",
-//     ];
+async function LoadReviews() {
+    try {
+        const response = await fetch('/js/data/reviews.txt');
+        const text = await response.text();
+        ReviewText = text.split('\n').map(line => {
+            let parts = line.split('|');
+            return `<p>${parts[0]}</p><span>${parts[1]}</span>`;
+        });
 
-//     const el = document.querySelector('#MovingText');
-//     el.innerHTML = ReviewText[ReviewIndex];
+        Reviews(); // Start cycling reviews once loaded
+        setInterval(Reviews, 5000);
+    } catch (error) {
+        console.error('Error loading reviews:', error);
+    }
+}
 
-//     ReviewIndex++;
-//     if (ReviewIndex >= ReviewText.length) {
-//         ReviewIndex = 0;
-//     }
-// }
+function Reviews() {
+    if (ReviewText.length === 0) return;
 
-// setInterval(Reviews, 5000);
+    const el = document.querySelector('#MovingText');
+    el.innerHTML = ReviewText[ReviewIndex];
 
-// setTimeout(function() {
-//     document.querySelector('#ReviewSpinner').classList.remove("spinner-border");
-// }, 5000);
+    ReviewIndex = (ReviewIndex + 1) % ReviewText.length;
+}
 
+setTimeout(() => {
+    document.querySelector('#ReviewSpinner').classList.remove("spinner-border");
+    LoadReviews();
+}, 5000);

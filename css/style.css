@@ -290,7 +290,7 @@
     font-size: 0.8rem;
   }
   #Maps {
-    width: 350px;
+    width: 400px;
     height: 350px;
   }
   .welcome {
@@ -450,6 +450,9 @@ main h2 {
 main h3 {
   font-size: 20px;
 }
+main h4 {
+  font-size: 20px;
+}
 main a {
   text-decoration: none;
 }
@@ -492,7 +495,7 @@ main .container .card .card-body details a {
   color: #fff;
 }
 main .container .card .card-body iframe {
-  width: 600px;
+  width: 500px;
   height: 350px;
 }
 main .container .card .card-body .ServicesHead {
