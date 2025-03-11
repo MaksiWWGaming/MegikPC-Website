@@ -209,7 +209,7 @@ $(document).ready(function () {
     const FooterDiv = `
                     <div class="col-12 col-lg-10">
                         <span class="mb-4 mb-md-0">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span> 
-                        <a href="/pages/MegikPC - Garantni Uslovi.pdf"><span class="mb-4 mb-md-0">Terms of warranty</span></a>
+                        <a href="/pages/MegikPC - Garantni Uslovi.pdf"><span class="mb-4 mb-md-0">Warranty terms</span></a>
                     </div>
                     <br>
                     <br>
