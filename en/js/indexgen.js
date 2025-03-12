@@ -26,7 +26,7 @@ const ServicesArray = [
     {
         id: 'Other',
         title: 'Other Types of Support',
-        description: 'MegikPC doesn\' have what you are looking for? We might "know a guy"!',
+        description: 'MegikPC doesn\'t have what you are looking for? We might "know a guy"!',
         image: '/img/Pages/Index/Other.webp',
         link: '/en/pages/Other.html',
         alt: 'Other support'

@@ -207,18 +207,18 @@ document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
 $(document).ready(function () {
     const CurrentYear = new Date().getFullYear();
     const FooterDiv = `
-                    <div class="col-12 col-lg-10">
-                        <span class="mb-4 mb-md-0">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span> 
-                        <a href="/pages/MegikPC - Garantni Uslovi.pdf"><span class="mb-4 mb-md-0">Warranty terms</span></a>
+                    <div>
+                        <p><span class="mb-4 mb-md-0 mr-5">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span></p>
+                        <p><a href="tel:+3810605987444"><span class="mb-4 mb-md-0 mr-5"><i class="fa-solid fa-phone"></i> +381 060-5987-444</span></a></p>
+                        <div>
+                            <p><a href="/pages/MegikPC - Garantni Uslovi.pdf"><span class="mb-4 mb-md-0 mr-5"><i class="fa-solid fa-file"></i> Warranty terms (in Serbian)</span></a></p>
+                        </div>
                     </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="col-12 col-lg-2">
-                        <ul class="list-unstyled mb-0" style="width: 240px">
-                            <li>Pon - Pet: 10:00 - 19:00</li>
-                            <li>Subota: 10:00 - 16:00</li>
-                            <li>Nedelja: Neradan dan </li>
+                    <div>
+                        <ul class="list-unstyled">
+                            <li>Monday - Friday: <b>10:00 - 19:00</b></li>
+                            <li>Saturday: <b>10:00 - 16:00</b></li>
+                            <li>Sunday: <b>Closed</b></li>
                         </ul>
                     </div>
     `;

@@ -266,6 +266,9 @@
   }
 }
 @media only screen and (max-width: 992px) {
+  header {
+    margin-bottom: -50px;
+  }
   #DarkMode {
     padding: 0px 0px 30px 30px;
   }
@@ -283,18 +286,23 @@
   }
 }
 @media only screen and (max-width: 767px) {
+  header {
+    margin-bottom: -80px;
+  }
   #ContactButton h4 {
     font-size: 1.1rem;
   }
   #ContactButton p {
     font-size: 0.8rem;
   }
-  #Maps {
-    width: 400px;
-    height: 350px;
-  }
   .welcome {
     text-align: center;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #Maps {
+    width: 320px;
+    height: 350px;
   }
 }
 * {
@@ -551,6 +559,9 @@ footer {
   position: relative;
   bottom: 0;
   font-style: italic;
+}
+footer div p {
+  display: inline-block;
 }
 footer div a {
   text-decoration: none;

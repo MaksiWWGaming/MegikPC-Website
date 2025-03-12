@@ -206,18 +206,18 @@ document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
 $(document).ready(function () {
     const CurrentYear = new Date().getFullYear();
     const FooterDiv = `
-                    <div class="col-12 col-lg-10">
-                        <span class="mb-4 mb-md-0 mr-2">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span> 
-                        <a href="/pages/MegikPC - Garantni Uslovi.pdf"><span class="mb-4 mb-md-0 mr-5">Garantni uslovi</span></a>
+                    <div>
+                        <p><span class="mb-4 mb-md-0 mr-5">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span></p>
+                        <p><a href="tel:+3810605987444"><span class="mb-4 mb-md-0 mr-5"><i class="fa-solid fa-phone"></i> 060-5987-444</span></a></p>
+                        <div>
+                            <p><a href="/pages/MegikPC - Garantni Uslovi.pdf"><span class="mb-4 mb-md-0 mr-5"><i class="fa-solid fa-file"></i> Garantni uslovi</span></a></p>
+                        </div>
                     </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="col-12 col-lg-2">
-                        <ul class="list-unstyled mb-0" style="width: 240px">
-                            <li>Ponedeljak - Petak: 10:00 - 19:00</li>
-                            <li>Subota: 10:00 - 16:00</li>
-                            <li>Nedelja: Neradan dan </li>
+                    <div>
+                        <ul class="list-unstyled mb-0">
+                            <li>Ponedeljak - Petak: <b>10:00 - 19:00</b></li>
+                            <li>Subota: <b>10:00 - 16:00</b></li>
+                            <li>Nedelja: <b>Neradan dan</b></li>
                         </ul>
                     </div>
     `;

@@ -5,6 +5,9 @@
 }
 
 @media only screen and (max-width:992px) {
+    header {
+        margin-bottom: -50px;
+    }
     #DarkMode {
         padding: 0px 0px 30px 30px;
     }
@@ -34,6 +37,9 @@
 } 
 
 @media only screen and (max-width:767px) {
+    header {
+        margin-bottom: -80px;
+    }
     #ContactButton {
         h4 {
             font-size: 1.1rem;
@@ -42,11 +48,18 @@
             font-size: 0.8rem;
         }
     }
-    #Maps {
-        width: 400px;
-        height: 350px; 
-    }
+    // #Maps {
+    //     width: 450px;
+    //     height: 350px; 
+    // }
     .welcome {
         text-align: center;
+    }
+}
+
+@media only screen and (max-width:575px) {
+    #Maps {
+        width: 320px;
+        height: 350px; 
     }
 }
