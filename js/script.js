@@ -208,7 +208,8 @@ $(document).ready(function () {
     const FooterDiv = `
                     <div>
                         <p><span class="mb-4 mb-md-0 mr-5">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span></p>
-                        <p><a href="tel:+3810605987444"><span class="mb-4 mb-md-0 mr-5"><i class="fa-solid fa-phone"></i> 060-5987-444</span></a></p>
+                        <p><a href="tel:+3810605987444"><span class="mb-4 mb-md-0 mr-5"><i class="fa-solid fa-phone"></i> +381 060-5987-444</span></a></p>
+                        <p><a href="https://www.instagram.com/megikpc/"><span class="mb-4 mb-md-0 mr-5"><i class="fa-brands fa-instagram"></i> Naš Instagram</span></a></p>
                         <div>
                             <p><a href="/pages/MegikPC - Garantni Uslovi.pdf"><span class="mb-4 mb-md-0 mr-5"><i class="fa-solid fa-file"></i> Garantni uslovi</span></a></p>
                         </div>
