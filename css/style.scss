@@ -341,3 +341,23 @@ form {
         font-weight: bold;
     }
 }
+
+.no-script {
+    background-color: #ffcc00;
+    padding: 10px;
+    text-align: center;
+}
+
+.E404 {
+    main {
+        text-align: center;
+        a {
+            color: rgb(65, 169, 185);
+            text-decoration: underline;
+        }
+        img {
+            padding: 30px;
+            width: 300px !important;
+        }
+    }
+}

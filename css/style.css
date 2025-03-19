@@ -614,4 +614,22 @@ form #ResetRequest {
   background-color: #121212;
   color: #fff;
   font-weight: bold;
+}
+
+.no-script {
+  background-color: #ffcc00;
+  padding: 10px;
+  text-align: center;
+}
+
+.E404 main {
+  text-align: center;
+}
+.E404 main a {
+  color: rgb(65, 169, 185);
+  text-decoration: underline;
+}
+.E404 main img {
+  padding: 30px;
+  width: 300px !important;
 }/*# sourceMappingURL=style.css.map */
