@@ -260,6 +260,15 @@
   color: #000;
 }
 
+@media only screen and (max-width: 1200px) {
+  footer .FooterItems {
+    text-align: center;
+    width: 100%;
+  }
+  footer .WorkingHours {
+    width: 100%;
+  }
+}
 @media only screen and (max-width: 1069px) {
   a.nav-link {
     font-size: 20px;

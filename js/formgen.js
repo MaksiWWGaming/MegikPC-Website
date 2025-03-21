@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const KeyValid = document.createElement("input");
     KeyValid.type = "hidden";
     KeyValid.name = "access_key";
-    KeyValid.value = "a2cd7e59-5eec-4bf9-bce9-72727f94470f";
+    KeyValid.value = "b640e18c-455f-484f-a010-eb89e77883d1";
 
     const BotCheck = document.createElement("input");
     BotCheck.type = "checkbox";

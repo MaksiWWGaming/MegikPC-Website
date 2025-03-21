@@ -206,21 +206,38 @@ document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
 $(document).ready(function () {
     const CurrentYear = new Date().getFullYear();
     const FooterDiv = `
-                    <div>
-                        <p><span class="mb-4 mb-md-0 mr-5">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span></p>
-                        <p><a href="tel:+3810605987444"><span class="mb-4 mb-md-0 mr-5"><i class="fa-solid fa-phone"></i> +381 060-5987-444</span></a></p>
-                        <p><a href="https://www.instagram.com/megikpc/" target="_blank" rel="noopener noreferrer"><span class="mb-4 mb-md-0 mr-5"><i class="fa-brands fa-instagram"></i> Naš Instagram</span></a></p>
-                        <div>
-                            <p><a href="/pages/MegikPC - Garantni Uslovi.pdf" target="_blank" rel="noopener noreferrer"><span class="mb-4 mb-md-0 mr-5"><i class="fa-solid fa-file"></i> Garantni uslovi</span></a></p>
-                        </div>
-                    </div>
-                    <div>
-                        <ul class="list-unstyled mb-0">
-                            <li>Ponedeljak - Petak: <b>10:00 - 19:00</b></li>
-                            <li>Subota: <b>10:00 - 16:00</b></li>
-                            <li>Nedelja: <b>Neradan dan</b></li>
-                        </ul>
-                    </div>
+                <div class="FooterItems">
+                    <p class="FooterCopyRight">
+                        <span class="mb-4 mb-md-0 mr-1">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span>
+                    </p>
+                    <p class="FooterPhone">
+                        <a href="tel:+3810605987444">
+                            <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-phone"></i> +381 060-5987-444</span>
+                        </a>
+                    </p>
+                    <p class="FooterMail">
+                        <a href="mailto:info@megikpc.com">
+                            <span class="mb-4 mb-md-0 mr-1"><i class="fa fa-envelope"></i> info@megikpc.com</span>
+                        </a>
+                    </p>
+                    <p class="FooterInstagram">
+                            <a href="https://www.instagram.com/megikpc/" target="_blank" rel="noopener noreferrer">
+                                <span class="mb-4 mb-md-0 mr-1"><i class="fa-brands fa-instagram"></i> Instagram</span>
+                            </a>
+                        </p>
+                        <p class="FooterWarranty">
+                            <a href="/pages/MegikPC - Garantni Uslovi.pdf" target="_blank" rel="noopener noreferrer">
+                                <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-file"></i> Garantni uslovi</span>
+                            </a>
+                        </p>
+                </div>
+                <div class="text-xl-start text-center WorkingHours">
+                    <ul class="list-unstyled">
+                        <li>Radnim Danima: <b>10:00 - 19:00</b></li>
+                        <li>Subota: <b>10:00 - 16:00</b></li>
+                        <li>Nedelja: <b>Neradan dan</b></li>
+                    </ul>
+                </div>
     `;
     $('#FooterDiv').html(FooterDiv);
     $('#MegikCopyYear').text(CurrentYear);

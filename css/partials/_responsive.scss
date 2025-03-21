@@ -1,3 +1,15 @@
+@media only screen and (max-width:1200px) {
+    footer {
+        .FooterItems {
+            text-align: center;
+            width: 100%;
+        }
+        .WorkingHours {
+            width: 100%;
+        }
+    }
+}
+
 @media only screen and (max-width:1069px) {
     a.nav-link {
         font-size: 20px;
@@ -14,13 +26,6 @@
     a.nav-link {
         font-size: 24px;
     }
-    // .card {
-    //     .card-body {
-    //         p {
-    //             font-size: 12px;
-    //         }
-    //     }
-    // }
     hr.separate-service {
         display: block !important;
     }
@@ -48,10 +53,6 @@
             font-size: 0.8rem;
         }
     }
-    // #Maps {
-    //     width: 450px;
-    //     height: 350px; 
-    // }
     .welcome {
         text-align: center;
     }
