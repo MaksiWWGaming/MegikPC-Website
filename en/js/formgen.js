@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Form
     const form = document.createElement('form');
-    form.setAttribute('action', 'https://api.web3forms.com/submit');
+    form.setAttribute('action', 'https://www.megikpc.com/en/js/data/Thanks.html');
     form.setAttribute('method', 'post');
     form.setAttribute('id', 'form');
 
