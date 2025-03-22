@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Form
     const form = document.createElement('form');
-    form.setAttribute('action', 'https://www.megikpc.com/js/data/Thanks.html');
+    form.setAttribute('action', 'https://api.web3forms.com/submit');
     form.setAttribute('method', 'post');
     form.setAttribute('id', 'form');
 
@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
     KeyValid.type = "hidden";
     KeyValid.name = "access_key";
     KeyValid.value = "b640e18c-455f-484f-a010-eb89e77883d1";
+
+    let Redirect = document.createElement("input");
+    Redirect.type = "hidden";
+    Redirect.name = "redirect";
+    Redirect.value = "https://www.megikpc.com/js/data/Thanks.html";
 
     const BotCheck = document.createElement("input");
     BotCheck.type = "checkbox";
