@@ -12,6 +12,11 @@ document.addEventListener("DOMContentLoaded", function() {
     KeyValid.name = "access_key";
     KeyValid.value = "b640e18c-455f-484f-a010-eb89e77883d1";
 
+    let Redirect = document.createElement("input");
+    Redirect.type = "hidden";
+    Redirect.name = "redirect";
+    Redirect.value = "https://www.megikpc.com/en/js/data/Thanks.html";
+
     const BotCheck = document.createElement("input");
     BotCheck.type = "checkbox";
     BotCheck.name = "botcheck";
