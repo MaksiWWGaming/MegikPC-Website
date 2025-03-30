@@ -6,15 +6,16 @@ $(document).ready(function () {
     const servicesMap = {
         Laptop: [
             "Diagnostics",
-            "Changing parts",
-            "Ordering parts",
+            "Replacing parts",
+            "Selling parts",
+            "Selling chargers", 
             "Outside and inside cleaning",
             "Changing thermal paste",
         ],
         Desktop: [
             "Diagnostics",
-            "Changing parts",
-            "Ordering parts",
+            "Changing components",
+            "Selling components",
             "Outside and inside cleaning",
             "Changing thermal paste",
             "Putting a desktop together (with yours or ours parts)",

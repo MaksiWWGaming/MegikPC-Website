@@ -6,15 +6,16 @@ $(document).ready(function () {
     const servicesMap = {
         Laptop: [
             "Dijagnostika",
-            "Zamena komponenti",
-            "Nabavka komponenti",
+            "Zamena komponenti i delova",
+            "Prodaja komponentni i delova",
+            "Prodaja punjača",
             "Čišćenje iznutra i spolja",
             "Zamena termalne paste",
         ],
         Desktop: [
             "Dijagnostika",
             "Zamena komponenti",
-            "Nabavka komponenti",
+            "Prodaja komponenti",
             "Čišćenje iznutra i spolja",
             "Zamena termalne paste",
             "Kompletno sklapanje računara (sa vašim ili našim komponentama)",
