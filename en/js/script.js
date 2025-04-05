@@ -153,7 +153,7 @@ DarkModeButton.classList.add("fa-solid", "fa-moon");
 DarkModeButton.setAttribute("id", "DarkMode");
 
 const LanguageButton = document.createElement("i");
-LanguageButton.classList.add("fa-solid", "fa-globe");
+LanguageButton.classList.add("fa-solid", "fa-language");
 LanguageButton.setAttribute("id", "Language");
 
 NavbarCollapse.appendChild(NavbarList);
