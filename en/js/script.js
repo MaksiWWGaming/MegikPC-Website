@@ -12,10 +12,8 @@ const navItems = [
         label: "Services", 
         link: "", 
         dropdown: [
-            { label: "Laptop Services", link: "/en/pages/Laptop.html" },
-            { label: "Desktop Services", link: "/en/pages/Desktop.html" },
-            { label: "Online Solutions", link: "/en/pages/Online.html" },
-            { label: "Other Solutions", link: "/en/pages/Other.html" },
+            { label: "Computer Repair Services", link: "/en/pages/Services.html" },
+            { label: "Website Creation Service", link: "/en/pages/WebDev.html" },
         ]
     },
     { 

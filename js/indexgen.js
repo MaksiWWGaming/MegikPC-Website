@@ -1,36 +1,20 @@
 const ServicesArray = [
     {
-        id: 'Laptop',
-        title: 'Servisiranje laptopova',
-        description: 'Nije bitan proizvođač laptopa. Mi imamo rešenje!',
-        image: 'img/Pages/Index/Laptop.webp',
-        link: 'pages/Laptop.html',
-        alt: 'Laptop'
+        id: 'Serviserske Usluge',
+        title: 'Serviserske Usluge',
+        description: 'Kvar nije bitan, bitno je da mi imamo rešenje!',
+        image: 'img/Pages/Index/Repair.webp',
+        link: '/pages/Services.html',
+        alt: 'Computer Repair'
     },
     {
-        id: 'Desktop',
-        title: 'Servisiranje desktopova',
-        description: 'Muči vas desktop računar? Stojimo Vam na raspologanju!',
-        image: 'img/Pages/Index/Desktop.webp',
-        link: 'pages/Desktop.html',
+        id: 'Website creation',
+        title: 'Izrada Web Sajtova',
+        description: 'Potreban vam je sajt? Čuvamo vam leđa!',
+        image: 'img/Pages/Index/WebDev.webp',
+        link: '/pages/WebDev.html',
         alt: 'Desktop'
     },
-    {
-        id: 'AnyDesk',
-        title: 'Online podrška',
-        description: 'Možemo daljinski da rešimo? Uvek smo tu preko AnyDesk!',
-        image: 'img/Pages/Index/Anydesk.webp',
-        link: 'pages/Online.html',
-        alt: 'AnyDesk'
-    },
-    {
-        id: 'Other',
-        title: 'Ostali vidovi podrške',
-        description: 'MegikPC nema ono što tražite? Verovatno "znamo čoveka"!',
-        image: 'img/Pages/Index/Other.webp',
-        link: 'pages/Other.html',
-        alt: 'Ostala podrška'
-    }
 ];
 
 // Function to generate and append service cards
@@ -39,7 +23,7 @@ function GenerateServiceCards() {
     let DivRow = $('<div>').addClass('row');
 
     ServicesArray.forEach(service => {
-        let DivCol = $('<div>').addClass('col-md-6 col-lg-3 mb-3');
+        let DivCol = $('<div>').addClass('col-md-6 col-lg-6 mb-3');
         
         let Card = $('<div>').addClass('card text-center px-0').attr('id', service.id);
 

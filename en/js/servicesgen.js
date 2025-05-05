@@ -20,7 +20,7 @@ $(document).ready(function () {
             "Changing thermal paste",
             "Putting a desktop together (with yours or ours parts)",
         ],
-        Online: [
+        Software: [
             "Software problem diagnostics",
             "Activating Windows OS and Office",
             "Office installations",
@@ -49,7 +49,7 @@ $(document).ready(function () {
             "Removing passwords from devices (iCloud, BIOS, Firmware lock, etc.)",
             "Data recovery from dead disks (using specialized equipment)",
         ],
-        Online: [
+        Software: [
             "Account recovery",
             "Removing passwords from devices (iCloud, BIOS, Firmware lock, etc.)",
         ],
@@ -59,30 +59,34 @@ $(document).ready(function () {
         ],
     };
 
-    function loadServices(serviceType, serviceList, targetSelector) {
-        const ul = $("<ul>");
+    function loadServices(serviceType, serviceList, targetSelector, listClass) {
+        const ul = $("<ul>").addClass(listClass);
         serviceList.forEach(function (item) {
             const li = $("<li>").text(item);
             ul.append(li);
         });
         $(targetSelector).append(ul);
     }
+    
 
-    if (GetLink.includes("Laptop")) {
+    if (document.querySelector(".Laptop")) {
         console.log("Load laptop services");
-        loadServices("Laptop", servicesMap.Laptop, "#GivenServicesList");
-        loadServices("Laptop", notGivenServicesMap.Laptop, "#NotGivenServicesList");
-    } else if (GetLink.includes("Desktop")) {
+        loadServices("Laptop", servicesMap.Laptop, ".YesLaptop", "checkmarks");
+        loadServices("Laptop", notGivenServicesMap.Laptop, ".NoLaptop", "crossmarks");
+    } 
+    if (document.querySelector(".Desktop")) {
         console.log("Load desktop services");
-        loadServices("Desktop", servicesMap.Desktop, "#GivenServicesList");
-        loadServices("Desktop", notGivenServicesMap.Desktop, "#NotGivenServicesList");
-    } else if (GetLink.includes("Online")) {
-        console.log("Load online services");
-        loadServices("Online", servicesMap.Online, "#GivenServicesList");
-        loadServices("Online", notGivenServicesMap.Online, "#NotGivenServicesList");
-    } else if (GetLink.includes("Other")) {
+        loadServices("Desktop", servicesMap.Desktop, ".YesDesktop", "checkmarks");
+        loadServices("Desktop", notGivenServicesMap.Desktop, ".NoDesktop", "crossmarks");
+    }
+    if (document.querySelector(".Software")) {
+        console.log("Load Software services");
+        loadServices("Software", servicesMap.Software, ".YesSoftware", "checkmarks");
+        loadServices("Software", notGivenServicesMap.Software, ".NoSoftware", "crossmarks");
+    }
+    if (document.querySelector(".Other")) {
         console.log("Load other services");
-        loadServices("Other", servicesMap.Other, "#GivenServicesList");
-        loadServices("Other", notGivenServicesMap.Other, "#NotGivenServicesList");
+        loadServices("Other", servicesMap.Other, ".YesOther", "checkmarks");
+        loadServices("Other", notGivenServicesMap.Other, ".NoOther", "crossmarks");
     }
 });

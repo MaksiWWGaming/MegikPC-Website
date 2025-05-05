@@ -12,10 +12,8 @@ const navItems = [
         label: "Usluge", 
         link: "", 
         dropdown: [
-            { label: "Laptop Servis", link: "pages/Laptop.html" },
-            { label: "Desktop Servis", link: "pages/Desktop.html" },
-            { label: "Online Rešenja", link: "pages/Online.html" },
-            { label: "Ostala Rešenja", link: "pages/Other.html" },
+            { label: "Serviserske Usluge", link: "pages/Services.html" },
+            { label: "Izrada Web Sajtova", link: "pages/WebDev.html" },
         ]
     },
     { 
@@ -24,7 +22,7 @@ const navItems = [
     },
     {
         label: "Prodaja",
-        link: "https://www.kupujemprodajem.com/maksim-megik-servis/svi-oglasi/1781418/1",
+        link: "https://www.kupujemprodajem.com/megik-servis/svi-oglasi/1781418/1",
     },
 ];
 

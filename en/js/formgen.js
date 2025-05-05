@@ -155,6 +155,26 @@ document.addEventListener("DOMContentLoaded", function() {
     InputGroup3.appendChild(ModelCol);
     form.appendChild(InputGroup3);
 
+    // Checkbox: Website creation
+    const WebsiteCol = document.createElement('div');
+    WebsiteCol.classList.add('form-check', 'mb-3');
+
+    const WebsiteCheckbox = document.createElement('input');
+    WebsiteCheckbox.classList.add('form-check-input');
+    WebsiteCheckbox.setAttribute('type', 'checkbox');
+    WebsiteCheckbox.setAttribute('id', 'WebsiteCreation');
+    WebsiteCheckbox.setAttribute('name', 'WebsiteCreation');
+    WebsiteCol.appendChild(WebsiteCheckbox);
+
+    const WebsiteLabel = document.createElement('label');
+    WebsiteLabel.classList.add('form-check-label');
+    WebsiteLabel.setAttribute('for', 'WebsiteCreation');
+    WebsiteLabel.innerHTML = 'Interested in website creation.';
+    WebsiteCol.appendChild(WebsiteLabel);
+
+    // Append this after the Model input group
+    form.appendChild(WebsiteCol);
+
     const Margin3 = document.createElement('div');
     Margin3.classList.add('m-3');
     form.appendChild(Margin3);
@@ -176,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function() {
     CommentTextArea.setAttribute('id', 'ProblemDescription');
     CommentTextArea.setAttribute('name', 'ProblemDescription');
     CommentTextArea.setAttribute('rows', '5');
-    CommentTextArea.setAttribute('placeholder', 'Better descriptions allow us to give you a more accurate service cost. Also type any other info you deem necessary');
+    CommentTextArea.setAttribute('placeholder', 'Better descriptions allow us to give you a more accurate service cost. Also type any other info you deem necessary.');
     CommentCol.appendChild(CommentTextArea);
     const ProblemDescriptionHelp = document.createElement('div');
     ProblemDescriptionHelp.setAttribute('id', 'ProblemDescriptionHelp');

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url(https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap);
 @keyframes FadeInLoad {
   0% {
@@ -145,6 +146,9 @@
 .dark-mode main .pad .container span {
   background-color: #121212;
 }
+.dark-mode main .container ul li a {
+  color: #fff;
+}
 .dark-mode main .container .card {
   background-color: #121212;
   color: #fff;
@@ -187,11 +191,30 @@
   color: #fff;
   border: 1px solid white;
 }
+.dark-mode main .container .accordion .accordion-item {
+  background-color: #121212;
+}
+.dark-mode main .container .accordion .accordion-button {
+  background-color: #121212;
+  color: #fff;
+  border: 1px solid white;
+}
+.dark-mode main .container .accordion .accordion-body {
+  background-color: #121212;
+  color: #000;
+}
+.dark-mode main .container .accordion .accordion-body a {
+  color: #fff;
+}
 .dark-mode main .container hr.separate-content {
   border: 1px solid #fff;
 }
 .dark-mode main .container hr.separate-service {
   border: 1px solid #fff;
+}
+.dark-mode main .container ul li {
+  background-color: #121212;
+  color: #fff;
 }
 .dark-mode footer {
   border-top: 1px solid white;
@@ -473,6 +496,9 @@ main h4 {
 main a {
   text-decoration: none;
 }
+main .container ul li a {
+  color: #000;
+}
 main .container .card .card-body .index-images {
   width: 50%;
   height: 50%;
@@ -518,17 +544,29 @@ main .container .card .card-body iframe {
 main .container .card .card-body .ServicesHead {
   font-size: 24px;
 }
+main .container .card .card-body .ServicesList ul.checkmarks {
+  list-style-type: none;
+  padding-left: 0;
+}
+main .container .card .card-body .ServicesList ul.checkmarks li::before {
+  content: "✅ ";
+  margin-right: 8px;
+  color: green;
+}
+main .container .card .card-body .ServicesList ul.crossmarks {
+  list-style-type: none;
+  padding-left: 0;
+}
+main .container .card .card-body .ServicesList ul.crossmarks li::before {
+  content: "❌ ";
+  margin-right: 8px;
+  color: red;
+}
 main .container .card .card-body .ServicesList ul li {
   margin-top: 1%;
 }
 main .container .card .card-body .ServicesContact {
   font-size: 24px;
-}
-main .container .card .card-body .OtherServicesHead {
-  font-size: 20px;
-}
-main .container .card .card-body .OtherServicesButton {
-  width: 70%;
 }
 main .container hr.separate-content {
   width: 70%;
@@ -559,6 +597,43 @@ main .container #ContactButton:hover {
   background-color: #fff;
   color: #000;
   border: 1px solid black;
+}
+main .container .accordion .accordion-button {
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 10px !important;
+  margin-bottom: 5px;
+}
+main .container .accordion .accordion-button::after {
+  filter: invert(40%) sepia(80%) saturate(300%) hue-rotate(90deg);
+}
+main .container .accordion .accordion-button:focus {
+  box-shadow: none;
+}
+main .container .accordion .accordion-button:not(.collapsed)::after {
+  filter: invert(40%) sepia(80%) saturate(300%) hue-rotate(0deg);
+}
+main .container .accordion .accordion-body {
+  background-color: #fff;
+  color: #fff;
+}
+main .container .accordion .accordion-body a {
+  color: #fff;
+}
+main .container .accordion .accordion-button::after {
+  content: "▼";
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: green;
+  background-image: none !important;
+}
+main .container .accordion .accordion-button:not(.collapsed)::after {
+  content: "▼";
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: red;
 }
 
 footer {
@@ -595,6 +670,10 @@ form textarea {
 form select {
   border: 1px solid black !important;
   margin-bottom: 10px;
+}
+form .form-check-input:checked {
+  background-color: #28a745 !important; /* green */
+  border-color: #28a745 !important;
 }
 form label {
   font-weight: bold;

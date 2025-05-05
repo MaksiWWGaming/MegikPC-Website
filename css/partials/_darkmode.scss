@@ -60,6 +60,13 @@
             }
         }
         .container {
+            ul {
+                li {
+                    a {
+                        color: $darktxt;
+                    }
+                }
+            }
             .card {
                 background-color: $darkbg;
                 color: $darktxt;
@@ -110,24 +117,34 @@
                 color: $darktxt;
                 border: $darkborder;
             }
-            // .accordion {
-            //     .accordion-button {
-            //         background-color: #0d0d0d;
-            //         color: $darktxt;
-            //     }
-            //     .accordion-body {
-            //         background-color: $darkbg;
-            //         color: $darktxt;
-            //         a {
-            //             color: $darktxt;                        
-            //         }
-            //     }
-            // }
+            .accordion {
+                .accordion-item {
+                    background-color: $darkbg;
+                }
+                .accordion-button {
+                    background-color: $darkbg;
+                    color: $darktxt;
+                    border: $darkborder;
+                }
+                .accordion-body {
+                    background-color: $darkbg;
+                    color: $whitetxt;
+                    a {
+                        color: $darktxt;                        
+                    }
+                }
+            }
             hr.separate-content {
                 border: 1px solid $darktxt;
             }
             hr.separate-service {
                 border: 1px solid $darktxt;
+            }
+            ul {
+                li {
+                    background-color: $darkbg;
+                    color: $darktxt;
+                }
             }
         }
     }

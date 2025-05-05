@@ -1,36 +1,20 @@
 const ServicesArray = [
     {
-        id: 'Laptop',
-        title: 'Laptop Service',
-        description: 'No matter what the manufacturer is, the importnt thing is we can solve it all!',
-        image: '/img/Pages/Index/Laptop.webp',
-        link: '/en/pages/Laptop.html',
-        alt: 'Laptop'
+        id: 'Computer Repair Services',
+        title: 'Computer Repair Services',
+        description: 'No problem is too big for us, we got you!',
+        image: '/img/Pages/Index/Repair.webp',
+        link: '/en/pages/Services.html',
+        alt: 'Computer Repair'
     },
     {
-        id: 'Desktop',
-        title: 'Desktop Service',
-        description: 'Is your desktop giving you a headache? We are here for you at all times!',
-        image: '/img/Pages/Index/Desktop.webp',
-        link: '/en/pages/Desktop.html',
+        id: 'Website creation',
+        title: 'Website Creation Service',
+        description: 'In need of a website? We got your back!',
+        image: '/img/Pages/Index/WebDev.webp',
+        link: '/en/pages/WebDev.html',
         alt: 'Desktop'
     },
-    {
-        id: 'AnyDesk',
-        title: 'Online Support',
-        description: 'Remotely resolvable issue? Contact us so we can help via AnyDesk!',
-        image: '/img/Pages/Index/Anydesk.webp',
-        link: '/en/pages/Online.html',
-        alt: 'AnyDesk'
-    },
-    {
-        id: 'Other',
-        title: 'Other Types of Support',
-        description: 'MegikPC doesn\'t have what you are looking for? We might "know a guy"!',
-        image: '/img/Pages/Index/Other.webp',
-        link: '/en/pages/Other.html',
-        alt: 'Other support'
-    }
 ];
 
 // Function to generate and append service cards
@@ -39,7 +23,7 @@ function GenerateServiceCards() {
     let DivRow = $('<div>').addClass('row');
 
     ServicesArray.forEach(service => {
-        let DivCol = $('<div>').addClass('col-md-6 col-lg-3 mb-3');
+        let DivCol = $('<div>').addClass('col-md-6 col-lg-6 mb-3');
         
         let Card = $('<div>').addClass('card text-center px-0').attr('id', service.id);
 

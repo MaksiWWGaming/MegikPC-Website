@@ -155,6 +155,26 @@ document.addEventListener("DOMContentLoaded", function() {
     InputGroup3.appendChild(ModelCol);
     form.appendChild(InputGroup3);
 
+    // Checkbox: Website creation
+    const WebsiteCol = document.createElement('div');
+    WebsiteCol.classList.add('form-check', 'mb-3');
+
+    const WebsiteCheckbox = document.createElement('input');
+    WebsiteCheckbox.classList.add('form-check-input');
+    WebsiteCheckbox.setAttribute('type', 'checkbox');
+    WebsiteCheckbox.setAttribute('id', 'WebsiteCreation');
+    WebsiteCheckbox.setAttribute('name', 'WebsiteCreation');
+    WebsiteCol.appendChild(WebsiteCheckbox);
+
+    const WebsiteLabel = document.createElement('label');
+    WebsiteLabel.classList.add('form-check-label');
+    WebsiteLabel.setAttribute('for', 'WebsiteCreation');
+    WebsiteLabel.innerHTML = 'Zainteresovan sam za izradu web sajta.';
+    WebsiteCol.appendChild(WebsiteLabel);
+
+    // Append this after the Model input group
+    form.appendChild(WebsiteCol);
+
     const Margin3 = document.createElement('div');
     Margin3.classList.add('m-3');
     form.appendChild(Margin3);
