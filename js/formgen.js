@@ -105,10 +105,60 @@ document.addEventListener("DOMContentLoaded", function() {
     Margin2.classList.add('m-3');
     form.appendChild(Margin2);
 
-    // Manufacturer and Model
+    // Container for the radio buttons
+const radioGroupContainer = document.createElement('div');
+radioGroupContainer.setAttribute('id', 'RadioGroupContainer');
+form.appendChild(radioGroupContainer);
+
+// Create Radio Buttons Dynamically
+const radioOptions = [
+    { id: 'ServicingCreation', label: 'Zainteresovan sam za servis računara' },
+    { id: 'WebsiteCreation', label: 'Zainteresovan sam za izradu web sajta' },
+    // { id: 'CloudCreation', label: 'Zainteresovan sam za MegikCloud™' }
+];
+
+radioOptions.forEach(option => {
+    const col = document.createElement('div');
+    col.classList.add('form-check', 'mb-3');
+
+    const radio = document.createElement('input');
+    radio.classList.add('form-check-input');
+    radio.setAttribute('type', 'radio');
+    radio.setAttribute('id', option.id);
+    radio.setAttribute('name', 'ServiceType'); // 👈 shared name groups them
+    col.appendChild(radio);
+
+    const label = document.createElement('label');
+    label.classList.add('form-check-label');
+    label.setAttribute('for', option.id);
+    label.innerHTML = option.label;
+    col.appendChild(label);
+
+    // Add change event listener inline as created
+    radio.addEventListener('change', () => {
+        clearDynamicFields();
+        if (radio.id === 'ServicingCreation' && radio.checked) {
+            addServicingFields();
+        }
+    });
+
+    radioGroupContainer.appendChild(col);
+});
+
+// Container for dynamic fields, placed directly after the radio group
+const dynamicFieldsContainer = document.createElement('div');
+dynamicFieldsContainer.setAttribute('id', 'DynamicFieldsContainer');
+form.appendChild(dynamicFieldsContainer);
+
+// Function to clear dynamic fields
+function clearDynamicFields() {
+    dynamicFieldsContainer.innerHTML = '';
+}
+
+// Function to add Manufacturer and Model inputs
+function addServicingFields() {
     const InputGroup3 = document.createElement('div');
-    InputGroup3.classList.add('input-group');
-    InputGroup3.classList.add('mb-3');
+    InputGroup3.classList.add('input-group', 'mb-3');
 
     const ManufacturerCol = document.createElement('div');
     ManufacturerCol.classList.add('col-12', 'col-md-5');
@@ -121,7 +171,7 @@ document.addEventListener("DOMContentLoaded", function() {
     ManufacturerSelect.classList.add('form-select');
     ManufacturerSelect.setAttribute('id', 'ManufacturerSelect');
     ManufacturerSelect.setAttribute('name', 'ManufacturerSelect');
-    
+
     const ManufacturerArray = [
         "Izaberite proizvođača", "HP", "Dell", "Lenovo", "Acer", "Asus", "Apple", "Desktop", "Nema na listi"
     ];
@@ -153,28 +203,9 @@ document.addEventListener("DOMContentLoaded", function() {
     InputGroup3.appendChild(ManufacturerCol);
     InputGroup3.appendChild(Space4);
     InputGroup3.appendChild(ModelCol);
-    form.appendChild(InputGroup3);
 
-    // Checkbox: Website creation
-    const WebsiteCol = document.createElement('div');
-    WebsiteCol.classList.add('form-check', 'mb-3');
-
-    const WebsiteCheckbox = document.createElement('input');
-    WebsiteCheckbox.classList.add('form-check-input');
-    WebsiteCheckbox.setAttribute('type', 'checkbox');
-    WebsiteCheckbox.setAttribute('id', 'WebsiteCreation');
-    WebsiteCheckbox.setAttribute('name', 'WebsiteCreation');
-    WebsiteCol.appendChild(WebsiteCheckbox);
-
-    const WebsiteLabel = document.createElement('label');
-    WebsiteLabel.classList.add('form-check-label');
-    WebsiteLabel.setAttribute('for', 'WebsiteCreation');
-    WebsiteLabel.innerHTML = 'Zainteresovan sam za izradu web sajta.';
-    WebsiteCol.appendChild(WebsiteLabel);
-
-    // Append this after the Model input group
-    form.appendChild(WebsiteCol);
-
+    dynamicFieldsContainer.appendChild(InputGroup3);
+}
     const Margin3 = document.createElement('div');
     Margin3.classList.add('m-3');
     form.appendChild(Margin3);
@@ -189,14 +220,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const CommentLabel = document.createElement('label');
     CommentLabel.setAttribute('for', 'ProblemDescription');
     CommentLabel.classList.add('form-label');
-    CommentLabel.innerHTML = 'Opišite problem<span class="RequiredField"> *</span>';
+    CommentLabel.innerHTML = 'Dodatne informacije<span class="RequiredField"> *</span>';
     CommentCol.appendChild(CommentLabel);
     const CommentTextArea = document.createElement('textarea');
     CommentTextArea.classList.add('form-control');
     CommentTextArea.setAttribute('id', 'ProblemDescription');
     CommentTextArea.setAttribute('name', 'ProblemDescription');
     CommentTextArea.setAttribute('rows', '5');
-    CommentTextArea.setAttribute('placeholder', 'Bolji opis problema nam pomaže u proceni predračuna. Takođe upišite sve dodatne informacije za koje mislite da su potrebne.');
+    CommentTextArea.setAttribute('placeholder', 'Bolji opis nam pomaže u proceni predračuna. Takođe upišite sve dodatne informacije za koje mislite da su potrebne.');
     CommentCol.appendChild(CommentTextArea);
     const ProblemDescriptionHelp = document.createElement('div');
     ProblemDescriptionHelp.setAttribute('id', 'ProblemDescriptionHelp');
@@ -363,4 +394,3 @@ document.addEventListener("DOMContentLoaded", function() {
     ProblemDescription.addEventListener("blur", CheckFormValidity);
     ResetRequest.addEventListener("blur", CheckFormValidity);
 });
-

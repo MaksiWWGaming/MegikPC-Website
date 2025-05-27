@@ -14,6 +14,7 @@ const navItems = [
         dropdown: [
             { label: "Serviserske Usluge", link: "pages/Services.html" },
             { label: "Izrada Web Sajtova", link: "pages/WebDev.html" },
+            // { label: "MegikCloud™", link: "/pages/MegikCloud.html" },
         ]
     },
     { 
@@ -210,7 +211,7 @@ $(document).ready(function () {
                     </p>
                     <p class="FooterPhone">
                         <a href="tel:+3810605987444">
-                            <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-phone"></i> +381 060-5987-444</span>
+                            <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-phone"></i> 060-5987-444</span>
                         </a>
                     </p>
                     <p class="FooterMail">

@@ -149,6 +149,16 @@
 .dark-mode main .container ul li a {
   color: #fff;
 }
+.dark-mode main .container .btn-primary {
+  border: 1px solid white;
+  background-color: #fff;
+  color: #000;
+}
+.dark-mode main .container .btn-primary:hover {
+  border: 1px solid white;
+  background-color: #121212;
+  color: #fff;
+}
 .dark-mode main .container .card {
   background-color: #121212;
   color: #fff;
@@ -164,16 +174,6 @@
   color: #fff;
 }
 .dark-mode main .container .card .card-body .card-title a {
-  color: #fff;
-}
-.dark-mode main .container .card .card-body .btn-primary {
-  border: 1px solid white;
-  background-color: #fff;
-  color: #000;
-}
-.dark-mode main .container .card .card-body .btn-primary:hover {
-  border: 1px solid white;
-  background-color: #121212;
   color: #fff;
 }
 .dark-mode main .container .card .card-body details summary {
@@ -203,8 +203,13 @@
   background-color: #121212;
   color: #000;
 }
-.dark-mode main .container .accordion .accordion-body a {
+.dark-mode main .container .accordion .accordion-body p {
   color: #fff;
+}
+.dark-mode main .container .accordion .accordion-body a {
+  background-color: #fff;
+  color: #000;
+  border: 0;
 }
 .dark-mode main .container hr.separate-content {
   border: 1px solid #fff;
@@ -499,6 +504,19 @@ main a {
 main .container ul li a {
   color: #000;
 }
+main .container .btn-primary {
+  border: 1px solid white;
+  background-color: #121212;
+  color: #fff;
+  animation: HoverZoomOut 300ms ease;
+  font-weight: bold;
+}
+main .container .btn-primary:hover {
+  border: 1px solid black;
+  background-color: #fff;
+  color: #000;
+  animation: HoverZoom 300ms forwards;
+}
 main .container .card .card-body .index-images {
   width: 50%;
   height: 50%;
@@ -517,19 +535,6 @@ main .container .card .card-body .card-text {
 }
 main .container .card .card-body .card-text a {
   color: #000;
-}
-main .container .card .card-body .btn-primary {
-  border: 1px solid white;
-  background-color: #121212;
-  color: #fff;
-  animation: HoverZoomOut 300ms ease;
-  font-weight: bold;
-}
-main .container .card .card-body .btn-primary:hover {
-  border: 1px solid black;
-  background-color: #fff;
-  color: #000;
-  animation: HoverZoom 300ms forwards;
 }
 main .container .card .card-body details summary {
   padding: 1% 0;
@@ -615,12 +620,21 @@ main .container .accordion .accordion-button:focus {
 main .container .accordion .accordion-button:not(.collapsed)::after {
   filter: invert(40%) sepia(80%) saturate(300%) hue-rotate(0deg);
 }
+main .container .accordion .accordion-item {
+  border: 0;
+}
 main .container .accordion .accordion-body {
+  align-items: center;
   background-color: #fff;
   color: #fff;
 }
+main .container .accordion .accordion-body p {
+  color: #000;
+}
 main .container .accordion .accordion-body a {
+  background-color: #121212;
   color: #fff;
+  border: 0;
 }
 main .container .accordion .accordion-button::after {
   content: "▼";

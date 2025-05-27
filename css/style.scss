@@ -162,6 +162,19 @@ main {
                 }
             }
         }
+        .btn-primary {
+            border: $darkborder;
+            background-color: $darkbg;
+            color: $darktxt;
+            animation: HoverZoomOut 300ms ease;
+            font-weight: bold;
+        }
+        .btn-primary:hover {
+            border: $whiteborder;
+            background-color: $whitebg;
+            color: $whitetxt;  
+            animation: HoverZoom 300ms forwards;
+        }
         .card {
             .card-body {
                 .index-images {
@@ -182,19 +195,6 @@ main {
                     a {
                         color: $whitetxt;
                     }
-                }
-                .btn-primary {
-                    border: $darkborder;
-                    background-color: $darkbg;
-                    color: $darktxt;
-                    animation: HoverZoomOut 300ms ease;
-                    font-weight: bold;
-                }
-                .btn-primary:hover {
-                    border: $whiteborder;
-                    background-color: $whitebg;
-                    color: $whitetxt;  
-                    animation: HoverZoom 300ms forwards;
                 }
                 details {
                     summary {
@@ -297,14 +297,25 @@ main {
             .accordion-button:not(.collapsed)::after {
                 filter: invert(40%) sepia(80%) saturate(300%) hue-rotate(0deg);
             }
-        
+            
+            .accordion-item {
+                border: 0;
+            }
+
             .accordion-body {
+                align-items: center;
                 background-color: $whitebg;
                 color: $darktxt;
+                p {
+                    color: $whitetxt;
+                }
                 a {
+                    background-color: $darkbg;
                     color: $darktxt;
+                    border: 0;
                 }
             }
+
             .accordion-button::after {
                 content: "▼";
                 font-size: 1.25rem;

@@ -67,6 +67,16 @@
                     }
                 }
             }
+            .btn-primary {
+                border: $darkborder;
+                background-color: $whitebg;
+                color: $whitetxt;
+            }
+            .btn-primary:hover {
+                border: $darkborder;
+                background-color: $darkbg;
+                color: $darktxt;  
+            }
             .card {
                 background-color: $darkbg;
                 color: $darktxt;
@@ -87,16 +97,6 @@
                         a {
                             color: $darktxt;
                         }
-                    }
-                    .btn-primary {
-                        border: $darkborder;
-                        background-color: $whitebg;
-                        color: $whitetxt;
-                    }
-                    .btn-primary:hover {
-                        border: $darkborder;
-                        background-color: $darkbg;
-                        color: $darktxt;  
                     }
                     details {
                         summary {
@@ -129,8 +129,13 @@
                 .accordion-body {
                     background-color: $darkbg;
                     color: $whitetxt;
+                    p {
+                        color: $darktxt;
+                    }
                     a {
-                        color: $darktxt;                        
+                        background-color: $whitebg;
+                        color: $whitetxt;
+                        border: 0;
                     }
                 }
             }

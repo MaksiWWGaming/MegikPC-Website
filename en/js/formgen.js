@@ -105,75 +105,107 @@ document.addEventListener("DOMContentLoaded", function() {
     Margin2.classList.add('m-3');
     form.appendChild(Margin2);
 
-    // Manufacturer and Model
-    const InputGroup3 = document.createElement('div');
-    InputGroup3.classList.add('input-group');
-    InputGroup3.classList.add('mb-3');
+    // Container for the radio buttons
+    const radioGroupContainer = document.createElement('div');
+    radioGroupContainer.setAttribute('id', 'RadioGroupContainer');
+    form.appendChild(radioGroupContainer);
 
-    const ManufacturerCol = document.createElement('div');
-    ManufacturerCol.classList.add('col-12', 'col-md-5');
-    const ManufacturerLabel = document.createElement('label');
-    ManufacturerLabel.setAttribute('for', 'ManufacturerSelect');
-    ManufacturerLabel.classList.add('form-label');
-    ManufacturerLabel.innerHTML = 'Device manufacturer';
-    ManufacturerCol.appendChild(ManufacturerLabel);
-    const ManufacturerSelect = document.createElement('select');
-    ManufacturerSelect.classList.add('form-select');
-    ManufacturerSelect.setAttribute('id', 'ManufacturerSelect');
-    ManufacturerSelect.setAttribute('name', 'ManufacturerSelect');
-    
-    const ManufacturerArray = [
-        "Pick a manufacturer", "HP", "Dell", "Lenovo", "Acer", "Asus", "Apple", "Desktop", "Not on list"
+    // Create Radio Buttons Dynamically
+    const radioOptions = [
+        { id: 'ServicingCreation', label: 'Interested in repair services' },
+        { id: 'WebsiteCreation', label: 'Interested in website creation' },
+        // { id: 'CloudCreation', label: 'Interested in MegikCloud™' }
     ];
-    ManufacturerArray.forEach(manufacturer => {
-        const option = document.createElement('option');
-        option.textContent = manufacturer;
-        ManufacturerSelect.appendChild(option);
+
+    radioOptions.forEach(option => {
+        const col = document.createElement('div');
+        col.classList.add('form-check', 'mb-3');
+
+        const radio = document.createElement('input');
+        radio.classList.add('form-check-input');
+        radio.setAttribute('type', 'radio');
+        radio.setAttribute('id', option.id);
+        radio.setAttribute('name', 'ServiceType'); // 👈 shared name groups them
+        col.appendChild(radio);
+
+        const label = document.createElement('label');
+        label.classList.add('form-check-label');
+        label.setAttribute('for', option.id);
+        label.innerHTML = option.label;
+        col.appendChild(label);
+
+        // Add change event listener inline as created
+        radio.addEventListener('change', () => {
+            clearDynamicFields();
+            if (radio.id === 'ServicingCreation' && radio.checked) {
+                addServicingFields();
+            }
     });
-    ManufacturerCol.appendChild(ManufacturerSelect);
 
-    const Space4 = document.createElement('div');
-    Space4.classList.add('col-sm-2');
+        radioGroupContainer.appendChild(col);
+    });
 
-    const ModelCol = document.createElement('div');
-    ModelCol.classList.add('col-12', 'col-md-5');
-    const ModelLabel = document.createElement('label');
-    ModelLabel.setAttribute('for', 'Model');
-    ModelLabel.classList.add('form-label');
-    ModelLabel.innerHTML = 'Model';
-    ModelCol.appendChild(ModelLabel);
-    const ModelInput = document.createElement('input');
-    ModelInput.classList.add('form-control');
-    ModelInput.setAttribute('type', 'text');
-    ModelInput.setAttribute('id', 'Model');
-    ModelInput.setAttribute('name', 'Model');
-    ModelInput.setAttribute('placeholder', 'Insert device model/motherboard');
-    ModelCol.appendChild(ModelInput);
+    // Container for dynamic fields, placed directly after the radio group
+    const dynamicFieldsContainer = document.createElement('div');
+    dynamicFieldsContainer.setAttribute('id', 'DynamicFieldsContainer');
+    form.appendChild(dynamicFieldsContainer);
 
-    InputGroup3.appendChild(ManufacturerCol);
-    InputGroup3.appendChild(Space4);
-    InputGroup3.appendChild(ModelCol);
-    form.appendChild(InputGroup3);
+    // Function to clear dynamic fields
+    function clearDynamicFields() {
+        dynamicFieldsContainer.innerHTML = '';
+    }
 
-    // Checkbox: Website creation
-    const WebsiteCol = document.createElement('div');
-    WebsiteCol.classList.add('form-check', 'mb-3');
+    // Function to add Manufacturer and Model inputs
+    function addServicingFields() {
+        const InputGroup3 = document.createElement('div');
+        InputGroup3.classList.add('input-group', 'mb-3');
 
-    const WebsiteCheckbox = document.createElement('input');
-    WebsiteCheckbox.classList.add('form-check-input');
-    WebsiteCheckbox.setAttribute('type', 'checkbox');
-    WebsiteCheckbox.setAttribute('id', 'WebsiteCreation');
-    WebsiteCheckbox.setAttribute('name', 'WebsiteCreation');
-    WebsiteCol.appendChild(WebsiteCheckbox);
+        const ManufacturerCol = document.createElement('div');
+        ManufacturerCol.classList.add('col-12', 'col-md-5');
+        const ManufacturerLabel = document.createElement('label');
+        ManufacturerLabel.setAttribute('for', 'ManufacturerSelect');
+        ManufacturerLabel.classList.add('form-label');
+        ManufacturerLabel.innerHTML = 'Device manufacturer';
+        ManufacturerCol.appendChild(ManufacturerLabel);
+        const ManufacturerSelect = document.createElement('select');
+        ManufacturerSelect.classList.add('form-select');
+        ManufacturerSelect.setAttribute('id', 'ManufacturerSelect');
+        ManufacturerSelect.setAttribute('name', 'ManufacturerSelect');
 
-    const WebsiteLabel = document.createElement('label');
-    WebsiteLabel.classList.add('form-check-label');
-    WebsiteLabel.setAttribute('for', 'WebsiteCreation');
-    WebsiteLabel.innerHTML = 'Interested in website creation.';
-    WebsiteCol.appendChild(WebsiteLabel);
+        const ManufacturerArray = [
+            "Izaberite proizvođača", "HP", "Dell", "Lenovo", "Acer", "Asus", "Apple", "Desktop", "Nema na listi"
+        ];
+        ManufacturerArray.forEach(manufacturer => {
+            const option = document.createElement('option');
+            option.textContent = manufacturer;
+            ManufacturerSelect.appendChild(option);
+        });
+        ManufacturerCol.appendChild(ManufacturerSelect);
 
-    // Append this after the Model input group
-    form.appendChild(WebsiteCol);
+        const Space4 = document.createElement('div');
+        Space4.classList.add('col-sm-2');
+
+        const ModelCol = document.createElement('div');
+        ModelCol.classList.add('col-12', 'col-md-5');
+        const ModelLabel = document.createElement('label');
+        ModelLabel.setAttribute('for', 'Model');
+        ModelLabel.classList.add('form-label');
+        ModelLabel.innerHTML = 'Model';
+        ModelCol.appendChild(ModelLabel);
+        const ModelInput = document.createElement('input');
+        ModelInput.classList.add('form-control');
+        ModelInput.setAttribute('type', 'text');
+        ModelInput.setAttribute('id', 'Model');
+        ModelInput.setAttribute('name', 'Model');
+        ModelInput.setAttribute('placeholder', 'Insert device model/motherboard');
+        ModelCol.appendChild(ModelInput);
+
+        InputGroup3.appendChild(ManufacturerCol);
+        InputGroup3.appendChild(Space4);
+        InputGroup3.appendChild(ModelCol);
+
+        dynamicFieldsContainer.appendChild(InputGroup3);
+    }
 
     const Margin3 = document.createElement('div');
     Margin3.classList.add('m-3');
@@ -189,14 +221,14 @@ document.addEventListener("DOMContentLoaded", function() {
     const CommentLabel = document.createElement('label');
     CommentLabel.setAttribute('for', 'ProblemDescription');
     CommentLabel.classList.add('form-label');
-    CommentLabel.innerHTML = 'Problem description<span class="RequiredField"> *</span>';
+    CommentLabel.innerHTML = 'Other information<span class="RequiredField"> *</span>';
     CommentCol.appendChild(CommentLabel);
     const CommentTextArea = document.createElement('textarea');
     CommentTextArea.classList.add('form-control');
     CommentTextArea.setAttribute('id', 'ProblemDescription');
     CommentTextArea.setAttribute('name', 'ProblemDescription');
     CommentTextArea.setAttribute('rows', '5');
-    CommentTextArea.setAttribute('placeholder', 'Better descriptions allow us to give you a more accurate service cost. Also type any other info you deem necessary.');
+    CommentTextArea.setAttribute('placeholder', 'A better description allows us to give you a more accurate service cost. Also type in any other information you deem necessary.');
     CommentCol.appendChild(CommentTextArea);
     const ProblemDescriptionHelp = document.createElement('div');
     ProblemDescriptionHelp.setAttribute('id', 'ProblemDescriptionHelp');
@@ -264,7 +296,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let NameRegex = /^[A-Z][a-z]{1,29}$/;
     Name.addEventListener("blur", function(){  
         if (!NameRegex.test(Name.value)) {
-            NameHelpText.innerHTML = "Name must begin with a capital letter.";
+            NameHelpText.innerHTML = "Name must begin with a capital letter";
         } else {
             NameHelpText.innerHTML = "";
         }
@@ -281,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     Phone.addEventListener("blur", function(){  
         if (!PhoneRegex.test(Phone.value)) {
-            PhoneHelpText.innerHTML = "Phone starts with +country code";
+            PhoneHelpText.innerHTML = "Phone starts with <i>+country code</i>";
         } else {
             PhoneHelpText.innerHTML = "";
         }
@@ -299,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     ProblemDescription.addEventListener("blur", function() {
         if (ProblemDescription.value == "") {
-            ProblemDescriptionHelpText.innerHTML = "You must describe the issue";
+            ProblemDescriptionHelpText.innerHTML = "You must give a description";
         } else {
             ProblemDescriptionHelpText.innerHTML = "";
         }
@@ -363,4 +395,3 @@ document.addEventListener("DOMContentLoaded", function() {
     ProblemDescription.addEventListener("blur", CheckFormValidity);
     ResetRequest.addEventListener("blur", CheckFormValidity);
 });
-

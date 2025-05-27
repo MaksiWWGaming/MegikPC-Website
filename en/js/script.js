@@ -14,6 +14,7 @@ const navItems = [
         dropdown: [
             { label: "Computer Repair Services", link: "/en/pages/Services.html" },
             { label: "Website Creation Service", link: "/en/pages/WebDev.html" },
+            // { label: "MegikCloud™", link: "/en/pages/MegikCloud.html" },
         ]
     },
     { 
