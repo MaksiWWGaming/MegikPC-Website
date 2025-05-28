@@ -1,8 +1,8 @@
 const packages = [
-  { name: "MegikCloud™ Lite", storage: "Storage: 10GB", price: "100RSD /monthly", description: "Perfect for important documents", image: "/img/Pages/Cloud/cloud lite.webp" },
-  { name: "MegikCloud™ Plus", storage: "Storage: 50GB", price: "450RSD /monthly", description: "Perfect for important projects", image: "/img/Pages/Cloud/cloud plus.webp" },
-  { name: "MegikCloud™ Max", storage: "Storage: 100GB", price: "900RSD /monthly", description: "Made for all of your needs", image: "/img/Pages/Cloud/cloud max.webp" },
-  { name: "MegikCloud™ Custom", storage: "Storage: By deal", price: "By deal /monthly", description: "Need more space? Let's make a deal.", image: "/img/Pages/Cloud/cloud custom.webp" }
+  { name: "MegikCloud™ Lite", storage: "Storage: 100GB", price: "200RSD /monthly", devices: "2 devices", description: "Perfect for important documents", image: "/img/Pages/Cloud/cloud lite.webp" },
+  { name: "MegikCloud™ Plus", storage: "Storage: 200GB", price: "350RSD /monthly", devices: "5 devices",description: "Perfect for important projects", image: "/img/Pages/Cloud/cloud plus.webp" },
+  { name: "MegikCloud™ Max", storage: "Storage: 1TB", price: "1000RSD /monthly", devices: "10 devices",description: "Made for all of your needs", image: "/img/Pages/Cloud/cloud max.webp" },
+  { name: "MegikCloud™ Custom", storage: "Storage: By deal", price: "By deal /monthly", devices: "Device number based on deal",description: "Need more space?", image: "/img/Pages/Cloud/cloud custom.webp" }
 ];
 
 const container = document.getElementById("packages-container");
@@ -17,7 +17,7 @@ packages.forEach(pkg => {
         <div class="card-body d-flex flex-column">
           <h4 class="card-title text-center mb-3">${pkg.name}</h4>
           <h5 class="text-center card-text mb-3">${pkg.storage}</h6>
-          <h6 class="text-center mb-3">${pkg.price}</h6>
+          <h6 class="text-center mb-3">${pkg.price}<br>${pkg.devices}</h6>
           <p class="card-text text-center flex-grow-1">${pkg.description}</p>
           <div class="text-center mt-3">
               <button class="btn btn-primary select-package-btn" data-package="${pkg.name}">Choose ${pkg.name}</button>
@@ -108,6 +108,9 @@ function showCloudContactForm(selectedPackage) {
 
   // Email field
   const { input: emailInput, helpText: emailHelp } = createField('Email', 'email', 'Email', 'email@example.com');
+
+  // Extra info
+  const { input: DescriptionInput, helpText: DescriptionHelp } = createField('Extra information', 'textarea', 'Extra information', 'Write here any information you deem necessary');
 
   // Submit button
   const submitBtn = document.createElement('button');

@@ -1,8 +1,8 @@
 const packages = [
-  { name: "MegikCloud™ Lite", storage: "Prostor: 10GB", price: "100RSD /mesečno", description: "Savršeno za bitna dokumenta", image: "/img/Pages/Cloud/cloud lite.webp" },
-  { name: "MegikCloud™ Plus", storage: "Prostor: 50GB", price: "450RSD /mesečno", description: "Savršeno za vaše bitne projekte", image: "/img/Pages/Cloud/cloud plus.webp" },
-  { name: "MegikCloud™ Max", storage: "Prostor: 100GB", price: "900RSD /mesečno", description: "Napravljen za bilo koje podatke", image: "/img/Pages/Cloud/cloud max.webp" },
-  { name: "MegikCloud™ Custom", storage: "Prostor: Po dogovoru", price: "Po dogovoru /mesečno", description: "Potrebno vam je više? Dogovorimo se", image: "/img/Pages/Cloud/cloud custom.webp" }
+  { name: "MegikCloud™ Lite", storage: "Prostor: 100GB", price: "200RSD /mesečno", devices: "2 uređaja", description: "Savršeno za bitna dokumenta", image: "/img/Pages/Cloud/cloud lite.webp" },
+  { name: "MegikCloud™ Plus", storage: "Prostor: 200GB", price: "350RSD /mesečno", devices: "5 uređaja", description: "Savršeno za vaše bitne projekte", image: "/img/Pages/Cloud/cloud plus.webp" },
+  { name: "MegikCloud™ Max", storage: "Prostor: 1TB", price: "1000RSD /mesečno", devices: "10 uređaja", description: "Napravljen za bilo koje podatke", image: "/img/Pages/Cloud/cloud max.webp" },
+  { name: "MegikCloud™ Custom", storage: "Prostor: Po dogovoru", price: "Po dogovoru /mesečno", devices: "Broj uređaja po dogovoru", description: "Hajde da se dogovorimo.", image: "/img/Pages/Cloud/cloud custom.webp" }
 ];
 
 const container = document.getElementById("packages-container");
@@ -17,7 +17,7 @@ packages.forEach(pkg => {
         <div class="card-body d-flex flex-column">
           <h4 class="card-title text-center mb-3">${pkg.name}</h4>
           <h5 class="text-center card-text mb-3">${pkg.storage}</h6>
-          <h6 class="text-center mb-3">${pkg.price}</h6>
+          <h6 class="text-center mb-3">${pkg.price}<br>${pkg.devices}</h6>
           <p class="card-text text-center flex-grow-1">${pkg.description}</p>
           <div class="text-center mt-3">
               <button class="btn btn-primary select-package-btn" data-package="${pkg.name}">Izaberite ${pkg.name}</button>
@@ -108,6 +108,10 @@ function showCloudContactForm(selectedPackage) {
 
   // Email field
   const { input: emailInput, helpText: emailHelp } = createField('Email', 'email', 'Email', 'email@primer.com');
+
+  // Extra info
+  const { input: DescriptionInput, helpText: DescriptionHelp } = createField('Dodatne informacije', 'textarea', 'Dodatne informacije', 'Pošaljite nam pitanje');
+
 
   // Submit button
   const submitBtn = document.createElement('button');
