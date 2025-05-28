@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sr-Latn-CS">
     <head>
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-G1W02LJD1C"></script>
@@ -21,17 +21,31 @@
         <link rel="apple-touch-icon" href="/path/to/apple-touch-icon.png">
 
         <!--Lesser Meta tags-->
-        <meta name="keywords" content="Megik, PC, computer, laptop, service, repair, parts, repair shop">
-        <meta name="description" content="MegikPC gives high quality and affordable diagnostic service and repair service. Contact us today so your computer can shine again!">
+        <meta name="keywords" content="Megik PC, računar, popravka računara, servis računara, laptop, popravka laptopa, kompjuterski servis, dijagnostika računara, kompjuterska oprema, hardverski problemi, softverski problemi, reinstalacija sistema, servis kompjutera, servis laptopova, IT podrška, nabavka delova, zamena delova, čišćenje laptopa, termalna pasta, Beograd, Miljakovac, Rakovica, Vidikovac, Kanarevo Brdo, Petlovo Brdo, Resnik, Banjica, Labudovo Brdo, Kneževac, Skojevsko Naselje, Filmski Grad, Beograd računar, Beograd laptop servis, PC servis Beograd, računarski servis Rakovica, računarski servis Miljakovac, popravka ekrana laptopa, zamena tastature laptopa, optimizacija sistema, instalacija drajvera, brzi servis računara">
+        <meta name="description" content="MegikPC - Pouzdan i brz servis računara i laptopova u Beogradu. Nudimo dijagnostiku, popravku, zamenu delova i softverske usluge. Kontaktirajte nas za brzu i povoljnu uslugu!">
         <meta name="copyright" content="© 2025 MegikPC. All rights reserved.">
-        <meta name="abstract" content="MegikPC Computer repair shop is there to give your computer the care it deserves!">
-        <meta name="language" content="english">
+        <meta name="abstract" content="Servis Računara MegikPC je tu da Vaš računar dobije negu koja mu je potrebna">
+        <meta name="language" content="sr">
+        <meta name="geo.region" content="RS">
+        <meta name="geo.placename" content="Srbija">
         <meta name="robots" content="index, follow">
         <meta name='apple-mobile-web-app-capable' content='yes'/>
 	    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
 	    <meta http-equiv='Content-Language' content='sr-Latn'/>
 	    <meta http-equiv='ImageToolbar' content='No'/>
 	    <meta name='Rating' content='General'/>
+
+        <!--Meta tags for social networks -->
+        <meta property="og:title" content="MegikPC - Kuća Računara">
+        <meta property="og:description" content="MegikPC pruža kvalitetnu i pristupačnu uslugu dijagnostike i popravke računara. Kontaktirajte nas već danas da Vaš računar ponovo zablista!">
+        <meta property="og:image" content="https://www.megikpc.com/img/Trademarks/banner.webp">
+        <meta property="og:url" content="https://www.megikpc.com/">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="sr_RS">
+
+        <!--Meta tags for search results-->
+        <meta name="apple-mobile-web-app-title" content="MegikPC">
+        <meta name="application-name" content="MegikPC">
 
         <!--Styles-->
         <!--Bootstrap style-->
@@ -62,8 +76,65 @@
             <main>
                 <div class="container">
                     <div class="row">
-                        <div id="ContactForm" class="col col-12 align-middle">
+                        <div class="col col-12 align-middle">
                             <h1 class="text-center">Contact us today</h1>
+                                <form action="https://api.web3forms.com/submit" method="post" id="form">
+                                    <input type="hidden" name="access_key" value="b640e18c-455f-484f-a010-eb89e77883d1">
+    
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-12 col-md-3">
+                                            <label for="Name" class="form-label">Name<span class="RequiredField"> *</span></label>
+                                            <input type="text" class="form-control" id="Name" name="Name" placeholder="Vaše ime">
+                                            <div id="NameHelp" class="form-text HelpText"></div>
+                                        </div>
+
+                                        <div class="col-1 col-sm-1"></div>
+
+                                        <div class="col-12 col-md-4">
+                                            <label for="Phone" class="form-label">Phone number<span class="RequiredField"> *</span></label>
+                                            <input type="tel" class="form-control" id="Phone" name="Phone" placeholder="Vaš broj telefona">
+                                            <div id="PhoneHelp" class="form-text HelpText"></div>
+                                        </div>
+
+                                        <div class="col-1 col-sm-1"></div>
+
+                                        <div class="col-12 col-md-3">
+                                            <label for="Email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="Email" name="Email" placeholder="email@primer.com">
+                                            <div id="EmailHelp" class="form-text HelpText"></div>
+                                        </div>
+                                    </div>
+
+                                    <div id="RadioGroupContainer"> </div>
+                                    <div id="DynamicFieldsContainer"></div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="col-12">
+                                            <label for="ProblemDescription" class="form-label">
+                                            Other information<span class="RequiredField"> *</span>
+                                            </label>
+                                            <textarea class="form-control" id="ProblemDescription" name="ProblemDescription" rows="5"
+                                            placeholder="A better description allows us to give you a more accurate service cost. Also type in any other information you deem necessary."></textarea>
+                                            <div id="ProblemDescriptionHelp" class="form-text HelpText"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="m-3"></div>
+
+                                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                                    <div class="d-flex justify-content-between">
+                                        <button type="reset" class="btn form-buttons" id="ResetRequest">Clear form</button>
+                                        <input type="hidden" name="redirect" value="https://www.megikpc.com/js/data/Thanks.html">
+                                        <button type="submit" class="btn form-buttons align-content-center" id="SubmitRequest">
+                                            Submit request
+                                            <!-- <div id="SubmitHelp" class="form-text HelpText" style="display: none;"></div> -->
+                                        </button>
+                                    </div>
+
+                                    <div id="result"></div>
+
+                                </form>
                             <div class="m-3"></div>
                         </div>
                     </div>
@@ -71,10 +142,10 @@
                     <hr class="separate-content mb-3 mt-5"></hr>
 
                     <div class="row">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 m-auto mb-5">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-7 m-auto mb-5">
                             <div class="card text-center border-0">
                                 <div class="card-body">
-                                    <h2 class="card-title mb-3">Or contact us via mobile, SMS, Whatsapp or Viber</h2>
+                                    <h2 class="card-title mb-3">Or contact us via mobile, SMS, Whatsapp or Vibera</h2>
                                     <a href="tel:+3810605987444" class="btn btn-primary mb-2">Call on click <i class="fa-solid fa-phone-volume"></i></a>
                                     <a href="https://wa.me/+3810605987444" class="btn btn-primary mb-2">Whatsapp on click <i class="fa-brands fa-whatsapp"></i></a>
                                     <a href="#PhoneClick" id="PhoneClick" class="btn btn-primary mb-2">Show number</a>
@@ -83,6 +154,23 @@
                         </div>
                     </div>
                 </div>
+            <!--Result for form-->
+            <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="resultModalLabel">Please wait</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zatvori"></button>
+                        </div>
+                        <div class="modal-body" id="resultModalBody">
+                            <!-- Message will go here -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </main>
 
             <footer id="FooterDiv" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"></footer>
@@ -92,7 +180,8 @@
             <a href="/en/pages/WebDev.html"></a>
             <a href="/en/pages/MegikCloud.html"></a>
         </div>
-        
+
+
         <script>
             //Show phone number on button click
             $(document).ready(function() {
@@ -102,42 +191,43 @@
             });
 
             const form = document.getElementById('form');
-            const result = document.getElementById('result');
-            
+            const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+            const resultModalBody = document.getElementById('resultModalBody');
+
             form.addEventListener('submit', function(e) {
-              e.preventDefault();
-              const formData = new FormData(form);
-              const object = Object.fromEntries(formData);
-              const json = JSON.stringify(object);
-              result.innerHTML = "Please wait..."
-            
+                e.preventDefault();
+
+                const formData = new FormData(form);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
+
+                resultModalBody.innerHTML = "Please wait...";
+                resultModal.show();
+
                 fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: json
-                    })
-                    .then(async (response) => {
-                        let json = await response.json();
-                        if (response.status == 200) {
-                            result.innerHTML = "Upsešno poslat upit";
-                        } else {
-                            console.log(response);
-                            result.innerHTML = json.message;
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        result.innerHTML = "Something went wrong!";
-                    })
-                    .then(function() {
-                        form.reset();
-                        setTimeout(() => {
-                            result.style.display = "none";
-                        }, 3000);
-                    });
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        resultModalBody.innerHTML = "Form sent! <br>We will contact you as soon as possible during our working hours.";
+                    } else {
+                        console.log(response);
+                        resultModalBody.innerHTML = json.message;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    resultModalBody.innerHTML = "Oops, an error occured. Please try again. <br>If you keep seeing this error, please contact us via email on <i>info@megikpc.com</i> or give us a call on <i>+381 060-6987-444</i>.";
+                })
+                .then(function() {
+                    form.reset();
+                });
             });
         </script>
 

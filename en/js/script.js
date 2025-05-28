@@ -14,7 +14,7 @@ const navItems = [
         dropdown: [
             { label: "Computer Repair Services", link: "/en/pages/Services.html" },
             { label: "Website Creation Service", link: "/en/pages/WebDev.html" },
-            // { label: "MegikCloud™", link: "/en/pages/MegikCloud.html" },
+            { label: "MegikCloud™", link: "/en/pages/MegikCloud.html" },
         ]
     },
     { 
@@ -227,7 +227,7 @@ $(document).ready(function () {
                         </p>
                         <p class="FooterWarranty">
                             <a href="/pages/MegikPC - Garantni Uslovi.pdf" target="_blank" rel="noopener noreferrer">
-                                <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-file"></i> Warranty terms</span>
+                                <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-file"></i> Terms of use</span>
                             </a>
                         </p>
                 </div>

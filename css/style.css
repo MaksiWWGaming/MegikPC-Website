@@ -207,8 +207,7 @@
   color: #fff;
 }
 .dark-mode main .container .accordion .accordion-body a {
-  background-color: #fff;
-  color: #000;
+  color: #fff;
   border: 0;
 }
 .dark-mode main .container hr.separate-content {
@@ -218,6 +217,25 @@
   border: 1px solid #fff;
 }
 .dark-mode main .container ul li {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode main .modal .modal-dialog {
+  background-color: #121212;
+}
+.dark-mode main .modal .modal-dialog .modal-content .modal-header {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode main .modal .modal-dialog .modal-content .modal-body {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode main .modal .modal-dialog .modal-content .modal-footer {
+  background-color: #121212;
+  color: #fff;
+}
+.dark-mode main .modal .modal-dialog .modal-content .modal-footer button {
   background-color: #121212;
   color: #fff;
 }
@@ -320,6 +338,14 @@
   }
   #ContactButton .card-body .small {
     font-size: 12px;
+  }
+  .cloud-package {
+    margin: 0 auto;
+    width: 80%;
+    align-items: center;
+  }
+  .cloud-package img {
+    width: 40%;
   }
 }
 @media only screen and (max-width: 767px) {
@@ -521,6 +547,10 @@ main .container .card .card-body .index-images {
   width: 50%;
   height: 50%;
 }
+main .container .card .card-body h6 {
+  font-size: 15px;
+  color: #28a745;
+}
 main .container .card .card-body .card-title {
   font-weight: bold;
   margin-bottom: 15px;
@@ -632,9 +662,12 @@ main .container .accordion .accordion-body p {
   color: #000;
 }
 main .container .accordion .accordion-body a {
-  background-color: #121212;
-  color: #fff;
+  color: #000;
   border: 0;
+  font-style: italic;
+}
+main .container .accordion .accordion-body ul {
+  color: #000;
 }
 main .container .accordion .accordion-button::after {
   content: "▼";
@@ -648,6 +681,11 @@ main .container .accordion .accordion-button:not(.collapsed)::after {
   font-size: 1.25rem;
   font-weight: bold;
   color: red;
+}
+main .modal .modal-dialog .modal-content .modal-footer button {
+  background-color: #121212;
+  color: #fff;
+  font-weight: bold;
 }
 
 footer {

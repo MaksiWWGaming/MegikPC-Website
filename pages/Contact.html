@@ -76,8 +76,65 @@
             <main>
                 <div class="container">
                     <div class="row">
-                        <div id="ContactForm" class="col col-12 align-middle">
+                        <div class="col col-12 align-middle">
                             <h1 class="text-center">Kontaktirajte nas već danas</h1>
+                                <form action="https://api.web3forms.com/submit" method="post" id="form">
+                                    <input type="hidden" name="access_key" value="b640e18c-455f-484f-a010-eb89e77883d1">
+    
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-12 col-md-3">
+                                            <label for="Name" class="form-label">Ime<span class="RequiredField"> *</span></label>
+                                            <input type="text" class="form-control" id="Name" name="Name" placeholder="Vaše ime">
+                                            <div id="NameHelp" class="form-text HelpText"></div>
+                                        </div>
+
+                                        <div class="col-1 col-sm-1"></div>
+
+                                        <div class="col-12 col-md-4">
+                                            <label for="Phone" class="form-label">Telefon<span class="RequiredField"> *</span></label>
+                                            <input type="tel" class="form-control" id="Phone" name="Phone" placeholder="Vaš broj telefona">
+                                            <div id="PhoneHelp" class="form-text HelpText"></div>
+                                        </div>
+
+                                        <div class="col-1 col-sm-1"></div>
+
+                                        <div class="col-12 col-md-3">
+                                            <label for="Email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="Email" name="Email" placeholder="email@primer.com">
+                                            <div id="EmailHelp" class="form-text HelpText"></div>
+                                        </div>
+                                    </div>
+
+                                    <div id="RadioGroupContainer"> </div>
+                                    <div id="DynamicFieldsContainer"></div>
+
+                                    <div class="input-group mb-3">
+                                        <div class="col-12">
+                                            <label for="ProblemDescription" class="form-label">
+                                            Dodatne informacije<span class="RequiredField"> *</span>
+                                            </label>
+                                            <textarea class="form-control" id="ProblemDescription" name="ProblemDescription" rows="5"
+                                            placeholder="Bolji opis nam pomaže u proceni predračuna. Takođe upišite sve dodatne informacije za koje mislite da su potrebne."></textarea>
+                                            <div id="ProblemDescriptionHelp" class="form-text HelpText"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="m-3"></div>
+
+                                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                                    <div class="d-flex justify-content-between">
+                                        <button type="reset" class="btn form-buttons" id="ResetRequest">Očistite polja</button>
+                                        <input type="hidden" name="redirect" value="https://www.megikpc.com/js/data/Thanks.html">
+                                        <button type="submit" class="btn form-buttons" id="SubmitRequest">
+                                            Podnesite zahtev
+                                            <!-- <div id="SubmitHelp" class="form-text HelpText" style="display: none;"></div> -->
+                                        </button>
+                                    </div>
+
+                                    <div id="result"></div>
+
+                                </form>
                             <div class="m-3"></div>
                         </div>
                     </div>
@@ -97,6 +154,23 @@
                         </div>
                     </div>
                 </div>
+                <!--Result for form-->
+                <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="resultModalLabel">Obaveštenje</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zatvori"></button>
+                            </div>
+                            <div class="modal-body" id="resultModalBody">
+                                <!-- Message will go here -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
 
             <footer id="FooterDiv" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"></footer>
@@ -106,7 +180,8 @@
             <a href="pages/WebDev.html"></a>
             <a href="pages/MegikCloud.html"></a>
         </div>
-        
+
+
         <script>
             //Show phone number on button click
             $(document).ready(function() {
@@ -116,47 +191,48 @@
             });
 
             const form = document.getElementById('form');
-            const result = document.getElementById('result');
-            
+            const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+            const resultModalBody = document.getElementById('resultModalBody');
+
             form.addEventListener('submit', function(e) {
-              e.preventDefault();
-              const formData = new FormData(form);
-              const object = Object.fromEntries(formData);
-              const json = JSON.stringify(object);
-              result.innerHTML = "Please wait..."
-            
+                e.preventDefault();
+
+                const formData = new FormData(form);
+                const object = Object.fromEntries(formData);
+                const json = JSON.stringify(object);
+
+                resultModalBody.innerHTML = "Molimo vas da sačekate...";
+                resultModal.show();
+
                 fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: json
-                    })
-                    .then(async (response) => {
-                        let json = await response.json();
-                        if (response.status == 200) {
-                            result.innerHTML = "Upsešno poslat upit";
-                        } else {
-                            console.log(response);
-                            result.innerHTML = json.message;
-                        }
-                    })
-                    .catch(error => {
-                        console.log(error);
-                        result.innerHTML = "Something went wrong!";
-                    })
-                    .then(function() {
-                        form.reset();
-                        setTimeout(() => {
-                            result.style.display = "none";
-                        }, 3000);
-                    });
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        resultModalBody.innerHTML = "Uspešno poslat upit! <br> Kontaktiraćemo vas što pre u toku radnog vremena.";
+                    } else {
+                        console.log(response);
+                        resultModalBody.innerHTML = json.message;
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    resultModalBody.innerHTML = "Došlo je do greške. Pokušajte ponovo. <br> Ukoliko i dalje dobijate grešku, molimo vas da nas kontaktirate na <i>info@megikpc.com</i> ili putem mobilnog <i>060-6987-444</i>.";
+                })
+                .then(function() {
+                    form.reset();
+                });
             });
         </script>
 
-        <script src="../js/script.js"></script>
-        <script src="../js/formgen.js"></script>
+        <script src="/js/script.js"></script>
+        <script src="/js/formgen.js"></script>
 
     </body>
 </html>

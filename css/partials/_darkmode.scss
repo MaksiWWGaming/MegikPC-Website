@@ -133,8 +133,8 @@
                         color: $darktxt;
                     }
                     a {
-                        background-color: $whitebg;
-                        color: $whitetxt;
+                        // background-color: $whitebg;
+                        color: $darktxt;
                         border: 0;
                     }
                 }
@@ -149,6 +149,29 @@
                 li {
                     background-color: $darkbg;
                     color: $darktxt;
+                }
+            }
+        }
+        .modal {
+            .modal-dialog {
+                background-color: $darkbg;
+                .modal-content {
+                    .modal-header {
+                        background-color: $darkbg;
+                        color: $darktxt
+                    }
+                    .modal-body {
+                        background-color: $darkbg;
+                        color: $darktxt;
+                    }
+                    .modal-footer {
+                        background-color: $darkbg;
+                        color: $darktxt;
+                        button {
+                            background-color: $darkbg;
+                            color: $darktxt;
+                        }
+                    }
                 }
             }
         }

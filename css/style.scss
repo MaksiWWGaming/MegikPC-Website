@@ -181,6 +181,10 @@ main {
                     width: 50%;
                     height: 50%;
                 }
+                h6 {
+                    font-size: 15px;
+                    color: #28a745;
+                }
                 .card-title {
                     font-weight: bold;
                     margin-bottom: 15px;
@@ -310,9 +314,12 @@ main {
                     color: $whitetxt;
                 }
                 a {
-                    background-color: $darkbg;
-                    color: $darktxt;
+                    color: $whitetxt;
                     border: 0;
+                    font-style: italic;
+                }
+                ul {
+                    color: $whitetxt;
                 }
             }
 
@@ -328,6 +335,19 @@ main {
                 font-size: 1.25rem;
                 font-weight: bold;
                 color: red;
+            }
+        }
+    }
+    .modal {
+        .modal-dialog {
+            .modal-content {
+                .modal-footer {
+                    button {
+                        background-color: $darkbg;
+                        color: $darktxt;
+                        font-weight: bold;
+                    }
+                }
             }
         }
     }

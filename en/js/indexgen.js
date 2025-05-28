@@ -3,7 +3,7 @@ const ServicesArray = [
         id: 'Computer Repair Services',
         title: 'Computer Repair Services',
         // description: 'No problem is too big for us, we got you!',
-        image: '/img/Pages/Index/Repair.webp',
+        image: '/img/Pages/Index/MegikServis.webp',
         link: '/en/pages/Services.html',
         alt: 'Computer Repair'
     },
@@ -11,18 +11,18 @@ const ServicesArray = [
         id: 'Website creation',
         title: 'Website Creation Service',
         // description: 'In need of a website? We got your back!',
-        image: '/img/Pages/Index/WebDev.webp',
+        image: '/img/Pages/Index/MegikWeb.webp',
         link: '/en/pages/WebDev.html',
         alt: 'WebDev'
     },
-    // {
-    //     id: 'Website creation',
-    //     title: 'Website Creation Service',
-    //     // description: 'Who likes to lose their data?',
-    //     image: '/img/Pages/Index/megikcloud.png',
-    //     link: '/en/pages/MegikCloud.html',
-    //     alt: 'WebDev'
-    // },
+    {
+        id: 'Website creation',
+        title: 'Website Creation Service',
+        // description: 'Who likes to lose their data?',
+        image: '/img/Pages/Index/MegikCloud.webp',
+        link: '/en/pages/MegikCloud.html',
+        alt: 'WebDev'
+    },
 ];
 
 // Function to generate and append service cards
@@ -31,7 +31,7 @@ function GenerateServiceCards() {
     let DivRow = $('<div>').addClass('row');
 
     ServicesArray.forEach(service => {
-        let DivCol = $('<div>').addClass('col-sm-12 col-md-6 mb-3');
+        let DivCol = $('<div>').addClass('col-sm-12 col-md-4 mb-3');
         
         let Card = $('<div>').addClass('card text-center px-0').attr('id', service.id);
 
