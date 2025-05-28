@@ -130,9 +130,9 @@ function addCloudFields() {
 
     const CloudPackages = [
         "Choose a package",
-        "MegikCloud™ Lite (10GB)",
-        "MegikCloud™ Plus (50GB)",
-        "MegikCloud™ Max (100GB)",
+        "MegikCloud™ Lite (100GB)",
+        "MegikCloud™ Plus (200GB)",
+        "MegikCloud™ Max (1TB)",
         "MegikCloud™ Custom (Storage for your needs)"
     ];
     CloudPackages.forEach(packageName => {
