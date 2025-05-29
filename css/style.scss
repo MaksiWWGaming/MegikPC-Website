@@ -164,8 +164,8 @@ main {
         }
         .btn-primary {
             border: $darkborder;
-            background-color: $darkbg;
-            color: $darktxt;
+            background-color: $whitebg;
+            color: $whitetxt;
             animation: HoverZoomOut 300ms ease;
             font-weight: bold;
         }
@@ -320,6 +320,11 @@ main {
                 }
                 ul {
                     color: $whitetxt;
+                }
+                .btn-primary {
+                    color: $whitetxt;
+                    background-color: $whitebg;
+                    border: $whiteborder;
                 }
             }
 

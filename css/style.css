@@ -210,6 +210,11 @@
   color: #fff;
   border: 0;
 }
+.dark-mode main .container .accordion .accordion-body .btn-primary {
+  color: #fff;
+  background-color: #121212;
+  border: 1px solid white;
+}
 .dark-mode main .container hr.separate-content {
   border: 1px solid #fff;
 }
@@ -532,8 +537,8 @@ main .container ul li a {
 }
 main .container .btn-primary {
   border: 1px solid white;
-  background-color: #121212;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   animation: HoverZoomOut 300ms ease;
   font-weight: bold;
 }
@@ -668,6 +673,11 @@ main .container .accordion .accordion-body a {
 }
 main .container .accordion .accordion-body ul {
   color: #000;
+}
+main .container .accordion .accordion-body .btn-primary {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid black;
 }
 main .container .accordion .accordion-button::after {
   content: "▼";

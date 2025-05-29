@@ -137,6 +137,11 @@
                         color: $darktxt;
                         border: 0;
                     }
+                    .btn-primary {
+                    color: $darktxt;
+                    background-color: $darkbg;
+                    border: $darkborder;
+                }
                 }
             }
             hr.separate-content {
