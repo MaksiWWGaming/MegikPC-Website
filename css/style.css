@@ -537,8 +537,8 @@ main .container ul li a {
 }
 main .container .btn-primary {
   border: 1px solid white;
-  background-color: #fff;
-  color: #000;
+  background-color: #121212;
+  color: #fff;
   animation: HoverZoomOut 300ms ease;
   font-weight: bold;
 }
