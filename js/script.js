@@ -14,7 +14,7 @@ const navItems = [
         dropdown: [
             { label: "Serviserske Usluge", link: "pages/Services.html" },
             { label: "Izrada Web Sajtova", link: "pages/WebDev.html" },
-            { label: "MegikCloud™", link: "pages/MegikCloud.html" },
+            // { label: "MegikCloud™", link: "pages/MegikCloud.html" },
         ]
     },
     { 
@@ -232,7 +232,7 @@ $(document).ready(function () {
                 </div>
                 <div class="text-xl-start text-center WorkingHours">
                     <ul class="list-unstyled">
-                        <li>Radnim Danima: <b>10:00 - 19:00</b></li>
+                        <li>Radnim Danima: <b>10:00 - 18:30</b></li>
                         <li>Subota: <b>10:00 - 16:00</b></li>
                         <li>Nedelja: <b>Neradan dan</b></li>
                     </ul>

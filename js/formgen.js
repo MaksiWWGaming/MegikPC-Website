@@ -7,7 +7,7 @@ const checkboxGroupContainer = document.getElementById('RadioGroupContainer'); /
 const serviceOptions = [
     { id: 'ServicingCreation', label: 'Zainteresovan sam za servis računara' },
     { id: 'WebsiteCreation', label: 'Zainteresovan sam za izradu web sajta' },
-    { id: 'CloudCreation', label: 'Zainteresovan sam za MegikCloud™' }
+    // { id: 'CloudCreation', label: 'Zainteresovan sam za MegikCloud™' }
 ];
 
 serviceOptions.forEach(option => {

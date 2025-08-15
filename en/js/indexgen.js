@@ -15,14 +15,14 @@ const ServicesArray = [
         link: '/en/pages/WebDev.html',
         alt: 'WebDev'
     },
-    {
-        id: 'Website creation',
-        title: 'Website Creation Service',
-        // description: 'Who likes to lose their data?',
-        image: '/img/Pages/Index/MegikCloud.webp',
-        link: '/en/pages/MegikCloud.html',
-        alt: 'WebDev'
-    },
+    // {
+    //     id: 'Website creation',
+    //     title: 'Website Creation Service',
+    //     // description: 'Who likes to lose their data?',
+    //     image: '/img/Pages/Index/MegikCloud.webp',
+    //     link: '/en/pages/MegikCloud.html',
+    //     alt: 'WebDev'
+    // },
 ];
 
 // Function to generate and append service cards
@@ -31,7 +31,7 @@ function GenerateServiceCards() {
     let DivRow = $('<div>').addClass('row');
 
     ServicesArray.forEach(service => {
-        let DivCol = $('<div>').addClass('col-sm-12 col-md-4 mb-3');
+        let DivCol = $('<div>').addClass('col-sm-12 col-md-6 mb-3');
         
         let Card = $('<div>').addClass('card text-center px-0').attr('id', service.id);
 

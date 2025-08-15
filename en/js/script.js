@@ -14,7 +14,7 @@ const navItems = [
         dropdown: [
             { label: "Computer Repair Services", link: "/en/pages/Services.html" },
             { label: "Website Creation Service", link: "/en/pages/WebDev.html" },
-            { label: "MegikCloud™", link: "/en/pages/MegikCloud.html" },
+            // { label: "MegikCloud™", link: "/en/pages/MegikCloud.html" },
         ]
     },
     { 
@@ -233,7 +233,7 @@ $(document).ready(function () {
                 </div>
                 <div class="text-xl-start text-center WorkingHours">
                     <ul class="list-unstyled">
-                        <li>On Working Days: <b>10:00 - 19:00</b></li>
+                        <li>On Working Days: <b>10:00 - 18:30</b></li>
                         <li>Saturday: <b>10:00 - 16:00</b></li>
                         <li>Sunday: <b>Closed</b></li>
                     </ul>
