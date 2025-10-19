@@ -2,7 +2,7 @@ const ServicesArray = [
     {
         id: 'Serviserske Usluge',
         title: 'Serviserske Usluge',
-        // description: 'Kvar nije bitan, bitno je da mi imamo rešenje!',
+        description: 'Kvar nije bitan, bitno je da mi imamo rešenje!',
         image: '/img/Pages/Index/MegikServis.webp',
         link: '/pages/Services.html',
         alt: 'Computer Repair'
@@ -10,19 +10,11 @@ const ServicesArray = [
     {
         id: 'Izrada web sajtova',
         title: 'Izrada Web Sajtova',
-        // description: 'Potreban vam je sajt? Čuvamo vam leđa!',
+        description: 'Potreban vam je sajt? Čuvamo vam leđa!',
         image: '/img/Pages/Index/MegikWeb.webp',
         link: '/pages/WebDev.html',
         alt: 'WebDev'
     },
-    // {
-    //     id: 'Čuvanje podataka',
-    //     title: 'Skladištenje podataka',
-    //     // description: 'Ko još voli da gubi podatke?',
-    //     image: '/img/Pages/Index/MegikCloud.webp',
-    //     link: '/pages/MegikCloud.html',
-    //     alt: 'WebDev'
-    // },
 ];
 
 // Function to generate and append service cards

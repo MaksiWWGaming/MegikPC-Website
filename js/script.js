@@ -14,7 +14,6 @@ const navItems = [
         dropdown: [
             { label: "Serviserske Usluge", link: "pages/Services.html" },
             { label: "Izrada Web Sajtova", link: "pages/WebDev.html" },
-            // { label: "MegikCloud™", link: "pages/MegikCloud.html" },
         ]
     },
     { 
@@ -151,13 +150,8 @@ const DarkModeButton = document.createElement("i");
 DarkModeButton.classList.add("fa-solid", "fa-moon");
 DarkModeButton.setAttribute("id", "DarkMode");
 
-const LanguageButton = document.createElement("i");
-LanguageButton.classList.add("fa-solid", "fa-language");
-LanguageButton.setAttribute("id", "Language");
-
 NavbarCollapse.appendChild(NavbarList);
 NavbarCollapse.appendChild(DarkModeButton);
-NavbarCollapse.appendChild(LanguageButton);
 
 DivContainer.appendChild(LogoLink);
 DivContainer.appendChild(HamburgerMenu);
@@ -168,7 +162,6 @@ Nav.appendChild(DivContainer);
 document.querySelector('#navbar-container').appendChild(Nav);
 
 console.log("Dark Mode Button:", document.getElementById("DarkMode"));
-console.log("Language Button:", document.getElementById("Language"));
 
 // Add active id on current page
 const CurrentPage = window.location.pathname;
@@ -219,16 +212,11 @@ $(document).ready(function () {
                             <span class="mb-4 mb-md-0 mr-1"><i class="fa fa-envelope"></i> info@megikpc.com</span>
                         </a>
                     </p>
-                    <p class="FooterInstagram">
-                            <a href="https://www.instagram.com/megikpc/" target="_blank" rel="noopener noreferrer">
-                                <span class="mb-4 mb-md-0 mr-1"><i class="fa-brands fa-instagram"></i> Instagram</span>
-                            </a>
-                        </p>
-                        <p class="FooterWarranty">
-                            <a href="/pages/MegikPC - Garantni Uslovi.pdf" target="_blank" rel="noopener noreferrer">
-                                <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-file"></i> Uslovi korišćenja</span>
-                            </a>
-                        </p>
+                    <p class="FooterWarranty">
+                        <a href="/pages/MegikPC - Garantni Uslovi.pdf" target="_blank" rel="noopener noreferrer">
+                            <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-file"></i> Uslovi korišćenja</span>
+                        </a>
+                    </p>
                 </div>
                 <div class="text-xl-start text-center WorkingHours">
                     <ul class="list-unstyled">
@@ -265,51 +253,6 @@ $(document).ready(function () {
         console.log("You have light mode saved from last session");
     }
 });
-
-//Language button
-$('#Language').click(function (e) { 
-    e.preventDefault();
-        var toastHTML = `
-        <div class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-body">
-                Redirecting to English page.<br>
-                Please wait...
-            </div>
-        </div>`;
-
-    // Append toast to the body or a container
-    var toastContainer = $(".toast-container");
-    if (toastContainer.length === 0) {
-        toastContainer = $('<div class="toast-container position-fixed bottom-0 end-0 p-3"></div>');
-        $("body").append(toastContainer);
-    }
-    toastContainer.append(toastHTML);
-
-    // Initialize and show the toast
-    var toastElement = toastContainer.find(".toast").last();
-    var toast = new bootstrap.Toast(toastElement[0]);
-    toast.show();
-
-
-    setTimeout(() => {
-        // Get the current path
-        let currentPath = window.location.pathname;
-        if (currentPath === "/index.html" || currentPath === "/") {
-            // Redirect from Serbian index to English index
-            window.location.href = "/en/index.html";
-        } else if (currentPath.startsWith("/pages/")) {
-            // Redirect from Serbian pages to English pages
-            let newPath = currentPath.replace("/pages/", "/en/pages/");
-            window.location.href = newPath;
-        }
-    }, 1000);
-});
-
-$(document).ready(function () {
-
-});
-
-
 
 //Auto Hide Navbar
 $(document).ready(function () {

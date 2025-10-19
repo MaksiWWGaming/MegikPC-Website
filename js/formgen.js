@@ -1,13 +1,12 @@
 const ContactFormDiv = document.querySelector('#ContactForm');
 
 // Container for the checkboxes
-const checkboxGroupContainer = document.getElementById('RadioGroupContainer'); // You can rename the ID if you like
+const checkboxGroupContainer = document.getElementById('RadioGroupContainer');
 
 // Create Checkboxes Dynamically
 const serviceOptions = [
     { id: 'ServicingCreation', label: 'Zainteresovan sam za servis računara' },
     { id: 'WebsiteCreation', label: 'Zainteresovan sam za izradu web sajta' },
-    // { id: 'CloudCreation', label: 'Zainteresovan sam za MegikCloud™' }
 ];
 
 serviceOptions.forEach(option => {
@@ -111,47 +110,6 @@ function addServicingFields() {
     dynamicFieldsContainer.appendChild(servicingGroup);
 }
 
-// Function to add Cloud Package selection
-function addCloudFields() {
-    const cloudGroup = document.createElement('div');
-    cloudGroup.classList.add('mb-3', 'col-4');
-    cloudGroup.setAttribute('id', 'CloudFields');
-
-    const CloudLabel = document.createElement('label');
-    CloudLabel.setAttribute('for', 'CloudPackageSelect');
-    CloudLabel.classList.add('form-label');
-    CloudLabel.innerHTML = 'Molimo vas da izaberete MegikCloud™ paket';
-    cloudGroup.appendChild(CloudLabel);
-
-    const CloudSelect = document.createElement('select');
-    CloudSelect.classList.add('form-select');
-    CloudSelect.setAttribute('id', 'CloudPackageSelect');
-    CloudSelect.setAttribute('name', 'CloudPackageSelect');
-
-    const CloudPackages = [
-        "Izaberite paket",
-        "MegikCloud™ Lite (100GB)",
-        "MegikCloud™ Plus (200GB)",
-        "MegikCloud™ Max (1TB)",
-        "MegikCloud™ Custom (Prostor po dogovoru)"
-    ];
-    CloudPackages.forEach(packageName => {
-        const option = document.createElement('option');
-        option.textContent = packageName;
-        CloudSelect.appendChild(option);
-    });
-
-    const CloudHelp = document.createElement('div');
-    CloudHelp.setAttribute('id', 'CloudHelp');
-    CloudHelp.classList.add('form-text', 'HelpText');
-
-    cloudGroup.appendChild(CloudSelect);
-    cloudGroup.appendChild(CloudHelp);
-
-    dynamicFieldsContainer.appendChild(cloudGroup);
-}
-
-
 //Grab the elements
 const Name = document.getElementById("Name");
 const NameHelpText = document.getElementById("NameHelp");
@@ -159,10 +117,6 @@ const Phone = document.getElementById("Phone");
 const PhoneHelpText = document.getElementById("PhoneHelp");
 const Email = document.getElementById("Email");
 const EmailHelpText = document.getElementById("EmailHelp");
-// const ManufacturerSelected = document.getElementById("ManufacturerSelect");
-// const Model = document.getElementById("Model");
-// const Cloud = document.getElementById("CloudPackageSelect");
-// const CloudHelpText = document.getElementById("CloudHelp");
 const ProblemDescription = document.getElementById("ProblemDescription");
 const ProblemDescriptionHelpText = document.getElementById("ProblemDescriptionHelp");
 const SubmitRequest = document.getElementById("SubmitRequest");
@@ -172,7 +126,7 @@ const ResetRequest = document.getElementById("ResetRequest");
 //Color invalid input
 Name.classList.add("InvalidInput");
 Phone.classList.add("InvalidInput");
-ProblemDescription.classList.add("InvalidInput");
+// ProblemDescription is now optional, no need to mark as invalid initially
 
 //Regex
 
@@ -230,19 +184,15 @@ window.addEventListener("load", function(){
 function CheckFormValidity() {
     const NameValid = NameRegex.test(Name.value);
     const PhoneValid = PhoneRegex.test(Phone.value);
-    var ProblemDescriptionValid = 0;
-    if (ProblemDescription.value == "") {
-        ProblemDescriptionValid = 0;
-    } else {
-        ProblemDescriptionValid = 1;
-    }
+    // ProblemDescription is now optional, so always set as valid
+    var ProblemDescriptionValid = 1;
 
     console.log("NameValid:", NameValid);
     console.log("PhoneValid:", PhoneValid);
     console.log("ProblemDescriptionValid:", ProblemDescriptionValid);
-    
+
     // Enable the submit button if the form is valid
-    if (NameValid && PhoneValid && ProblemDescriptionValid == 1) {
+    if (NameValid && PhoneValid) {
         SubmitRequest.removeAttribute('disabled');
         SubmitButton.innerHTML = 'Podnesite zahtev';
         // SubmitHelpText.innerHTML = ''; // Clear help text when valid
@@ -268,13 +218,10 @@ function CheckFormValidity() {
         Phone.classList.remove("ValidInput");
         Phone.classList.add("InvalidInput");
     }
-    if (ProblemDescriptionValid) {
-        ProblemDescription.classList.add("ValidInput");
-        ProblemDescription.classList.remove("InvalidInput");
-    } else {
-        ProblemDescription.classList.remove("ValidInput");
-        ProblemDescription.classList.add("InvalidInput");
-    }
+    // ProblemDescription is now optional, so we don't need to apply validation styling
+    // Remove any existing validation classes to keep it neutral
+    ProblemDescription.classList.remove("ValidInput");
+    ProblemDescription.classList.remove("InvalidInput");
 }
 
 Name.addEventListener("blur", CheckFormValidity);
