@@ -148,12 +148,12 @@ navItems.forEach(item => {
 });
 
 // Darkmode
-const DarkModeButton = document.createElement("i");
-DarkModeButton.classList.add("fa-solid", "fa-moon");
-DarkModeButton.setAttribute("id", "DarkMode");
+// const DarkModeButton = document.createElement("i");
+// DarkModeButton.classList.add("fa-solid", "fa-moon");
+// DarkModeButton.setAttribute("id", "DarkMode");
 
 NavbarCollapse.appendChild(NavbarList);
-NavbarCollapse.appendChild(DarkModeButton);
+// NavbarCollapse.appendChild(DarkModeButton);
 
 DivContainer.appendChild(LogoLink);
 DivContainer.appendChild(HamburgerMenu);
