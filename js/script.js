@@ -261,52 +261,25 @@ $(document).ready(function () {
 });
 
 //Retain darkmode icon
-$('#DarkMode').click(function (e) { 
-    e.preventDefault();
-    $(this).toggleClass("fa-moon fa-sun");
-    const DarkBody = $("body");
-    DarkBody.toggleClass("dark-mode");
-    localStorage.setItem('RememberDarkMode', DarkBody.hasClass('dark-mode'));
-});
+// $('#DarkMode').click(function (e) { 
+//     e.preventDefault();
+//     $(this).toggleClass("fa-moon fa-sun");
+//     const DarkBody = $("body");
+//     DarkBody.toggleClass("dark-mode");
+//     localStorage.setItem('RememberDarkMode', DarkBody.hasClass('dark-mode'));
+// });
 
-$(document).ready(function () {
-    const DarkMode = localStorage.getItem('RememberDarkMode');
-    const DarkModeIcon = $("#DarkMode");
+// $(document).ready(function () {
+//     const DarkMode = localStorage.getItem('RememberDarkMode');
+//     const DarkModeIcon = $("#DarkMode");
 
-    if (DarkMode === 'true') {
-        $("body").addClass("dark-mode");
-        DarkModeIcon.addClass("fa-sun").removeClass("fa-moon");
-        console.log("You have dark mode saved from last session");
-    } else {
-        $("body").removeClass("dark-mode");
-        DarkModeIcon.addClass("fa-moon").removeClass("fa-sun");
-        console.log("You have light mode saved from last session");
-    }
-});
-
-// Language button removed
-
-$(document).ready(function () {
-
-});
-
-
-
-//Auto Hide Navbar
-$(document).ready(function () {
-    var ElAutoHide = $('.autohide');
-    var ElDropDown = $('.dropdown-menu');
-    if (ElAutoHide.length) {
-        var LastScrollTop = 5;
-        $(window).on('scroll', function () {
-            var ScrollTop = $(this).scrollTop();
-            if (ScrollTop < LastScrollTop) {
-                ElAutoHide.removeClass('scrolled-down').addClass('scrolled-up');
-            } else {
-                ElAutoHide.removeClass('scrolled-up').addClass('scrolled-down');
-                ElDropDown.removeClass('show');
-            }
-            LastScrollTop = ScrollTop;
-        });
-    }
-});
+//     if (DarkMode === 'true') {
+//         $("body").addClass("dark-mode");
+//         DarkModeIcon.addClass("fa-sun").removeClass("fa-moon");
+//         console.log("You have dark mode saved from last session");
+//     } else {
+//         $("body").removeClass("dark-mode");
+//         DarkModeIcon.addClass("fa-moon").removeClass("fa-sun");
+//         console.log("You have light mode saved from last session");
+//     }
+// });
