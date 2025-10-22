@@ -97,11 +97,13 @@ LogoLink.setAttribute("href", getLink("/index.html"));
 
 // Add logo link image
 const LogoImage = document.createElement("img");
-LogoImage.classList.add("img-fluid", "col-4");
+LogoImage.classList.add("img-fluid");
 LogoImage.setAttribute("src", "/img/Trademarks/banner.webp");
 LogoImage.setAttribute("alt", "Megik PC Logo");
-LogoImage.setAttribute("width", "200");
-LogoImage.setAttribute("height", "100");
+LogoImage.setAttribute("width", "280");
+LogoImage.setAttribute("height", "80");
+LogoImage.style.maxWidth = "220px";
+LogoImage.style.height = "auto";
 LogoLink.appendChild(LogoImage);
 
 // Add hamburger menu
@@ -150,13 +152,8 @@ const DarkModeButton = document.createElement("i");
 DarkModeButton.classList.add("fa-solid", "fa-moon");
 DarkModeButton.setAttribute("id", "DarkMode");
 
-const LanguageButton = document.createElement("i");
-LanguageButton.classList.add("fa-solid", "fa-language");
-LanguageButton.setAttribute("id", "Language");
-
 NavbarCollapse.appendChild(NavbarList);
 NavbarCollapse.appendChild(DarkModeButton);
-NavbarCollapse.appendChild(LanguageButton);
 
 DivContainer.appendChild(LogoLink);
 DivContainer.appendChild(HamburgerMenu);
@@ -167,7 +164,6 @@ Nav.appendChild(DivContainer);
 document.querySelector('#navbar-container').appendChild(Nav);
 
 console.log("Dark Mode Button:", document.getElementById("DarkMode"));
-console.log("Language Button:", document.getElementById("Language"));
 
 // Add active id on current page
 const CurrentPage = window.location.pathname;
@@ -199,43 +195,66 @@ document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
 
 //Create nav --ENDS HERE--  
 
-//Create footer
+//Create modern footer
 
 $(document).ready(function () {
     const CurrentYear = new Date().getFullYear();
     const FooterDiv = `
-                <div class="FooterItems">
-                    <p class="FooterCopyRight">
-                        <span class="mb-4 mb-md-0 mr-1">&copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC</span>
-                    </p>
-                    <p class="FooterPhone">
-                        <a href="tel:+3810605987444">
-                            <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-phone"></i> 060-5987-444</span>
-                        </a>
-                    </p>
-                    <p class="FooterMail">
-                        <a href="mailto:info@megikpc.com">
-                            <span class="mb-4 mb-md-0 mr-1"><i class="fa fa-envelope"></i> info@megikpc.com</span>
-                        </a>
-                    </p>
-                    <p class="FooterInstagram">
-                            <a href="https://www.instagram.com/megikpc/" target="_blank" rel="noopener noreferrer">
-                                <span class="mb-4 mb-md-0 mr-1"><i class="fa-brands fa-instagram"></i> Instagram</span>
-                            </a>
-                        </p>
-                        <p class="FooterWarranty">
-                            <a href="/pages/MegikPC - Garantni Uslovi.pdf" target="_blank" rel="noopener noreferrer">
-                                <span class="mb-4 mb-md-0 mr-1"><i class="fa-solid fa-file"></i> Uslovi korišćenja</span>
-                            </a>
-                        </p>
+        <div class="container">
+            <div class="row justify-content-center align-items-start">
+                <!-- Kontakt Column -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="footer-center-section text-center">
+                        <h5 class="footer-heading">Kontakt</h5>
+                        <div class="footer-contact-links">
+                            <div class="footer-contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span><a href="tel:+3810605987444">060-5987-444</a></span>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span><a href="mailto:info@megikpc.com">info@megikpc.com</a></span>
+                            </div>
+                            <div class="footer-contact-item">
+                                <i class="fas fa-file-alt"></i>
+                                <span><a href="/pages/MegikPC - Garantni Uslovi.pdf" target="_blank" rel="noopener noreferrer">Garantni uslovi</a></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-xl-start text-center WorkingHours">
-                    <ul class="list-unstyled">
-                        <li>Radnim Danima: <b>10:00 - 19:00</b></li>
-                        <li>Subota: <b>10:00 - 16:00</b></li>
-                        <li>Nedelja: <b>Neradan dan</b></li>
-                    </ul>
-                </div>sty;
+
+                <!-- Radno vreme Column -->
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="footer-hours-section text-center">
+                        <h5 class="footer-heading">Radno vreme</h5>
+                        <div class="footer-hours-list">
+                            <div class="footer-hour-item">
+                                <span>Ponedeljak - Petak:</span>
+                                <span><strong>10:00 - 18:30</strong></span>
+                            </div>
+                            <div class="footer-hour-item">
+                                <span>Subota:</span>
+                                <span><strong>10:00 - 16:00</strong></span>
+                            </div>
+                            <div class="footer-hour-item">
+                                <span>Nedelja:</span>
+                                <span><strong>Zatvoreno</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="footer-copyright">
+                        &copy; 2024 - <span id="MegikCopyYear">${CurrentYear}</span> MegikPC. Sva prava zadržana.
+                    </p>
+                </div>
+            </div>
+        </div>
     `;
     $('#FooterDiv').html(FooterDiv);
     $('#MegikCopyYear').text(CurrentYear);
@@ -265,44 +284,7 @@ $(document).ready(function () {
     }
 });
 
-//Language button
-$('#Language').click(function (e) { 
-    e.preventDefault();
-        var toastHTML = `
-        <div class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-body">
-                Redirecting to English page.<br>
-                Please wait...
-            </div>
-        </div>`;
-
-    // Append toast to the body or a container
-    var toastContainer = $(".toast-container");
-    if (toastContainer.length === 0) {
-        toastContainer = $('<div class="toast-container position-fixed bottom-0 end-0 p-3"></div>');
-        $("body").append(toastContainer);
-    }
-    toastContainer.append(toastHTML);
-
-    // Initialize and show the toast
-    var toastElement = toastContainer.find(".toast").last();
-    var toast = new bootstrap.Toast(toastElement[0]);
-    toast.show();
-
-
-    setTimeout(() => {
-        // Get the current path
-        let currentPath = window.location.pathname;
-        if (currentPath === "/index.html" || currentPath === "/") {
-            // Redirect from Serbian index to English index
-            window.location.href = "/en/index.html";
-        } else if (currentPath.startsWith("/pages/")) {
-            // Redirect from Serbian pages to English pages
-            let newPath = currentPath.replace("/pages/", "/en/pages/");
-            window.location.href = newPath;
-        }
-    }, 1000);
-});
+// Language button removed
 
 $(document).ready(function () {
 

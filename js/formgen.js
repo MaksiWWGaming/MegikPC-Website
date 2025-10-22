@@ -1,230 +1,268 @@
-const ContactFormDiv = document.querySelector('#ContactForm');
+// Enhanced Contact Form Generator with Modern Features
+$(document).ready(function() {
+    const GetLink = window.location.href;
+    console.log("Current page link: " + GetLink);
 
-// Container for the checkboxes
-const checkboxGroupContainer = document.getElementById('RadioGroupContainer');
+    // Container for the checkboxes
+    const checkboxGroupContainer = document.getElementById('RadioGroupContainer');
 
-// Create Checkboxes Dynamically
-const serviceOptions = [
-    { id: 'ServicingCreation', label: 'Zainteresovan sam za servis računara' },
-    { id: 'WebsiteCreation', label: 'Zainteresovan sam za izradu web sajta' },
-];
+    // Enhanced service options with icons
+    const serviceOptions = [
+        { 
+            id: 'ServicingCreation', 
+            label: 'Zainteresovan sam za servis računara',
+            icon: 'fas fa-laptop-medical',
+            description: 'Popravka, dijagnostika, čišćenje i održavanje'
+        },
+        { 
+            id: 'WebsiteCreation', 
+            label: 'Zainteresovan sam za izradu web sajta',
+            icon: 'fas fa-code',
+            description: 'Moderni, responsivni sajtovi po meri'
+        }
+    ];
 
-serviceOptions.forEach(option => {
-    const col = document.createElement('div');
-    col.classList.add('form-check', 'mb-3');
+    serviceOptions.forEach((option, index) => {
+        const serviceCard = document.createElement('div');
+        serviceCard.className = 'service-option-card';
+        serviceCard.style.animationDelay = `${index * 0.1}s`;
 
-    const checkbox = document.createElement('input');
-    checkbox.classList.add('form-check-input');
-    checkbox.setAttribute('type', 'checkbox');
-    checkbox.setAttribute('id', option.id);
-    checkbox.setAttribute('name', option.id);
-    checkbox.setAttribute('value', option.label);
-    col.appendChild(checkbox);
+        serviceCard.innerHTML = `
+            <div class="service-option-content">
+                <div class="service-option-icon">
+                    <i class="${option.icon}"></i>
+                </div>
+                <div class="service-option-info">
+                    <div class="service-option-label">${option.label}</div>
+                    <div class="service-option-description">${option.description}</div>
+                </div>
+                <div class="service-option-checkbox">
+                    <input class="form-check-input modern-checkbox" type="checkbox" 
+                           id="${option.id}" name="${option.id}" value="${option.label}">
+                </div>
+            </div>
+        `;
 
-    const label = document.createElement('label');
-    label.classList.add('form-check-label');
-    label.setAttribute('for', option.id);
-    label.innerHTML = option.label;
-    col.appendChild(label);
+        checkboxGroupContainer.appendChild(serviceCard);
 
-    // Add event listener for dynamic fields
-    checkbox.addEventListener('change', () => {
-        if (checkbox.id === 'ServicingCreation') {
-            if (checkbox.checked) {
-                addServicingFields();
-            } else {
-                removeDynamicFieldById('ServicingFields');
+        // Add event listener for dynamic fields with animation
+        const checkbox = document.getElementById(option.id);
+        checkbox.addEventListener('change', () => {
+            if (checkbox.id === 'ServicingCreation') {
+                if (checkbox.checked) {
+                    addServicingFields(serviceCard);
+                } else {
+                    removeDynamicFieldById('ServicingFields');
+                }
             }
-        } else if (checkbox.id === 'CloudCreation') {
-            if (checkbox.checked) {
-                addCloudFields();
-            } else {
-                removeDynamicFieldById('CloudFields');
+        });
+    });
+
+    // Container for dynamic fields
+    const dynamicFieldsContainer = document.getElementById('DynamicFieldsContainer');
+
+    // Enhanced function to remove a dynamic field group by its ID
+    function removeDynamicFieldById(groupId) {
+        const fieldGroup = document.getElementById(groupId);
+        if (fieldGroup) {
+            fieldGroup.style.animation = 'slideOut 0.3s ease-out forwards';
+            setTimeout(() => {
+                if (fieldGroup.parentNode) {
+                    fieldGroup.remove();
+                }
+            }, 300);
+        }
+    }
+
+    // Enhanced function to add Manufacturer and Model inputs for Servicing
+    function addServicingFields(serviceCard) {
+        const servicingGroup = document.createElement('div');
+        servicingGroup.className = 'dynamic-field-group';
+        servicingGroup.id = 'ServicingFields';
+        servicingGroup.style.animation = 'slideIn 0.3s ease-out';
+
+        servicingGroup.innerHTML = `
+            <div class="dynamic-field-header">
+                <i class="fas fa-laptop"></i>
+                <h4>Podaci o uređaju</h4>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" id="ManufacturerSelect" name="ManufacturerSelect">
+                            <option value="">Molimo vas izaberite proizvođača uređaja</option>
+                            <option value="HP">HP</option>
+                            <option value="Dell">Dell</option>
+                            <option value="Lenovo">Lenovo</option>
+                            <option value="Acer">Acer</option>
+                            <option value="Asus">Asus</option>
+                            <option value="Apple">Apple</option>
+                            <option value="Desktop">Desktop</option>
+                            <option value="Nema na listi">Nema na listi</option>
+                        </select>
+                        <label for="ManufacturerSelect">Proizvođač uređaja</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="Model" name="Model"
+                               placeholder="Molimo vas unesite model uređaja">
+                        <label for="Model">Model</label>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Insert the dynamic fields directly after the service card
+        serviceCard.parentNode.insertBefore(servicingGroup, serviceCard.nextSibling);
+    }
+
+    // Enhanced form elements
+    const Name = document.getElementById("Name");
+    const NameHelpText = document.getElementById("NameHelp");
+    const Phone = document.getElementById("Phone");
+    const PhoneHelpText = document.getElementById("PhoneHelp");
+    const Email = document.getElementById("Email");
+    const EmailHelpText = document.getElementById("EmailHelp");
+    const ProblemDescription = document.getElementById("ProblemDescription");
+    const ProblemDescriptionHelpText = document.getElementById("ProblemDescriptionHelp");
+    const SubmitRequest = document.getElementById("SubmitRequest");
+    const ResetRequest = document.getElementById("ResetRequest");
+
+    // Enhanced validation styling
+    function updateFieldStyling(field, helpText, isValid) {
+        if (isValid) {
+            field.classList.add("ValidInput");
+            field.classList.remove("InvalidInput");
+            helpText.className = "form-help valid";
+        } else {
+            field.classList.remove("ValidInput");
+            field.classList.add("InvalidInput");
+            helpText.className = "form-help invalid";
+        }
+    }
+
+    // Enhanced regex patterns
+    let NameRegex = /^[A-Z][a-z]{1,29}$/;
+    Name.addEventListener("blur", function(){  
+        if (!NameRegex.test(Name.value)) {
+            NameHelpText.innerHTML = "Ime mora da počne sa velikim slovom.";
+            updateFieldStyling(Name, NameHelpText, false);
+        } else {
+            NameHelpText.innerHTML = "";
+            updateFieldStyling(Name, NameHelpText, true);
+        }
+    });
+
+    let PhoneRegex = /^\+38106\d{7,8}$/;
+    let IsFirstFocus = true;
+    Phone.addEventListener("focus", function() {
+        if (IsFirstFocus) {
+            Phone.value = "+38106";
+            IsFirstFocus = false;
+        }
+    });
+    
+    Phone.addEventListener("blur", function(){  
+        if (!PhoneRegex.test(Phone.value)) {
+            PhoneHelpText.innerHTML = "Telefon počinje sa +38106 sa nastavkom od 7 do 8 cifara.";
+            updateFieldStyling(Phone, PhoneHelpText, false);
+        } else {
+            PhoneHelpText.innerHTML = "";
+            updateFieldStyling(Phone, PhoneHelpText, true);
+        }
+    });
+
+    let EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    Email.addEventListener("blur", function(){  
+        if (Email.value && !EmailRegex.test(Email.value)) {
+            EmailHelpText.innerHTML = "Email se kuca kao 'email@primer.com'";
+            updateFieldStyling(Email, EmailHelpText, false);
+        } else {
+            EmailHelpText.innerHTML = "";
+            if (Email.value) {
+                updateFieldStyling(Email, EmailHelpText, true);
             }
         }
-        // You can add more here if WebsiteCreation needs fields later
     });
 
-    checkboxGroupContainer.appendChild(col);
-});
-
-// Container for dynamic fields
-const dynamicFieldsContainer = document.getElementById('DynamicFieldsContainer');
-
-// Function to remove a dynamic field group by its ID
-function removeDynamicFieldById(groupId) {
-    const fieldGroup = document.getElementById(groupId);
-    if (fieldGroup) {
-        fieldGroup.remove();
-    }
-}
-
-// Function to add Manufacturer and Model inputs for Servicing
-function addServicingFields() {
-    const servicingGroup = document.createElement('div');
-    servicingGroup.classList.add('row', 'mb-3');
-    servicingGroup.setAttribute('id', 'ServicingFields');
-
-    const ManufacturerCol = document.createElement('div');
-    ManufacturerCol.classList.add('col-12', 'col-md-4');
-    const ManufacturerLabel = document.createElement('label');
-    ManufacturerLabel.setAttribute('for', 'ManufacturerSelect');
-    ManufacturerLabel.classList.add('form-label');
-    ManufacturerLabel.innerHTML = 'Proizvođač uređaja';
-    ManufacturerCol.appendChild(ManufacturerLabel);
-
-    const ManufacturerSelect = document.createElement('select');
-    ManufacturerSelect.classList.add('form-select');
-    ManufacturerSelect.setAttribute('id', 'ManufacturerSelect');
-    ManufacturerSelect.setAttribute('name', 'ManufacturerSelect');
-
-    const ManufacturerArray = [
-        "Molimo vas izaberite proizvođača uređaja", "HP", "Dell", "Lenovo", "Acer", "Asus", "Apple", "Desktop", "Nema na listi"
-    ];
-    ManufacturerArray.forEach(manufacturer => {
-        const option = document.createElement('option');
-        option.textContent = manufacturer;
-        ManufacturerSelect.appendChild(option);
+    ProblemDescription.addEventListener("blur", function() {
+        if (ProblemDescription.value == "") {
+            ProblemDescriptionHelpText.innerHTML = "Potrebno je opisati problem";
+            updateFieldStyling(ProblemDescription, ProblemDescriptionHelpText, false);
+        } else {
+            ProblemDescriptionHelpText.innerHTML = "";
+            updateFieldStyling(ProblemDescription, ProblemDescriptionHelpText, true);
+        }
     });
-    ManufacturerCol.appendChild(ManufacturerSelect);
 
-    const ModelCol = document.createElement('div');
-    ModelCol.classList.add('col-12', 'col-md-4');
-    const ModelLabel = document.createElement('label');
-    ModelLabel.setAttribute('for', 'Model');
-    ModelLabel.classList.add('form-label');
-    ModelLabel.innerHTML = 'Model';
-    ModelCol.appendChild(ModelLabel);
-
-    const ModelInput = document.createElement('input');
-    ModelInput.classList.add('form-control');
-    ModelInput.setAttribute('type', 'text');
-    ModelInput.setAttribute('id', 'Model');
-    ModelInput.setAttribute('name', 'Model');
-    ModelInput.setAttribute('placeholder', 'Molimo vas unesite model uređaja');
-    ModelCol.appendChild(ModelInput);
-
-    servicingGroup.appendChild(ManufacturerCol);
-    servicingGroup.appendChild(ModelCol);
-
-    dynamicFieldsContainer.appendChild(servicingGroup);
-}
-
-//Grab the elements
-const Name = document.getElementById("Name");
-const NameHelpText = document.getElementById("NameHelp");
-const Phone = document.getElementById("Phone");
-const PhoneHelpText = document.getElementById("PhoneHelp");
-const Email = document.getElementById("Email");
-const EmailHelpText = document.getElementById("EmailHelp");
-const ProblemDescription = document.getElementById("ProblemDescription");
-const ProblemDescriptionHelpText = document.getElementById("ProblemDescriptionHelp");
-const SubmitRequest = document.getElementById("SubmitRequest");
-const SubmitHelpText = document.getElementById("SubmitHelp");
-const ResetRequest = document.getElementById("ResetRequest");
-
-//Color invalid input
-Name.classList.add("InvalidInput");
-Phone.classList.add("InvalidInput");
-// ProblemDescription is now optional, no need to mark as invalid initially
-
-//Regex
-
-//Name regex
-let NameRegex = /^[A-Z][a-z]{1,29}$/;
-Name.addEventListener("blur", function(){  
-    if (!NameRegex.test(Name.value)) {
-        NameHelpText.innerHTML = "Ime mora da počne sa velikim slovom.";
-    } else {
-        NameHelpText.innerHTML = "";
-    }
-});
-
-//Phone regex
-let PhoneRegex = /^\+38106\d{7,8}$/;
-let IsFirstFocus = true;
-Phone.addEventListener("focus", function() {
-    if (IsFirstFocus) {
-        Phone.value = "+38106";
-        IsFirstFocus = false;
-    }
-});
-Phone.addEventListener("blur", function(){  
-    if (!PhoneRegex.test(Phone.value)) {
-        PhoneHelpText.innerHTML = "Telefon počinje sa +38106 sa nastavkom od 7 do 8 cifara.";
-    } else {
-        PhoneHelpText.innerHTML = "";
-    }
-});
-
-//Email regex
-let EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-Email.addEventListener("blur", function(){  
-    if (!EmailRegex.test(Email.value)) {
-        EmailHelpText.innerHTML = "Email se kuca kao 'email@primer.com'";
-    } else {
-        EmailHelpText.innerHTML = "";
-    }
-});
-
-ProblemDescription.addEventListener("blur", function() {
-    if (ProblemDescription.value == "") {
-        ProblemDescriptionHelpText.innerHTML = "Potrebno je opisati problem";
-    } else {
-        ProblemDescriptionHelpText.innerHTML = "";
-    }
-})
-
-// Onload disable submit
-window.addEventListener("load", function(){
-    SubmitRequest.setAttribute('disabled', 'true');
-});
-
-// Enable button
-function CheckFormValidity() {
-    const NameValid = NameRegex.test(Name.value);
-    const PhoneValid = PhoneRegex.test(Phone.value);
-    // ProblemDescription is now optional, so always set as valid
-    var ProblemDescriptionValid = 1;
-
-    console.log("NameValid:", NameValid);
-    console.log("PhoneValid:", PhoneValid);
-    console.log("ProblemDescriptionValid:", ProblemDescriptionValid);
-
-    // Enable the submit button if the form is valid
-    if (NameValid && PhoneValid) {
-        SubmitRequest.removeAttribute('disabled');
-        SubmitButton.innerHTML = 'Podnesite zahtev';
-        // SubmitHelpText.innerHTML = ''; // Clear help text when valid
-        // SubmitHelp.style.display = 'none'; // Hide the help text
-    } else {
+    // Enhanced form validation
+    window.addEventListener("load", function(){
         SubmitRequest.setAttribute('disabled', 'true');
-        SubmitHelp.style.display = 'block';
-        // SubmitHelpText.innerHTML = 'Morate popuniti sva obavezna polja';
+        SubmitRequest.innerHTML = '<i class="fas fa-lock"></i> Popunite sva polja';
+    });
+
+    function CheckFormValidity() {
+        const NameValid = NameRegex.test(Name.value);
+        const PhoneValid = PhoneRegex.test(Phone.value);
+        const ProblemDescriptionValid = ProblemDescription.value.trim() !== "";
+
+        console.log("NameValid:", NameValid);
+        console.log("PhoneValid:", PhoneValid);
+        console.log("ProblemDescriptionValid:", ProblemDescriptionValid);
+
+        if (NameValid && PhoneValid && ProblemDescriptionValid) {
+            SubmitRequest.removeAttribute('disabled');
+            SubmitRequest.innerHTML = '<i class="fas fa-paper-plane"></i> Pošalji poruku';
+            SubmitRequest.classList.add('ready');
+        } else {
+            SubmitRequest.setAttribute('disabled', 'true');
+            SubmitRequest.innerHTML = '<i class="fas fa-lock"></i> Popunite sva polja';
+            SubmitRequest.classList.remove('ready');
+        }
     }
 
-// Color valid input
-    if (NameValid) {
-        Name.classList.add("ValidInput");
-        Name.classList.remove("InvalidInput");
-    } else {
-        Name.classList.remove("ValidInput");
-        Name.classList.add("InvalidInput");
-    }
-    if (PhoneValid) {
-        Phone.classList.add("ValidInput");
-        Phone.classList.remove("InvalidInput");
-    } else {
-        Phone.classList.remove("ValidInput");
-        Phone.classList.add("InvalidInput");
-    }
-    // ProblemDescription is now optional, so we don't need to apply validation styling
-    // Remove any existing validation classes to keep it neutral
-    ProblemDescription.classList.remove("ValidInput");
-    ProblemDescription.classList.remove("InvalidInput");
-}
+    // Add event listeners for real-time validation
+    Name.addEventListener("input", CheckFormValidity);
+    Phone.addEventListener("input", CheckFormValidity);
+    ProblemDescription.addEventListener("input", CheckFormValidity);
+    ResetRequest.addEventListener("click", function() {
+        setTimeout(CheckFormValidity, 100);
+    });
 
-Name.addEventListener("blur", CheckFormValidity);
-Phone.addEventListener("blur", CheckFormValidity);
-ProblemDescription.addEventListener("blur", CheckFormValidity);
-ResetRequest.addEventListener("blur", CheckFormValidity);
+    // Enhanced service option interactions
+    $(document).on('mouseenter', '.service-option-card', function() {
+        $(this).addClass('hovered');
+    });
+    
+    $(document).on('mouseleave', '.service-option-card', function() {
+        $(this).removeClass('hovered');
+    });
+
+    // Animate form sections on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    $('.form-section').each(function() {
+        $(this).css('opacity', '0');
+        observer.observe(this);
+    });
+
+    // Add click effect to submit button
+    $('#SubmitRequest').on('click', function() {
+        if (!$(this).is(':disabled')) {
+            $(this).html('<i class="fas fa-spinner fa-spin"></i> Šalje se...');
+        }
+    });
+});

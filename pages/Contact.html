@@ -30,10 +30,10 @@
         <meta name="geo.placename" content="Srbija">
         <meta name="robots" content="index, follow">
         <meta name='apple-mobile-web-app-capable' content='yes'/>
-	    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-	    <meta http-equiv='Content-Language' content='sr-Latn'/>
-	    <meta http-equiv='ImageToolbar' content='No'/>
-	    <meta name='Rating' content='General'/>
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+        <meta http-equiv='Content-Language' content='sr-Latn'/>
+        <meta http-equiv='ImageToolbar' content='No'/>
+        <meta name='Rating' content='General'/>
 
         <!--Meta tags for social networks -->
         <meta property="og:title" content="MegikPC - Kontakt">
@@ -48,6 +48,10 @@
         <meta name="application-name" content="MegikPC">
 
         <!--Styles-->
+        <!--Google Fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <!--Bootstrap style-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <!--My style-->
@@ -61,6 +65,61 @@
         <!--JQuery-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <!--My script is at the bottom of the page-->
+
+        <!--Rich result-->
+        <script type="application/ld+json">
+            {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "MegikPC",
+            "image": "https://www.megikpc.com/img/Trademarks/banner.webp",
+            "url": "https://www.megikpc.com",
+            "telephone": "+3810605987444",
+            "email": "info@megikpc.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Stevana Opačića 20",
+                "addressLocality": "Beograd",
+                "addressRegion": "Rakovica",
+                "postalCode": "11090",
+                "addressCountry": "RS"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 44.7455964,
+                "longitude": 20.4523319
+            },
+            "openingHours": "Mo-Fr 10:00-18:30, Sa 10:00-16:00",
+            "priceRange": "RSD",
+            "description": "MegikPC – Servis računara i laptopova u Beogradu i profesionalna izrada sajtova za lokalne biznise. Brza dijagnostika, popravka, zamena delova i web dizajn po meri.",
+            "areaServed": [
+                "Beograd",
+                "Rakovica",
+                "Miljakovac",
+                "Vidikovac",
+                "Kanarevo Brdo",
+                "Petlovo Brdo",
+                "Resnik",
+                "Banjica",
+                "Labudovo Brdo",
+                "Kneževac",
+                "Skojevsko Naselje",
+                "Filmski Grad"
+            ],
+            "makesOffer": [
+                {
+                "@type": "Service",
+                "name": "Servis računara i laptopova",
+                "serviceType": "Popravka, zamena delova, čišćenje, reinstalacija sistema"
+                },
+                {
+                "@type": "Service",
+                "name": "Izrada sajtova",
+                "serviceType": "Web dizajn, izrada sajtova po meri, izrada sajtova za lokalne biznise"
+                }
+            ]
+            }
+        </script>
     </head>
     <body>
         <div class="wrap">
@@ -72,100 +131,228 @@
             </noscript>
 
             <header id="navbar-container"></header>
-            
+             
             <main>
-                <div class="container">
-                    <div class="row">
-                        <div class="col col-12 align-middle">
-                            <h1 class="text-center">Kontaktirajte nas već danas</h1>
-                                <form action="https://api.web3forms.com/submit" method="post" id="form">
-                                    <input type="hidden" name="access_key" value="b640e18c-455f-484f-a010-eb89e77883d1">
-    
-                                    <div class="row g-3 mb-3">
-                                        <div class="col-12 col-md-3">
-                                            <label for="Name" class="form-label">Ime<span class="RequiredField"> *</span></label>
-                                            <input type="text" class="form-control" id="Name" name="Name" placeholder="Vaše ime">
-                                            <div id="NameHelp" class="form-text HelpText"></div>
-                                        </div>
+                <!-- Modern Hero Section -->
+                <div class="contact-hero">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h1 class="contact-title">Kontaktirajte nas već danas</h1>
+                                <p class="contact-subtitle">Tu smo da rešimo sve vaše IT probleme</p>
+                                <p class="contact-description">Pošaljite nam poruku i dobićete brz odgovor sa predračunom ili savetom</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                                        <div class="col-1 col-sm-1"></div>
-
-                                        <div class="col-12 col-md-4">
-                                            <label for="Phone" class="form-label">Telefon<span class="RequiredField"> *</span></label>
-                                            <input type="tel" class="form-control" id="Phone" name="Phone" placeholder="Vaš broj telefona">
-                                            <div id="PhoneHelp" class="form-text HelpText"></div>
-                                        </div>
-
-                                        <div class="col-1 col-sm-1"></div>
-
-                                        <div class="col-12 col-md-3">
-                                            <label for="Email" class="form-label">Email</label>
-                                            <input type="email" class="form-control" id="Email" name="Email" placeholder="email@primer.com">
-                                            <div id="EmailHelp" class="form-text HelpText"></div>
-                                        </div>
-                                    </div>
-
-                                    <div id="RadioGroupContainer"> </div>
-                                    <div id="DynamicFieldsContainer"></div>
-
-                                    <div class="input-group mb-3">
-                                        <div class="col-12">
-                                            <label for="ProblemDescription" class="form-label">
-                                            Dodatne informacije
-                                            </label>
-                                            <textarea class="form-control" id="ProblemDescription" name="ProblemDescription" rows="5"
-                                            placeholder="Bolji opis nam pomaže u proceni predračuna. Takođe upišite sve dodatne informacije za koje mislite da su potrebne."></textarea>
-                                            <div id="ProblemDescriptionHelp" class="form-text HelpText"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="m-3"></div>
-
-                                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                                    <div class="d-flex justify-content-between">
-                                        <button type="reset" class="btn form-buttons" id="ResetRequest">Očistite polja</button>
-                                        <input type="hidden" name="redirect" value="https://www.megikpc.com/js/data/Thanks.html">
-                                        <button type="submit" class="btn form-buttons" id="SubmitRequest">
-                                            Podnesite zahtev
-                                            <!-- <div id="SubmitHelp" class="form-text HelpText" style="display: none;"></div> -->
-                                        </button>
-                                    </div>
-
-                                    <div id="result"></div>
-
-                                </form>
-                            <div class="m-3"></div>
+                <div class="container mt-5">
+                    <!-- Contact Methods Section -->
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <div class="section-header">
+                                <h2 class="section-title">Načini kontakta</h2>
+                                <div class="section-underline"></div>
+                            </div>
                         </div>
                     </div>
 
-                    <hr class="separate-content mb-3 mt-5"></hr>
+                    <div class="row mb-5">
+                        <div class="col-md-4 mb-4">
+                            <div class="contact-method-card">
+                                <div class="method-icon">
+                                    <i class="fas fa-phone-volume"></i>
+                                </div>
+                                <h3>Telefon</h3>
+                                <p>Direktan poziv za hitne slučajeve</p>
+                                <a href="tel:+3810605987444" class="method-button phone-btn">
+                                    <i class="fas fa-phone-alt"></i>
+                                    Pozovi odmah
+                                </a>
+                            </div>
+                        </div>
 
-                    <div class="row">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-7 m-auto mb-5">
-                            <div class="card text-center border-0">
-                                <div class="card-body">
-                                    <h2 class="card-title mb-3">Ili nas kontaktirajte putem mobilnog, SMS, Whatsapp ili Vibera</h2>
-                                    <a href="tel:+3810605987444" class="btn btn-primary mb-2">Poziv na klik <i class="fa-solid fa-phone-volume"></i></a>
-                                    <a href="https://wa.me/+3810605987444" class="btn btn-primary mb-2">Whatsapp na klik <i class="fa-brands fa-whatsapp"></i></a>
-                                    <a href="#PhoneClick" id="PhoneClick" class="btn btn-primary mb-2">Prikaži broj</a>
+                        <div class="col-md-4 mb-4">
+                            <div class="contact-method-card">
+                                <div class="method-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <h3>WhatsApp</h3>
+                                <p>Pošaljite poruku ili fotografije</p>
+                                <a href="https://wa.me/+3810605987444" class="method-button whatsapp-btn">
+                                    <i class="fab fa-whatsapp"></i>
+                                    WhatsApp poruka
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="contact-method-card">
+                                <div class="method-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h3>Email</h3>
+                                <p>Detaljna pitanja i zahtevi</p>
+                                <a href="mailto:info@megikpc.com" class="method-button email-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Pošalji email
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modern Contact Form Section -->
+                    <div class="row mb-5">
+                        <div class="col-12">
+                            <div class="section-header">
+                                <h2 class="section-title">Pošaljite nam poruku</h2>
+                                <div class="section-underline"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="modern-form-container">
+                                <form action="https://api.web3forms.com/submit" method="post" id="form">
+                                    <input type="hidden" name="access_key" value="b640e18c-455f-484f-a010-eb89e77883d1">
+                        
+                                    <!-- Personal Information Section -->
+                                    <div class="form-section">
+                                        <div class="section-header-small">
+                                            <h3><i class="fas fa-user"></i> Lični podaci</h3>
+                                        </div>
+                                        
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <div class="form-floating">
+                                                    <input type="text" class="form-control" id="Name" name="Name" placeholder="Vaše ime">
+                                                    <label for="Name">Ime <span class="required">*</span></label>
+                                                    <div id="NameHelp" class="form-help"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-floating">
+                                                    <input type="tel" class="form-control" id="Phone" name="Phone" placeholder="Vaš broj telefona">
+                                                    <label for="Phone">Telefon <span class="required">*</span></label>
+                                                    <div id="PhoneHelp" class="form-help"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-floating">
+                                                    <input type="email" class="form-control" id="Email" name="Email" placeholder="email@primer.com">
+                                                    <label for="Email">Email</label>
+                                                    <div id="EmailHelp" class="form-help"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Service Selection Section -->
+                                    <div class="form-section">
+                                        <div class="section-header-small">
+                                            <h3><i class="fas fa-cogs"></i> Usluga koja vas zanima</h3>
+                                        </div>
+                                        
+                                        <div id="RadioGroupContainer" class="service-checkboxes"></div>
+                                        <div id="DynamicFieldsContainer" class="dynamic-fields"></div>
+                                    </div>
+
+                                    <!-- Problem Description Section -->
+                                    <div class="form-section">
+                                        <div class="section-header-small">
+                                            <h3><i class="fas fa-edit"></i> Opis problema</h3>
+                                        </div>
+                                        
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="ProblemDescription" name="ProblemDescription" 
+                                                    placeholder="Opišite problem detaljno..." style="height: 150px"></textarea>
+                                            <label for="ProblemDescription">Dodatne informacije</label>
+                                            <div id="ProblemDescriptionHelp" class="form-help"></div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Submit Section -->
+                                    <div class="form-section">
+                                        <div class="form-submit-section">
+                                            <button type="reset" class="btn btn-reset" id="ResetRequest">
+                                                <i class="fas fa-undo"></i>
+                                                Očisti polja
+                                            </button>
+                                            
+                                            <button type="submit" class="btn btn-submit" id="SubmitRequest">
+                                                <i class="fas fa-paper-plane"></i>
+                                                Pošalji poruku
+                                            </button>
+                                        </div>
+                                        
+                                        <input type="hidden" name="redirect" value="https://www.megikpc.com/js/data/Thanks.html">
+                                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                                        
+                                        <div id="result" class="form-result"></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Hours Section -->
+                    <div class="row mb-5" style="margin-top: 60px;">
+                        <div class="col-12">
+                            <div class="section-header">
+                                <h2 class="section-title">Radno vreme</h2>
+                                <div class="section-underline"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mb-5">
+                        <div class="col-md-8">
+                            <div class="business-hours-card">
+                                <div class="row text-center">
+                                    <div class="col-md-6">
+                                        <div class="day-hours">
+                                            <h4>Ponedeljak - Petak</h4>
+                                            <p class="hours">10:00 - 18:30</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="day-hours">
+                                            <h4>Subota</h4>
+                                            <p class="hours">10:00 - 16:00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row text-center mt-4">
+                                    <div class="col-12">
+                                        <div class="service-notice">
+                                            <i class="fas fa-info-circle"></i>
+                                            <span><strong>Svaki dolazak u servis mora biti najavljen!</strong></span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--Result for form-->
+
+                <!-- Enhanced Result Modal -->
                 <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="resultModalLabel">Obaveštenje</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zatvori"></button>
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content modern-modal">
+                            <div class="modal-header modern-modal-header">
+                                <h5 class="modal-title" id="resultModalLabel">
+                                    <i class="fas fa-envelope"></i>
+                                    Obaveštenje
+                                </h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Zatvori"></button>
                             </div>
-                            <div class="modal-body" id="resultModalBody">
+                            <div class="modal-body modern-modal-body" id="resultModalBody">
                                 <!-- Message will go here -->
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer modern-modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
                             </div>
                         </div>
@@ -173,20 +360,18 @@
                 </div>
             </main>
 
-            <footer id="FooterDiv" class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4"></footer>
+            <footer id="FooterDiv" class="d-flex flex-wrap justify-content-between align-items-center"></footer>
             <a href="index.html"></a>
             <a href="pages/Contact.html"></a>
             <a href="pages/Services.html"></a>
             <a href="pages/WebDev.html"></a>
-            <a href="pages/MegikCloud.html"></a>
         </div>
 
-
         <script>
-            //Show phone number on button click
+            // Enhanced phone number display
             $(document).ready(function() {
                 $('#PhoneClick').click(function() {
-                    $(this).text('+381 060-5987-444');
+                    $(this).html('<i class="fas fa-phone"></i> +381 060-5987-444');
                 });
             });
 
@@ -201,7 +386,14 @@
                 const object = Object.fromEntries(formData);
                 const json = JSON.stringify(object);
 
-                resultModalBody.innerHTML = "Molimo vas da sačekate...";
+                resultModalBody.innerHTML = `
+                    <div class="text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Šalje se...</span>
+                        </div>
+                        <p class="mt-3">Molimo vas da sačekate...</p>
+                    </div>
+                `;
                 resultModal.show();
 
                 fetch('https://api.web3forms.com/submit', {
@@ -215,18 +407,42 @@
                 .then(async (response) => {
                     let json = await response.json();
                     if (response.status == 200) {
-                        resultModalBody.innerHTML = "Uspešno poslat upit! <br> Kontaktiraćemo vas što pre u toku radnog vremena.";
+                        resultModalBody.innerHTML = `
+                            <div class="text-center text-success">
+                                <i class="fas fa-check-circle fa-3x mb-3"></i>
+                                <h5>Uspešno poslat upit!</h5>
+                                <p>Kontaktiraćemo vas što pre u toku radnog vremena.</p>
+                            </div>
+                        `;
                     } else {
                         console.log(response);
-                        resultModalBody.innerHTML = json.message;
+                        resultModalBody.innerHTML = `
+                            <div class="text-center text-danger">
+                                <i class="fas fa-exclamation-triangle fa-3x mb-3"></i>
+                                <h5>Greška</h5>
+                                <p>${json.message}</p>
+                            </div>
+                        `;
                     }
                 })
                 .catch(error => {
                     console.log(error);
-                    resultModalBody.innerHTML = "Došlo je do greške. Pokušajte ponovo. <br> Ukoliko i dalje dobijate grešku, molimo vas da nas kontaktirate na <i>info@megikpc.com</i> ili putem mobilnog <i>060-6987-444</i>.";
+                    resultModalBody.innerHTML = `
+                        <div class="text-center text-warning">
+                            <i class="fas fa-exclamation-triangle fa-3x mb-3"></i>
+                            <h5>Greška u konekciji</h5>
+                            <p>Došlo je do greške. Pokušajte ponovo.</p>
+                            <p class="mt-2"><small>Ukoliko se greška ponavlja, kontaktirajte nas na:</small></p>
+                            <p><strong>info@megikpc.com</strong></p>
+                            <p><strong>060-6987-444</strong></p>
+                        </div>
+                    `;
                 })
                 .then(function() {
                     form.reset();
+                    setTimeout(() => {
+                        resultModal.hide();
+                    }, 5000);
                 });
             });
         </script>
