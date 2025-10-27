@@ -269,7 +269,7 @@
                                         <div class="form-floating">
                                             <textarea class="form-control" id="ProblemDescription" name="ProblemDescription" 
                                                     placeholder="Opišite problem detaljno..." style="height: 150px"></textarea>
-                                            <label for="ProblemDescription">Vaša poruka</label>
+                                            <label for="ProblemDescription">Vaša poruka <span class="required">*</span></label>
                                             <div id="ProblemDescriptionHelp" class="form-help"></div>
                                         </div>
                                     </div>
@@ -299,7 +299,7 @@
                     </div>
 
                     <!-- Business Hours Section -->
-                    <div class="row mb-5" style="margin-top: 60px;">
+                    <div class="row" style="margin-top: 60px;">
                         <div class="col-12">
                             <div class="section-header">
                                 <h2 class="section-title">Radno vreme</h2>
@@ -442,13 +442,13 @@
                     form.reset();
                     setTimeout(() => {
                         resultModal.hide();
-                    }, 5000);
+                        location.reload();
+                    }, 3500);
                 });
             });
         </script>
 
         <script src="/js/script.js"></script>
         <script src="/js/formgen.js"></script>
-
     </body>
 </html>

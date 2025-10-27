@@ -1433,6 +1433,10 @@ main {
   color: rgb(230, 139, 139);
 }
 
+.required {
+  color: rgb(230, 139, 139);
+}
+
 /* ========================================
    FOOTER
    ======================================== */
@@ -2248,6 +2252,10 @@ body {
   .services-container {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .service-image {
+    height: 200px;
   }
 }
 
@@ -3990,14 +3998,14 @@ input[type="radio"]:focus {
 
 @media (max-width: 576px) {
   .audience-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(4, 1fr) !important;
     gap: 15px;
   }
 
   .advantages-grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    grid-template-rows: repeat(2, 1fr) !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(4, 1fr) !important;
     gap: 20px;
   }
 

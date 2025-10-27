@@ -47,19 +47,23 @@ $(document).ready(function() {
 
         // Add event listener for dynamic fields with animation
         const checkbox = document.getElementById(option.id);
-        checkbox.addEventListener('change', () => {
+        $(checkbox).on('change', () => {
             if (checkbox.id === 'ServicingCreation') {
                 if (checkbox.checked) {
                     addServicingFields(serviceCard);
                 } else {
                     removeDynamicFieldById('ServicingFields');
                 }
+            } else if (checkbox.id === 'WebsiteCreation') {
+                if (checkbox.checked) {
+                    addWebsiteFields(serviceCard);
+                } else {
+                    removeDynamicFieldById('WebsiteFields');
+                }
             }
+            CheckFormValidity();
         });
     });
-
-    // Container for dynamic fields
-    const dynamicFieldsContainer = document.getElementById('DynamicFieldsContainer');
 
     // Enhanced function to remove a dynamic field group by its ID
     function removeDynamicFieldById(groupId) {
@@ -115,6 +119,89 @@ $(document).ready(function() {
 
         // Insert the dynamic fields directly after the service card
         serviceCard.parentNode.insertBefore(servicingGroup, serviceCard.nextSibling);
+    }
+
+    // Enhanced function to add Website Type and other inputs for Website Creation
+    function addWebsiteFields(serviceCard) {
+        const websiteGroup = document.createElement('div');
+        websiteGroup.className = 'dynamic-field-group';
+        websiteGroup.id = 'WebsiteFields';
+        websiteGroup.style.animation = 'slideIn 0.3s ease-out';
+
+        websiteGroup.innerHTML = `
+            <div class="dynamic-field-header">
+                <i class="fas fa-code"></i>
+                <h4>Osnovne specifikacije web sajta</h4>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" id="WebsiteType" name="WebsiteType">
+                            <option value="">Izaberite tip sajta</option>
+                            <option value="Business">Poslovni sajt</option>
+                            <option value="Portfolio">Portfolio</option>
+                            <option value="Blog">Blog</option>
+                            <option value="E-commerce">E-commerce (online prodavnica)</option>
+                            <option value="Other">Drugo</option>
+                        </select>
+                        <label for="WebsiteType">Tip web sajta</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" id="NumberOfPages" name="NumberOfPages">
+                            <option value="">Izaberite broj stranica</option>
+                            <option value="1-5">1-5 stranica</option>
+                            <option value="6-10">6-10 stranica</option>
+                            <option value="11-20">11-20 stranica</option>
+                            <option value="20+">20+ stranica</option>
+                        </select>
+                        <label for="NumberOfPages">Broj stranica</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" id="Budget" name="Budget">
+                            <option value="">Izaberite budžet</option>
+                            <option value="Ispod 500€">Ispod 500€</option>
+                            <option value="500€ - 1.000€">500€ - 1.000€</option>
+                            <option value="1.000€ - 2.000€">1.000€ - 2.000€</option>
+                            <option value="Više od 2.000€">Više od 2.000€</option>
+                        </select>
+                        <label for="Budget">Budžet</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" id="Deadline" name="Deadline">
+                            <option value="">Izaberite rok</option>
+                            <option value="1-2 weeks">1-2 nedelje</option>
+                            <option value="3-4 weeks">3-4 nedelje</option>
+                            <option value="1-2 months">1-2 meseca</option>
+                            <option value="2-3 months">2-3 meseca</option>
+                        </select>
+                        <label for="Deadline">Željeni rok izrade</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="WebsiteFeatures" name="WebsiteFeatures"
+                                placeholder="Nabrojte željene funkcionalnosti..." style="height: 100px"></textarea>
+                        <label for="WebsiteFeatures">Željene funkcionalnosti (npr. kontakt forma, galerija, blog, online prodavnica)</label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-floating">
+                        <textarea class="form-control" id="AdditionalInfo" name="AdditionalInfo"
+                                placeholder="Dodatne informacije..." style="height: 100px"></textarea>
+                        <label for="AdditionalInfo">Dodatne informacije (dizajn preference, postojeći sajt, itd.)</label>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Insert the dynamic fields directly after the service card
+        serviceCard.parentNode.insertBefore(websiteGroup, serviceCard.nextSibling);
     }
 
     // Enhanced form elements
@@ -206,12 +293,14 @@ $(document).ready(function() {
         const NameValid = NameRegex.test(Name.value);
         const PhoneValid = PhoneRegex.test(Phone.value);
         const ProblemDescriptionValid = ProblemDescription.value.trim() !== "";
+        const atLeastOneServiceChecked = document.getElementById('ServicingCreation').checked || document.getElementById('WebsiteCreation').checked;
 
         console.log("NameValid:", NameValid);
         console.log("PhoneValid:", PhoneValid);
         console.log("ProblemDescriptionValid:", ProblemDescriptionValid);
+        console.log("atLeastOneServiceChecked:", atLeastOneServiceChecked);
 
-        if (NameValid && PhoneValid && ProblemDescriptionValid) {
+        if (NameValid && PhoneValid && ProblemDescriptionValid && atLeastOneServiceChecked) {
             SubmitRequest.removeAttribute('disabled');
             SubmitRequest.innerHTML = '<i class="fas fa-paper-plane"></i> Pošalji poruku';
             SubmitRequest.classList.add('ready');
@@ -251,6 +340,12 @@ $(document).ready(function() {
                 } else {
                     removeDynamicFieldById('ServicingFields');
                 }
+            } else if (checkbox.attr('id') === 'WebsiteCreation') {
+                if (newChecked) {
+                    addWebsiteFields($(this)[0]);
+                } else {
+                    removeDynamicFieldById('WebsiteFields');
+                }
             }
         }
     });
@@ -278,7 +373,11 @@ $(document).ready(function() {
     // Add click effect to submit button
     $('#SubmitRequest').on('click', function() {
         if (!$(this).is(':disabled')) {
-            $(this).html('<i class="fas fa-spinner fa-spin"></i> Šalje se...');
+            $(this).html('<i class="fas fa-spinner fa-spin"></i> Poruka poslata...');
+            setTimeout(() => {
+                $(this).prop('disabled', true);
+                $(this).html('<i class="fas fa-lock"></i> Popunite sva polja');
+            }, 2000);
         }
     });
 });
