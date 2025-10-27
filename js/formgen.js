@@ -90,7 +90,7 @@ $(document).ready(function() {
                 <div class="col-md-6">
                     <div class="form-floating">
                         <select class="form-select" id="ManufacturerSelect" name="ManufacturerSelect">
-                            <option value="">Molimo vas izaberite proizvođača uređaja</option>
+                            <option value="">Izaberite proizvođača uređaja</option>
                             <option value="HP">HP</option>
                             <option value="Dell">Dell</option>
                             <option value="Lenovo">Lenovo</option>
@@ -146,7 +146,7 @@ $(document).ready(function() {
     let NameRegex = /^[A-Z][a-z]{1,29}$/;
     Name.addEventListener("blur", function(){  
         if (!NameRegex.test(Name.value)) {
-            NameHelpText.innerHTML = "Ime mora da počne sa velikim slovom.";
+            NameHelpText.innerHTML = "Ime počinje sa velikim slovom.";
             updateFieldStyling(Name, NameHelpText, false);
         } else {
             NameHelpText.innerHTML = "";
@@ -165,7 +165,7 @@ $(document).ready(function() {
     
     Phone.addEventListener("blur", function(){  
         if (!PhoneRegex.test(Phone.value)) {
-            PhoneHelpText.innerHTML = "Telefon počinje sa +38106 sa nastavkom od 7 do 8 cifara.";
+            PhoneHelpText.innerHTML = "Telefon u formatu '+38106xxxxxxx'.";
             updateFieldStyling(Phone, PhoneHelpText, false);
         } else {
             PhoneHelpText.innerHTML = "";
@@ -176,7 +176,7 @@ $(document).ready(function() {
     let EmailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     Email.addEventListener("blur", function(){  
         if (Email.value && !EmailRegex.test(Email.value)) {
-            EmailHelpText.innerHTML = "Email se kuca kao 'email@primer.com'";
+            EmailHelpText.innerHTML = "Email u formatu 'primer@email.com'.";
             updateFieldStyling(Email, EmailHelpText, false);
         } else {
             EmailHelpText.innerHTML = "";
@@ -188,7 +188,7 @@ $(document).ready(function() {
 
     ProblemDescription.addEventListener("blur", function() {
         if (ProblemDescription.value == "") {
-            ProblemDescriptionHelpText.innerHTML = "Potrebno je opisati problem";
+            ProblemDescriptionHelpText.innerHTML = "Obavezno opisati problem.";
             updateFieldStyling(ProblemDescription, ProblemDescriptionHelpText, false);
         } else {
             ProblemDescriptionHelpText.innerHTML = "";
@@ -237,6 +237,22 @@ $(document).ready(function() {
     
     $(document).on('mouseleave', '.service-option-card', function() {
         $(this).removeClass('hovered');
+    });
+
+    // Add click event to service-option-card to toggle checkbox
+    $(document).on('click', '.service-option-card', function(e) {
+        if (!$(e.target).is('.modern-checkbox')) {
+            const checkbox = $(this).find('.modern-checkbox');
+            const newChecked = !checkbox.prop('checked');
+            checkbox.prop('checked', newChecked);
+            if (checkbox.attr('id') === 'ServicingCreation') {
+                if (newChecked) {
+                    addServicingFields($(this)[0]);
+                } else {
+                    removeDynamicFieldById('ServicingFields');
+                }
+            }
+        }
     });
 
     // Animate form sections on scroll

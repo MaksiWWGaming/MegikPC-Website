@@ -7,7 +7,7 @@ const projects = [
         image: "/img/Pages/WebDev/megikpc.webp",
         alt: "MegikPC Website Slika",
         technologies: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-        category: "Business Website"
+        category: "Biznis Website"
     },
     {
         title: "Nina Box Tim - Bokserski klub",
@@ -16,7 +16,7 @@ const projects = [
         image: "/img/Pages/WebDev/nina-box.webp",
         alt: "Nina Box Boxing Club Website Slika",
         technologies: ["WordPress", "SEO", "Mobile-First"],
-        category: "Sports Club"
+        category: "Sportski Klub"
     },
     {
         title: "Trim Computers - Prodaja kompijuterskih komponenti",
@@ -25,7 +25,7 @@ const projects = [
         image: "/img/Pages/WebDev/trim-computers.webp",
         alt: "Trim Computers Website Slika",
         technologies: ["E-commerce", "Vue.js", "Database"],
-        category: "E-commerce"
+        category: "Web Shop"
     }
 ];
 
