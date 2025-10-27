@@ -23,7 +23,7 @@ $(document).ready(function () {
         Software: [
             { name: "Aktivacija Windows OS i Office paketa", icon: "fab fa-windows", desc: "Legalna aktivacija i licenciranje" },
             { name: "Instalacija Office paketa", icon: "fas fa-file-word", desc: "Microsoft Office sa svim aplikacijama" },
-            { name: "Instalacija Adobe programa", icon: "fab fa-adobe", desc: "Photoshop, Illustrator, Premiere Pro i drugi Adobe programi" },
+            { name: "Instalacija Adobe programa", icon: "fa fa-photo-film", desc: "Photoshop, Illustrator, Premiere Pro i drugi Adobe programi" },
             { name: "Instalacija AutoDesk programa", icon: "fas fa-drafting-compass", desc: "AutoCAD, Revit i drugi CAD programi" }
         ],
         Other: [

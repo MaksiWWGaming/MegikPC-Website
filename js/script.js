@@ -163,8 +163,6 @@ Nav.appendChild(DivContainer);
 
 document.querySelector('#navbar-container').appendChild(Nav);
 
-console.log("Dark Mode Button:", document.getElementById("DarkMode"));
-
 // Add active id on current page
 const CurrentPage = window.location.pathname;
 const NavLinks = document.querySelectorAll(".nav-link");
@@ -261,25 +259,3 @@ $(document).ready(function () {
 });
 
 //Retain darkmode icon
-// $('#DarkMode').click(function (e) { 
-//     e.preventDefault();
-//     $(this).toggleClass("fa-moon fa-sun");
-//     const DarkBody = $("body");
-//     DarkBody.toggleClass("dark-mode");
-//     localStorage.setItem('RememberDarkMode', DarkBody.hasClass('dark-mode'));
-// });
-
-// $(document).ready(function () {
-//     const DarkMode = localStorage.getItem('RememberDarkMode');
-//     const DarkModeIcon = $("#DarkMode");
-
-//     if (DarkMode === 'true') {
-//         $("body").addClass("dark-mode");
-//         DarkModeIcon.addClass("fa-sun").removeClass("fa-moon");
-//         console.log("You have dark mode saved from last session");
-//     } else {
-//         $("body").removeClass("dark-mode");
-//         DarkModeIcon.addClass("fa-moon").removeClass("fa-sun");
-//         console.log("You have light mode saved from last session");
-//     }
-// });
