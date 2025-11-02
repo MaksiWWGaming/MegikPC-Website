@@ -1,4 +1,3 @@
-// Enhanced Index Page Generator with Modern Features
 $(document).ready(function() {
     const GetLink = window.location.href;
     console.log("Current page link: " + GetLink);
@@ -26,20 +25,18 @@ $(document).ready(function() {
         },
     ];
 
-    // Enhanced function to generate and append service cards
+    // Enhanced function to generate and append service cards using pure jQuery
     function GenerateServiceCards() {
         const MainContent = $('#MainContent');
         
         ServicesArray.forEach((service, index) => {
-            const serviceCard = document.createElement('div');
-            serviceCard.className = 'modern-service-card';
-            serviceCard.style.animationDelay = `${index * 0.2}s`;
+            const serviceCard = $('<div>').addClass('modern-service-card').css('animation-delay', `${index * 0.2}s`);
 
             const featuresList = service.features.map(feature => 
                 `<li><i class="fas fa-check"></i> ${feature}</li>`
             ).join('');
 
-            serviceCard.innerHTML = `
+            const cardHTML = `
                 <div class="service-card-header">
                     <div class="service-icon">
                         <i class="${service.icon}"></i>
@@ -61,18 +58,19 @@ $(document).ready(function() {
                 </div>
             `;
 
+            serviceCard.html(cardHTML);
             MainContent.append(serviceCard);
         });
 
-        // Add hover effects
-        $('.modern-service-card').on('mouseenter', function() {
+        // Add hover effects using jQuery
+        $(document).on('mouseenter', '.modern-service-card', function() {
             $(this).addClass('hovered');
-        }).on('mouseleave', function() {
+        }).on('mouseleave', '.modern-service-card', function() {
             $(this).removeClass('hovered');
         });
 
-        // Add click effect to service images
-        $('.service-image-container').on('click', function() {
+        // Add click effect to service images using jQuery
+        $(document).on('click', '.service-image-container', function() {
             const $overlay = $(this).find('.service-image-overlay');
             $overlay.css('transform', 'scale(1.1)');
             setTimeout(() => {
@@ -112,10 +110,10 @@ $(document).ready(function() {
     }
 
     function updateReviewDisplay() {
-        const el = document.querySelector('#MovingText');
+        const $el = $('#MovingText');
         const currentReview = ReviewText[ReviewIndex];
         
-        el.innerHTML = `
+        $el.html(`
             <div class="review-item">
                 <div class="review-text">
                     <i class="fas fa-quote-left"></i>
@@ -127,16 +125,16 @@ $(document).ready(function() {
                     <span>${currentReview.author}</span>
                 </div>
             </div>
-        `;
+        `);
 
-        // Animate review change
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-            el.style.transition = 'all 0.5s ease';
-        }, 100);
+        // Animate review change using jQuery
+        $el.css({
+            'opacity': '0',
+            'transform': 'translateY(20px)'
+        }).delay(100).animate({
+            'opacity': '1',
+            'transform': 'translateY(0)'
+        }, 500);
     }
 
     function startReviewRotation() {
@@ -153,25 +151,25 @@ $(document).ready(function() {
     }
 
     function showErrorMessage() {
-        const el = document.querySelector('#MovingText');
-        el.innerHTML = `
+        const $el = $('#MovingText');
+        $el.html(`
             <div class="review-error">
                 <i class="fas fa-exclamation-triangle"></i>
                 <p>Trenutno nismo u mogućnosti da učitamo utiske mušterija.</p>
                 <p><small>Pokušajte kasnije ili nas kontaktirajte direktno.</small></p>
             </div>
-        `;
+        `);
     }
 
-    // Manual review navigation
-    $('#prevReview').on('click', function() {
+    // Manual review navigation using jQuery
+    $(document).on('click', '#prevReview', function() {
         ReviewIndex = ReviewIndex === 0 ? ReviewText.length - 1 : ReviewIndex - 1;
         updateReviewDisplay();
         updateIndicators();
         resetReviewInterval();
     });
 
-    $('#nextReview').on('click', function() {
+    $(document).on('click', '#nextReview', function() {
         ReviewIndex = (ReviewIndex + 1) % ReviewText.length;
         updateReviewDisplay();
         updateIndicators();
@@ -183,13 +181,13 @@ $(document).ready(function() {
         startReviewRotation();
     }
 
-    // Initialize reviews with delay
+    // Initialize reviews with delay using jQuery
     setTimeout(() => {
-        document.querySelector('#ReviewSpinner').style.display = 'none';
+        $('#ReviewSpinner').hide();
         LoadReviews();
     }, 2000);
 
-    // Animate elements on scroll
+    // Animate elements on scroll using IntersectionObserver
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -198,20 +196,21 @@ $(document).ready(function() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                $(entry.target).css('animation', 'fadeInUp 0.6s ease-out forwards');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Observe elements for animation
+    // Observe elements for animation using jQuery
     $('.intro-card, .location-card, .cta-section').each(function() {
-        $(this).css('opacity', '0');
+        const $element = $(this);
+        $element.css('opacity', '0');
         observer.observe(this);
     });
 
-    // Add click effects to buttons
-    $('.service-button, .location-button, .btn-cta-primary, .btn-cta-secondary').on('click', function() {
+    // Add click effects to buttons using jQuery
+    $(document).on('click', '.service-button, .location-button, .btn-cta-primary, .btn-cta-secondary', function() {
         const $button = $(this);
         $button.css('transform', 'scale(0.95)');
         setTimeout(() => {
@@ -221,12 +220,12 @@ $(document).ready(function() {
 
     // Parallax effect removed for fixed hero section
 
-    // Enhanced service card interactions
-    $('.modern-service-card').on('mouseenter', function() {
+    // Enhanced service card interactions using jQuery
+    $(document).on('mouseenter', '.modern-service-card', function() {
         const $card = $(this);
         $card.find('.service-image').css('transform', 'scale(1.05)');
         $card.find('.service-button').css('transform', 'translateY(-2px)');
-    }).on('mouseleave', function() {
+    }).on('mouseleave', '.modern-service-card', function() {
         const $card = $(this);
         $card.find('.service-image').css('transform', 'scale(1)');
         $card.find('.service-button').css('transform', 'translateY(0)');

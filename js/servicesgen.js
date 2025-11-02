@@ -109,29 +109,29 @@ $(document).ready(function () {
         });
     }
 
-    // Load services with enhanced functionality
-    if (document.querySelector(".Laptop")) {
+    // Load services with enhanced functionality using jQuery selectors
+    if ($(".Laptop").length) {
         console.log("Loading enhanced laptop services");
         loadServicesWithAnimation("Laptop", servicesMap.Laptop, ".YesLaptop", true);
         loadServicesWithAnimation("Laptop", notGivenServicesMap.Laptop, ".NoLaptop", false);
     } 
-    if (document.querySelector(".Desktop")) {
+    if ($(".Desktop").length) {
         console.log("Loading enhanced desktop services");
         loadServicesWithAnimation("Desktop", servicesMap.Desktop, ".YesDesktop", true);
         loadServicesWithAnimation("Desktop", notGivenServicesMap.Desktop, ".NoDesktop", false);
     }
-    if (document.querySelector(".Software")) {
+    if ($(".Software").length) {
         console.log("Loading enhanced software services");
         loadServicesWithAnimation("Software", servicesMap.Software, ".YesSoftware", true);
         loadServicesWithAnimation("Software", notGivenServicesMap.Software, ".NoSoftware", false);
     }
-    if (document.querySelector(".Other")) {
+    if ($(".Other").length) {
         console.log("Loading enhanced other services");
         loadServicesWithAnimation("Other", servicesMap.Other, ".YesOther", true);
         loadServicesWithAnimation("Other", notGivenServicesMap.Other, ".NoOther", false);
     }
 
-    // Enhanced accordion interactions
+    // Enhanced accordion interactions using jQuery
     $('.service-header').on('click', function() {
         const $header = $(this);
         const $arrow = $header.find('.service-arrow i');
@@ -153,7 +153,7 @@ $(document).ready(function () {
         }, 200);
     });
 
-    // Add hover effects to service items
+    // Add hover effects to service items using jQuery
     $(document).on('mouseenter', '.service-item', function() {
         $(this).css({
             'transform': 'translateX(5px)',

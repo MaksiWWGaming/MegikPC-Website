@@ -1,4 +1,3 @@
-// Enhanced WebDev Generator with Modern Features
 const projects = [
     {
         title: "MegikPC - Servis Računara",
@@ -7,7 +6,7 @@ const projects = [
         image: "/img/Pages/WebDev/megikpc.webp",
         alt: "MegikPC Website Slika",
         technologies: ["HTML5", "CSS3", "JavaScript", "Responsive"],
-        category: "Biznis Website"
+        category: "Reklamni Sajt"
     },
     {
         title: "Nina Box Tim - Bokserski klub",
@@ -24,8 +23,8 @@ const projects = [
         link: "https://trimcomputers.rs",
         image: "/img/Pages/WebDev/trim-computers.webp",
         alt: "Trim Computers Website Slika",
-        technologies: ["E-commerce", "Vue.js", "Database"],
-        category: "Web Shop"
+        technologies: ["WordPress", "WooCommerce", "Baze Podataka", "E-commerce", "Responsive"],
+        category: "Web Prodavnica"
     }
 ];
 
@@ -33,17 +32,16 @@ $(document).ready(function() {
     const GetLink = window.location.href;
     console.log("Current page link: " + GetLink);
 
-    const accordionContainer = document.getElementById("projectsAccordion");
+    const $accordionContainer = $("#projectsAccordion");
 
     projects.forEach((project, index) => {
-        const projectCard = document.createElement("div");
-        projectCard.className = "project-card";
-        
+        const $projectCard = $('<div>').addClass("project-card");
+
         const technologiesBadges = project.technologies.map(tech => 
             `<span class="tech-badge">${tech}</span>`
         ).join('');
 
-        projectCard.innerHTML = `
+        const cardHTML = `
             <div class="project-header" data-bs-toggle="collapse" data-bs-target="#project${index}" aria-expanded="false">
                 <div class="project-icon">
                     <i class="fas fa-project-diagram"></i>
@@ -85,13 +83,14 @@ $(document).ready(function() {
             </div>
         `;
 
-        // Add animation delay
-        projectCard.style.animationDelay = `${index * 0.1}s`;
+        // Add animation delay using jQuery
+        $projectCard.css('animationDelay', `${index * 0.1}s`);
         
-        accordionContainer.appendChild(projectCard);
+        $projectCard.html(cardHTML);
+        $accordionContainer.append($projectCard);
     });
 
-    // Enhanced interaction effects
+    // Enhanced interaction effects using jQuery
     $('.project-header').on('click', function() {
         const $header = $(this);
         const $arrow = $header.find('.project-arrow i');
@@ -113,7 +112,7 @@ $(document).ready(function() {
         }, 200);
     });
 
-    // Add hover effects to project cards
+    // Add hover effects to project cards using jQuery
     $(document).on('mouseenter', '.project-card', function() {
         $(this).addClass('hovered');
     });
@@ -122,7 +121,7 @@ $(document).ready(function() {
         $(this).removeClass('hovered');
     });
 
-    // Animate project cards on scroll
+    // Animate project cards on scroll using jQuery
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -131,18 +130,19 @@ $(document).ready(function() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.style.animation = 'slideInFromBottom 0.6s ease-out forwards';
+                $(entry.target).css('animation', 'slideInFromBottom 0.6s ease-out forwards');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     $('.project-card').each(function() {
-        $(this).css('opacity', '0');
+        const $this = $(this);
+        $this.css('opacity', '0');
         observer.observe(this);
     });
 
-    // Add click effect to project images
+    // Add click effect to project images using jQuery
     $('.project-image-container').on('click', function() {
         const $overlay = $(this).find('.image-overlay');
         $overlay.css('transform', 'scale(1.1)');

@@ -1,5 +1,3 @@
-console.log("Working JS");
-
 // Create Nav --STARTS HERE--
 
 // Array with nav items
@@ -51,142 +49,138 @@ function getLink(RelativePath) {
     }
 }
 
-// Function to create a dropdown menu
+// Function to create a dropdown menu using jQuery
 function createDropdownMenu(DropdownItems) {
-    const Dropdown = document.createElement("li");
-    Dropdown.classList.add("nav-item", "dropdown");
+    const $Dropdown = $('<li>').addClass("nav-item dropdown");
 
-    const DropdownLink = document.createElement("a");
-    DropdownLink.classList.add("nav-link", "dropdown-t");
-    DropdownLink.setAttribute("role", "button");
-    DropdownLink.setAttribute("data-bs-toggle", "dropdown");
-    DropdownLink.setAttribute("aria-expanded", "false");
-    DropdownLink.innerHTML = `${DropdownItems.label} <i class="fa fa-caret-down" aria-hidden="true"></i>`;
+    const $DropdownLink = $('<a>')
+        .addClass("nav-link dropdown-t")
+        .attr("role", "button")
+        .attr("data-bs-toggle", "dropdown")
+        .attr("aria-expanded", "false")
+        .html(`${DropdownItems.label} <i class="fa fa-caret-down" aria-hidden="true"></i>`);
 
-    const DropdownMenu = document.createElement("ul");
-    DropdownMenu.classList.add("dropdown-menu");
+    const $DropdownMenu = $('<ul>').addClass("dropdown-menu");
 
     DropdownItems.dropdown.forEach(item => {
-        const DropdownItem = document.createElement("li");
-        const link = document.createElement("a");
-        link.classList.add("dropdown-item");
-        link.setAttribute("href", getLink(item.link));
-        link.textContent = item.label;
-        DropdownItem.appendChild(link);
-        DropdownMenu.appendChild(DropdownItem);
+        const $DropdownItem = $('<li>');
+        const $link = $('<a>')
+            .addClass("dropdown-item")
+            .attr("href", getLink(item.link))
+            .text(item.label);
+        $DropdownItem.append($link);
+        $DropdownMenu.append($DropdownItem);
     });
 
-    Dropdown.appendChild(DropdownLink);
-    Dropdown.appendChild(DropdownMenu);
+    $Dropdown.append($DropdownLink);
+    $Dropdown.append($DropdownMenu);
 
-    return Dropdown;
+    return $Dropdown;
 }
 
-const Nav = document.createElement("nav");
-Nav.classList.add("navbar", "navbar-expand-lg", "fixed-top", "autohide");
-Nav.setAttribute("id", "Navigation");
+// Create navigation using jQuery
+const $Nav = $('<nav>')
+    .addClass("navbar navbar-expand-lg fixed-top autohide")
+    .attr("id", "Navigation");
 
 // Fluid container in Nav
-const DivContainer = document.createElement("div");
-DivContainer.classList.add("container-fluid");
+const $DivContainer = $('<div>').addClass("container-fluid");
 
 // Logo link
-const LogoLink = document.createElement("a");
-LogoLink.classList.add("navbar-brand");
-LogoLink.setAttribute("href", getLink("/index.html"));
+const $LogoLink = $('<a>')
+    .addClass("navbar-brand")
+    .attr("href", getLink("/index.html"));
 
 // Add logo link image
-const LogoImage = document.createElement("img");
-LogoImage.classList.add("img-fluid");
-LogoImage.setAttribute("src", "/img/Trademarks/banner.webp");
-LogoImage.setAttribute("alt", "Megik PC Logo");
-LogoImage.setAttribute("width", "280");
-LogoImage.setAttribute("height", "80");
-LogoImage.style.maxWidth = "220px";
-LogoImage.style.height = "auto";
-LogoLink.appendChild(LogoImage);
+const $LogoImage = $('<img>')
+    .addClass("img-fluid")
+    .attr({
+        "src": "/img/Trademarks/banner.webp",
+        "alt": "Megik PC Logo",
+        "width": "280",
+        "height": "80"
+    })
+    .css({
+        "maxWidth": "220px",
+        "height": "auto"
+    });
+$LogoLink.append($LogoImage);
 
 // Add hamburger menu
-const HamburgerMenu = document.createElement("button");
-HamburgerMenu.classList.add("navbar-toggler", "mt-2", "mt-lg-0");
-HamburgerMenu.setAttribute("type", "button");
-HamburgerMenu.setAttribute("data-bs-toggle", "collapse");
-HamburgerMenu.setAttribute("data-bs-target", "#navbarSupportedContent");
-HamburgerMenu.setAttribute("aria-controls", "navbarSupportedContent");
-HamburgerMenu.setAttribute("aria-expanded", "false");
-HamburgerMenu.setAttribute("aria-label", "Toggle navigation");
+const $HamburgerMenu = $('<button>')
+    .addClass("navbar-toggler mt-2 mt-lg-0")
+    .attr({
+        "type": "button",
+        "data-bs-toggle": "collapse",
+        "data-bs-target": "#navbarSupportedContent",
+        "aria-controls": "navbarSupportedContent",
+        "aria-expanded": "false",
+        "aria-label": "Toggle navigation"
+    });
 
-const HamburgerLines = document.createElement("span");
-HamburgerLines.classList.add("navbar-toggler-icon");
-HamburgerMenu.appendChild(HamburgerLines);
+const $HamburgerLines = $('<span>').addClass("navbar-toggler-icon");
+$HamburgerMenu.append($HamburgerLines);
 
 // Navbar-Collapse bootstrap class
-const NavbarCollapse = document.createElement("div");
-NavbarCollapse.classList.add("collapse", "navbar-collapse");
-NavbarCollapse.setAttribute("id", "navbarSupportedContent");
+const $NavbarCollapse = $('<div>')
+    .addClass("collapse navbar-collapse")
+    .attr("id", "navbarSupportedContent");
 
 // Create the list of navbar items
-const NavbarList = document.createElement("ul");
-NavbarList.classList.add("navbar-nav", "ms-auto", "mb-2", "mb-lg-0");
+const $NavbarList = $('<ul>').addClass("navbar-nav ms-auto mb-2 mb-lg-0");
 
 // Loop through navItems to create the navigation
 navItems.forEach(item => {
-    const NavItem = document.createElement("li");
-    NavItem.classList.add("nav-item");
+    const $NavItem = $('<li>').addClass("nav-item");
 
     // If the item has a dropdown
     if (item.dropdown) {
-        NavbarList.appendChild(createDropdownMenu(item));
+        $NavbarList.append(createDropdownMenu(item));
     } else {
-        const NavLink = document.createElement("a");
-        NavLink.classList.add("nav-link");
-        NavLink.setAttribute("href", getLink(item.link));
-        NavLink.textContent = item.label;
-        NavItem.appendChild(NavLink);
-        NavbarList.appendChild(NavItem);
+        const $NavLink = $('<a>')
+            .addClass("nav-link")
+            .attr("href", getLink(item.link))
+            .text(item.label);
+        $NavItem.append($NavLink);
+        $NavbarList.append($NavItem);
     }
 });
 
-// Darkmode
-// const DarkModeButton = document.createElement("i");
-// DarkModeButton.classList.add("fa-solid", "fa-moon");
-// DarkModeButton.setAttribute("id", "DarkMode");
+$NavbarCollapse.append($NavbarList);
+$DivContainer.append($LogoLink);
+$DivContainer.append($HamburgerMenu);
+$DivContainer.append($NavbarCollapse);
 
-NavbarCollapse.appendChild(NavbarList);
-// NavbarCollapse.appendChild(DarkModeButton);
+$Nav.append($DivContainer);
 
-DivContainer.appendChild(LogoLink);
-DivContainer.appendChild(HamburgerMenu);
-DivContainer.appendChild(NavbarCollapse);
+$('#navbar-container').append($Nav);
 
-Nav.appendChild(DivContainer);
-
-document.querySelector('#navbar-container').appendChild(Nav);
-
-// Add active id on current page
+// Add active id on current page using jQuery
 const CurrentPage = window.location.pathname;
-const NavLinks = document.querySelectorAll(".nav-link");
 console.log("Current page link: " + CurrentPage);
 
-NavLinks.forEach(link => {
-    if (link.getAttribute("href") === ".." + CurrentPage || link.getAttribute("href") === ".." + '/' + CurrentPage) {
-        link.classList.add("active");
+$(".nav-link").each(function() {
+    const $link = $(this);
+    if ($link.attr("href") === ".." + CurrentPage || $link.attr("href") === ".." + '/' + CurrentPage) {
+        $link.addClass("active");
     }
 });
 
-NavLinks.forEach(link => {
-    if (CurrentPage == "/" && link.textContent.trim() === "Početna") {
-        link.classList.add("active");
+$(".nav-link").each(function() {
+    const $link = $(this);
+    if (CurrentPage == "/" && $link.text().trim() === "Početna") {
+        $link.addClass("active");
     }
 });
 
-document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
-    console.log("Selected dropdown href " + dropdownItem.getAttribute("href"));
-    if (dropdownItem.getAttribute("href") === ".." + CurrentPage) {
-        dropdownItem.classList.add("active");
-        const dropdownToggle = dropdownItem.closest(".dropdown").querySelector(".dropdown-t");
-        if (dropdownToggle) {
-            dropdownToggle.classList.add("active");
+$(".dropdown-item").each(function() {
+    const $dropdownItem = $(this);
+    console.log("Selected dropdown href " + $dropdownItem.attr("href"));
+    if ($dropdownItem.attr("href") === ".." + CurrentPage) {
+        $dropdownItem.addClass("active");
+        const $dropdownToggle = $dropdownItem.closest(".dropdown").find(".dropdown-t");
+        if ($dropdownToggle.length) {
+            $dropdownToggle.addClass("active");
         }
     }
 });
@@ -257,5 +251,3 @@ $(document).ready(function () {
     $('#FooterDiv').html(FooterDiv);
     $('#MegikCopyYear').text(CurrentYear);
 });
-
-//Retain darkmode icon
