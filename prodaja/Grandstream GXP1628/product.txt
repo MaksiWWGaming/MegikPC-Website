@@ -1,0 +1,3 @@
+name=Grandstream GXP1628
+price=2000 RSD po komadu
+description=Odličan IP telefon za vašu kancelariju!

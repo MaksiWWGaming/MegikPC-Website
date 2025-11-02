@@ -1,0 +1,3 @@
+name=HP ProBook 430 G5 Laptop
+price=120 €
+description=Stanje: Kao novo! Fenomenalan HP laptop po povoljnoj ceni savršеn za kancelariju, fakultet i kuću! Specifikacije: CPU: Intel Core i5-8250U RAM: 8GB DDR4 2666Mhz SSD: 256GB NVMe* Software: Windows 11 Pro + Office 2016 Moguća ugradnja drugog SSDa i RAM memorije uz doplatu. *Svaki NVMe disk smanjuje health kako se disk koristi. Iako je 96%, to nikako ne utiče na performanse! Uz kupovinu laptopa se dobija punjač i garancija od 3 meseca koja važi u našem servisu!

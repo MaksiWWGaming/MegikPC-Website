@@ -1,0 +1,3 @@
+name=Philips 243V5L Monitor
+price=10000 RSD
+description=24-inch Philips LED monitor, Full HD resolution. Ideal for office work or general computing. VGA and DVI inputs.

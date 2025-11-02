@@ -1,0 +1,3 @@
+name=Office Chairs (Various)
+price=7000 RSD
+description=A selection of used ergonomic office chairs. Various colors and styles available. Comfortable and durable. Price listed is average per chair.

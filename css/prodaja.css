@@ -1,0 +1,327 @@
+/* 
+ * prodaja.css
+ * Styles for the product store page (Prodaja)
+ */
+
+/* --- Hero Section --- */
+.prodaja-hero {
+    /* Using the main site's primary gradient */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 160px 0 80px 0; /* Consistent with other hero sections */
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.prodaja-hero::before {
+    /* Adding the subtle pattern overlay from style.css */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.05)"><polygon points="0,0 1000,100 1000,0"/></svg>');
+    background-size: 100% 100%;
+}
+
+.prodaja-hero .prodaja-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: slideInFromLeft 0.8s ease-out;
+}
+
+.prodaja-hero .prodaja-subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+    margin-bottom: 15px;
+    animation: slideInFromRight 0.8s ease-out 0.2s both;
+}
+
+/* 7. CSS Requirements (prodaja.css) */
+
+/* Grid Layout */
+#product-grid {
+  display: grid;
+  /* Repeat columns, auto-filling the space, with a minimum width of 250px */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px; /* Increased gap for better spacing */
+  padding: 0;
+  max-width: 1200px; 
+  margin: 0 auto;
+}
+
+/* Card Styles */
+.product-card {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 20px; /* Increased padding */
+  border-radius: 15px; /* Smoother corners */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2); /* Primary gradient border */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px); /* More pronounced lift */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-card:hover::before {
+    transform: scaleX(1);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  max-height: 200px; 
+  object-fit: contain; 
+  border-radius: 8px; /* Slightly larger radius for image */
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.02);
+}
+
+.product-card h3 {
+  font-size: 1.4rem; /* Larger font */
+  margin: 10px 0 5px 0;
+  color: #2c3e50; /* Dark text color from style.css */
+  font-weight: 600;
+}
+
+.product-card p {
+  font-size: 1.2em; /* Larger price font */
+  color: #667eea; /* Primary color for price */
+  font-weight: 700;
+}
+
+/* Modal Styles */
+
+/* Fullscreen overlay */
+#product-modal {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.85); /* Slightly darker overlay */
+  display: none; 
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Show/Hide utility class */
+#product-modal:not(.hidden) {
+    display: flex;
+}
+
+/* Centered content box */
+.modal-content {
+   width: 90%; 
+   max-width: 1100px; /* Slightly wider modal */
+   background: white;
+   border-radius: 20px; /* Smoother corners */
+   padding: 30px; /* Increased padding */
+   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+   display: flex; 
+   gap: 30px; /* Increased gap */
+   position: relative;
+}
+
+/* Close button */
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2.5em; /* Larger close button */
+    cursor: pointer;
+    color: #2c3e50;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-button:hover {
+    color: #667eea;
+}
+
+/* Image Section (Slider) */
+.modal-image-section {
+    flex: 1;
+    min-width: 50%;
+    position: relative;
+    background: #f8f9fa; /* Light background for image area */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.image-slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal-image {
+    max-width: 100%;
+    max-height: 450px; 
+    object-fit: contain;
+    display: block;
+    border-radius: 10px;
+}
+
+.arrow-left, .arrow-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(135deg, #667eea, #764ba2); /* Primary gradient for arrows */
+    color: white;
+    border: none;
+    padding: 15px 18px;
+    cursor: pointer;
+    font-size: 1.5em;
+    z-index: 10;
+    line-height: 1;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.arrow-left:hover, .arrow-right:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.arrow-left {
+    left: 10px;
+}
+
+.arrow-right {
+    right: 10px;
+}
+
+/* Text Section */
+.modal-text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#modal-product-name {
+    margin-top: 0;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    font-weight: 700;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-price-label, .modal-description-label {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #667eea; /* Primary color for labels */
+    font-size: 1.1rem;
+}
+
+#modal-product-price {
+    font-size: 1.8em;
+    color: #28a745; /* Green for price emphasis */
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+#modal-product-description {
+    flex-grow: 1; 
+    white-space: pre-wrap; 
+    overflow-y: auto;
+    max-height: 250px; /* Increased height limit */
+    color: #6c757d;
+    line-height: 1.6;
+}
+
+/* Contact Button */
+.contact-button {
+    display: block;
+    text-align: center;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%); /* Green gradient for CTA */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+}
+
+.contact-button:hover {
+    background: linear-gradient(135deg, #218838 0%, #1dd1a1 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .prodaja-hero .prodaja-title {
+        font-size: 2.5rem;
+    }
+    .prodaja-hero .prodaja-subtitle {
+        font-size: 1.3rem;
+    }
+    .modal-content {
+        max-width: 95%;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    .modal-image-section {
+        min-width: 100%;
+        padding: 10px;
+    }
+
+    #modal-image {
+        max-height: 300px;
+    }
+    
+    .arrow-left, .arrow-right {
+        padding: 10px 12px;
+        font-size: 1.2em;
+    }
+    
+    #modal-product-description {
+        max-height: 150px;
+    }
+}

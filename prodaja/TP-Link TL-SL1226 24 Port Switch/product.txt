@@ -1,0 +1,3 @@
+name=Network Switch (Managed)
+price=8500 RSD
+description=High-performance managed network switch. 24 ports, Gigabit Ethernet. Suitable for small to medium business networks.

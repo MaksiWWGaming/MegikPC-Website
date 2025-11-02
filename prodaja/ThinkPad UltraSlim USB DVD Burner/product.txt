@@ -1,0 +1,3 @@
+name=ThinkPad UltraSlim USB DVD Burner
+price=2500 RSD
+description=External USB DVD burner compatible with ThinkPad and other laptops. Ultra-slim design, plug and play.

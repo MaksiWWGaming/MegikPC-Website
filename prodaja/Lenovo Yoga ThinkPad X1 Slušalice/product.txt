@@ -1,0 +1,3 @@
+name=Lenovo Yoga ThinkPad X1 Headphones
+price=6000 RSD
+description=Premium Lenovo ThinkPad X1 series headphones. USB-C connection, active noise cancellation. Excellent audio quality for professional use.
