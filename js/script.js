@@ -4,82 +4,82 @@ console.log("Working JS");
 
 // Array with nav items
 const navItems = [
-    { 
-        label: "Početna", 
-        link: "index.html",
-    },
-    { 
-        label: "Usluge", 
-        link: "", 
-        dropdown: [
-            { label: "Serviserske Usluge", link: "pages/Services.html" },
-            { label: "Izrada Web Sajtova", link: "pages/WebDev.html" },
-        ]
-    },
-    { 
-        label: "Kontakt", 
-        link: "pages/Contact.html",
-    },
-    {
-        label: "Prodaja",
-        link: "https://www.kupujemprodajem.com/megik-servis/svi-oglasi/1781418/1",
-    },
+  {
+    label: "Početna",
+    link: "index.html",
+  },
+  {
+    label: "Usluge",
+    link: "",
+    dropdown: [
+      { label: "Serviserske Usluge", link: "pages/Services.html" },
+      { label: "Izrada Web Sajtova", link: "pages/WebDev.html" },
+    ],
+  },
+  {
+    label: "Kontakt",
+    link: "pages/Contact.html",
+  },
+  {
+    label: "Prodaja",
+    link: "https://www.kupujemprodajem.com/megik-servis/svi-oglasi/1781418/1",
+  },
 ];
 
 //Opens Prodaja in new tab
-$(document).ready(function() {
-    $(".nav-item a").each(function() {
-        if ($(this).text().includes("Prodaja")) {
-            $(this).attr("target", "_blank").attr("rel", "noopener noreferrer");
-        }
-    });
+$(document).ready(function () {
+  $(".nav-item a").each(function () {
+    if ($(this).text().includes("Prodaja")) {
+      $(this).attr("target", "_blank").attr("rel", "noopener noreferrer");
+    }
+  });
 });
 
 // Pagination
 const CurrentPath = window.location.pathname;
-const IsRootPage = CurrentPath === '/'; //Check if on root
+const IsRootPage = CurrentPath === "/"; //Check if on root
 
 function getLink(RelativePath) {
-    if (IsRootPage) {
-        return RelativePath;
-    } else if (RelativePath.includes("kupujem")){
-        return 'https://www.kupujemprodajem.com/maksim-megik-servis/svi-oglasi/1781418/1';
-    } else if (RelativePath.includes("index")){
-        return '../index.html';
-    } else {
-        return `../${RelativePath}`; // Go to root, then to page
-    }
+  if (IsRootPage) {
+    return RelativePath;
+  } else if (RelativePath.includes("kupujem")) {
+    return "https://www.kupujemprodajem.com/maksim-megik-servis/svi-oglasi/1781418/1";
+  } else if (RelativePath.includes("index")) {
+    return "../index.html";
+  } else {
+    return `../${RelativePath}`; // Go to root, then to page
+  }
 }
 
 // Function to create a dropdown menu
 function createDropdownMenu(DropdownItems) {
-    const Dropdown = document.createElement("li");
-    Dropdown.classList.add("nav-item", "dropdown");
+  const Dropdown = document.createElement("li");
+  Dropdown.classList.add("nav-item", "dropdown");
 
-    const DropdownLink = document.createElement("a");
-    DropdownLink.classList.add("nav-link", "dropdown-t");
-    DropdownLink.setAttribute("role", "button");
-    DropdownLink.setAttribute("data-bs-toggle", "dropdown");
-    DropdownLink.setAttribute("aria-expanded", "false");
-    DropdownLink.innerHTML = `${DropdownItems.label} <i class="fa fa-caret-down" aria-hidden="true"></i>`;
+  const DropdownLink = document.createElement("a");
+  DropdownLink.classList.add("nav-link", "dropdown-t");
+  DropdownLink.setAttribute("role", "button");
+  DropdownLink.setAttribute("data-bs-toggle", "dropdown");
+  DropdownLink.setAttribute("aria-expanded", "false");
+  DropdownLink.innerHTML = `${DropdownItems.label} <i class="fa fa-caret-down" aria-hidden="true"></i>`;
 
-    const DropdownMenu = document.createElement("ul");
-    DropdownMenu.classList.add("dropdown-menu");
+  const DropdownMenu = document.createElement("ul");
+  DropdownMenu.classList.add("dropdown-menu");
 
-    DropdownItems.dropdown.forEach(item => {
-        const DropdownItem = document.createElement("li");
-        const link = document.createElement("a");
-        link.classList.add("dropdown-item");
-        link.setAttribute("href", getLink(item.link));
-        link.textContent = item.label;
-        DropdownItem.appendChild(link);
-        DropdownMenu.appendChild(DropdownItem);
-    });
+  DropdownItems.dropdown.forEach((item) => {
+    const DropdownItem = document.createElement("li");
+    const link = document.createElement("a");
+    link.classList.add("dropdown-item");
+    link.setAttribute("href", getLink(item.link));
+    link.textContent = item.label;
+    DropdownItem.appendChild(link);
+    DropdownMenu.appendChild(DropdownItem);
+  });
 
-    Dropdown.appendChild(DropdownLink);
-    Dropdown.appendChild(DropdownMenu);
+  Dropdown.appendChild(DropdownLink);
+  Dropdown.appendChild(DropdownMenu);
 
-    return Dropdown;
+  return Dropdown;
 }
 
 const Nav = document.createElement("nav");
@@ -130,21 +130,21 @@ const NavbarList = document.createElement("ul");
 NavbarList.classList.add("navbar-nav", "ms-auto", "mb-2", "mb-lg-0");
 
 // Loop through navItems to create the navigation
-navItems.forEach(item => {
-    const NavItem = document.createElement("li");
-    NavItem.classList.add("nav-item");
+navItems.forEach((item) => {
+  const NavItem = document.createElement("li");
+  NavItem.classList.add("nav-item");
 
-    // If the item has a dropdown
-    if (item.dropdown) {
-        NavbarList.appendChild(createDropdownMenu(item));
-    } else {
-        const NavLink = document.createElement("a");
-        NavLink.classList.add("nav-link");
-        NavLink.setAttribute("href", getLink(item.link));
-        NavLink.textContent = item.label;
-        NavItem.appendChild(NavLink);
-        NavbarList.appendChild(NavItem);
-    }
+  // If the item has a dropdown
+  if (item.dropdown) {
+    NavbarList.appendChild(createDropdownMenu(item));
+  } else {
+    const NavLink = document.createElement("a");
+    NavLink.classList.add("nav-link");
+    NavLink.setAttribute("href", getLink(item.link));
+    NavLink.textContent = item.label;
+    NavItem.appendChild(NavLink);
+    NavbarList.appendChild(NavItem);
+  }
 });
 
 // Darkmode
@@ -161,43 +161,48 @@ DivContainer.appendChild(NavbarCollapse);
 
 Nav.appendChild(DivContainer);
 
-document.querySelector('#navbar-container').appendChild(Nav);
+document.querySelector("#navbar-container").appendChild(Nav);
 
 // Add active id on current page
 const CurrentPage = window.location.pathname;
 const NavLinks = document.querySelectorAll(".nav-link");
 console.log("Current page link: " + CurrentPage);
 
-NavLinks.forEach(link => {
-    if (link.getAttribute("href") === ".." + CurrentPage || link.getAttribute("href") === ".." + '/' + CurrentPage) {
-        link.classList.add("active");
-    }
+NavLinks.forEach((link) => {
+  if (
+    link.getAttribute("href") === ".." + CurrentPage ||
+    link.getAttribute("href") === ".." + "/" + CurrentPage
+  ) {
+    link.classList.add("active");
+  }
 });
 
-NavLinks.forEach(link => {
-    if (CurrentPage == "/" && link.textContent.trim() === "Početna") {
-        link.classList.add("active");
-    }
+NavLinks.forEach((link) => {
+  if (CurrentPage == "/" && link.textContent.trim() === "Početna") {
+    link.classList.add("active");
+  }
 });
 
-document.querySelectorAll(".dropdown-item").forEach(dropdownItem => {
-    console.log("Selected dropdown href " + dropdownItem.getAttribute("href"));
-    if (dropdownItem.getAttribute("href") === ".." + CurrentPage) {
-        dropdownItem.classList.add("active");
-        const dropdownToggle = dropdownItem.closest(".dropdown").querySelector(".dropdown-t");
-        if (dropdownToggle) {
-            dropdownToggle.classList.add("active");
-        }
+document.querySelectorAll(".dropdown-item").forEach((dropdownItem) => {
+  console.log("Selected dropdown href " + dropdownItem.getAttribute("href"));
+  if (dropdownItem.getAttribute("href") === ".." + CurrentPage) {
+    dropdownItem.classList.add("active");
+    const dropdownToggle = dropdownItem
+      .closest(".dropdown")
+      .querySelector(".dropdown-t");
+    if (dropdownToggle) {
+      dropdownToggle.classList.add("active");
     }
+  }
 });
 
-//Create nav --ENDS HERE--  
+//Create nav --ENDS HERE--
 
 //Create modern footer
 
 $(document).ready(function () {
-    const CurrentYear = new Date().getFullYear();
-    const FooterDiv = `
+  const CurrentYear = new Date().getFullYear();
+  const FooterDiv = `
         <div class="container">
             <div class="row justify-content-center align-items-start">
                 <!-- Kontakt Column -->
@@ -254,8 +259,8 @@ $(document).ready(function () {
             </div>
         </div>
     `;
-    $('#FooterDiv').html(FooterDiv);
-    $('#MegikCopyYear').text(CurrentYear);
+  $("#FooterDiv").html(FooterDiv);
+  $("#MegikCopyYear").text(CurrentYear);
 });
 
 //Retain darkmode icon
