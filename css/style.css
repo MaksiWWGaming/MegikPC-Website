@@ -3678,6 +3678,10 @@ input[type="radio"]:focus {
   transition: all 0.3s ease;
 }
 
+.fa-external-link-alt {
+  padding-right: 10px;
+}
+
 .modern-projects-accordion .project-header:hover .project-icon {
   transform: scale(1.1) rotate(5deg);
   box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);

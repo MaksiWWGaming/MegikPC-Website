@@ -29,6 +29,16 @@ const projects = [
     technologies: ["E-commerce", "Vue.js", "Database"],
     category: "Web Shop",
   },
+  {
+    title: "MojTeča - Jedrenje",
+    description:
+      "Reklamni sajt za jedrenje sa buking sistemom. Omogućava posetiocima pristup svim informacijama i bukiranju njihovog putovanja.",
+    link: "https://mojteca.rs",
+    image: "/img/Pages/WebDev/mojteca.webp",
+    alt: "MojTeca.rs Website Slika",
+    technologies: ["WordPress", "Booking System", "SEO", "Mobile-First"],
+    category: "Turistički Sajt",
+  },
 ];
 
 $(document).ready(function () {
